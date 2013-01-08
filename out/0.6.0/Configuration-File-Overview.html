@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="utf-8">
+  <title>Testacular Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Le styles -->
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    }
+    .sidebar-nav {
+    padding: 9px 0;
+    }
+  </style>
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="#" class="brand">Testacular Documentation</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header">Sidebar</li>
+            <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="span9">
+        <div class="row-fluid">
+          <div id="content"><p>To configure Testacular you use a configuration file and supply this
+file when starting Testacular.
+Here is a list of all possible configuration values that can be used,
+including their default values.</p>
+<h4 id='<code>basepath</code>'><a class='heading_anchor' href='#<code>basepath</code>'><i class='headerLinkIcon'></i></a><code>basePath</code></h4>
+<ul>
+<li><strong>Type.</strong> String</li>
+<li><strong>Default.</strong> <code>&#39;&#39;</code></li>
+<li><strong>Description.</strong>  Base path, that will be used to resolve files and exclude.</li>
+</ul>
+<h4 id='<code>files</code>'><a class='heading_anchor' href='#<code>files</code>'><i class='headerLinkIcon'></i></a><code>files</code></h4>
+<ul>
+<li><strong>Type.</strong> Array</li>
+<li><strong>Default.</strong>   <code>[]</code></li>
+<li><strong>Description.</strong> List of files/patterns to load in the browser. See [[Files]] for more information.</li>
+</ul>
+<h4 id='<code>exclude</code>'><a class='heading_anchor' href='#<code>exclude</code>'><i class='headerLinkIcon'></i></a><code>exclude</code></h4>
+<ul>
+<li><strong>Type.</strong> Array</li>
+<li><strong>Default.</strong>   <code>[]</code></li>
+<li><strong>Description.</strong> List of files to exclude.</li>
+</ul>
+<h4 id='<code>reporters</code>'><a class='heading_anchor' href='#<code>reporters</code>'><i class='headerLinkIcon'></i></a><code>reporters</code></h4>
+<ul>
+<li><strong>Type.</strong> Array</li>
+<li><strong>Default.</strong>   <code>[&#39;progress&#39;]</code></li>
+<li><strong>Possible Values.</strong><ul>
+<li><code>dots</code></li>
+<li><code>progress</code></li>
+<li><code>junit</code></li>
+</ul>
+</li>
+<li><strong>Description.</strong> A list of reporters to use. See [[Reporters]] for more.</li>
+</ul>
+<h4 id='<code>port</code>'><a class='heading_anchor' href='#<code>port</code>'><i class='headerLinkIcon'></i></a><code>port</code></h4>
+<ul>
+<li><strong>Type.</strong> Number</li>
+<li><strong>Default.</strong> <code>8080</code></li>
+<li><strong>Description.</strong> Web server port </li>
+</ul>
+<h4 id='<code>runnerport</code>'><a class='heading_anchor' href='#<code>runnerport</code>'><i class='headerLinkIcon'></i></a><code>runnerPort</code></h4>
+<ul>
+<li><strong>Type.</strong> Number</li>
+<li><strong>Default.</strong>   <code>9100</code></li>
+<li><strong>Description.</strong> Cli runner port </li>
+</ul>
+<h4 id='<code>colors</code>'><a class='heading_anchor' href='#<code>colors</code>'><i class='headerLinkIcon'></i></a><code>colors</code></h4>
+<ul>
+<li><strong>Type.</strong> Boolean</li>
+<li><strong>Default.</strong>   <code>true</code></li>
+<li><strong>Description.</strong>  Enable / disable colors in the output (reporters and logs).</li>
+</ul>
+<h4 id='<code>loglevel</code>'><a class='heading_anchor' href='#<code>loglevel</code>'><i class='headerLinkIcon'></i></a><code>logLevel</code></h4>
+<ul>
+<li><strong>Type.</strong> Constant</li>
+<li><strong>Default.</strong>   <code>LOG_INFO</code></li>
+<li><strong>Possible values.</strong><ul>
+<li><code>LOG_DISABLE</code></li>
+<li><code>LOG_ERROR</code></li>
+<li><code>LOG_WARN</code></li>
+<li><code>LOG_INFO</code></li>
+<li><code>LOG_DEBUG</code> </li>
+</ul>
+</li>
+<li><strong>Description.</strong> Level of logging.</li>
+</ul>
+<h4 id='<code>autowatch</code>'><a class='heading_anchor' href='#<code>autowatch</code>'><i class='headerLinkIcon'></i></a><code>autoWatch</code></h4>
+<ul>
+<li><strong>Type.</strong> Boolean</li>
+<li><strong>Default.</strong>  <code>false</code></li>
+<li><strong>Description.</strong> Enable/disable watching file and executing tests whenever any file changes.</li>
+</ul>
+<h4 id='<code>browsers</code>'><a class='heading_anchor' href='#<code>browsers</code>'><i class='headerLinkIcon'></i></a><code>browsers</code></h4>
+<ul>
+<li><strong>Type.</strong> Array</li>
+<li><strong>Default.</strong>  <code>[]</code> </li>
+<li><strong>Possible Values.</strong><ul>
+<li><code>Chrome</code></li>
+<li><code>ChromeCanary</code></li>
+<li><code>Firefox</code></li>
+<li><code>Opera</code></li>
+<li><code>Safari</code></li>
+<li><code>PhantomJS</code></li>
+</ul>
+</li>
+<li><strong>Description.</strong> A list of browsers to test in. See [[Browsers]] for more.</li>
+</ul>
+<h4 id='<code>singlerun</code>'><a class='heading_anchor' href='#<code>singlerun</code>'><i class='headerLinkIcon'></i></a><code>singleRun</code></h4>
+<ul>
+<li><strong>Type.</strong> Boolean</li>
+<li><strong>Default.</strong>   <code>false</code></li>
+<li><strong>Description.</strong> Continuous Integration mode if <code>true</code>, it captures browsers, runs
+tests and exits.</li>
+</ul>
+<h4 id='<code>preprocessors</code>'><a class='heading_anchor' href='#<code>preprocessors</code>'><i class='headerLinkIcon'></i></a><code>preprocessors</code></h4>
+<ul>
+<li><strong>Type.</strong> Object</li>
+<li><strong>Default.</strong>   <code>{}</code></li>
+<li><strong>Description.</strong> List modules to preprocess your files before they get served to the browser. 
+See [[Preprocessors]] for more.</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <p>© Company 2012</p>
+    </footer>
+  </div>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+</body>

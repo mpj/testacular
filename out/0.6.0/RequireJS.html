@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="utf-8">
+  <title>Testacular Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Le styles -->
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    }
+    .sidebar-nav {
+    padding: 9px 0;
+    }
+  </style>
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="#" class="brand">Testacular Documentation</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header">Sidebar</li>
+            <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="span9">
+        <div class="row-fluid">
+          <div id="content"><h2 id='configure-testacular'><a class='heading_anchor' href='#configure-testacular'><i class='headerLinkIcon'></i></a>Configure Testacular</h2>
+<h3 id='directory-setup'><a class='heading_anchor' href='#directory-setup'><i class='headerLinkIcon'></i></a>Directory Setup</h3>
+<p>For clarity in the example configuration files and test below, the directory structure upon which these are based looks like this:</p>
+<pre><code>project/
+    lib/
+        jquery<span class="variable">.js</span> <span class="preprocessor">#etc</span>
+    node_modules/
+        chai/ <span class="preprocessor">#etc</span>
+    src/
+        MyModule<span class="variable">.js</span>
+    test/
+        MyModule<span class="variable">.test</span><span class="variable">.js</span>
+        test-main<span class="variable">.js</span>
+testacular<span class="variable">.conf</span><span class="variable">.js</span></code></pre>
+<h3 id='initialize-testacular'><a class='heading_anchor' href='#initialize-testacular'><i class='headerLinkIcon'></i></a>Initialize Testacular</h3>
+<p>Testacular comes with a nice utility for generating a config file (default name: <code>testacular.conf.js</code>) that it needs in order to run. In your terminal, type:</p>
+<pre><code class="language-bash">$ testacular init</code></pre>
+<p>This will give you a series of prompts for things such as paths to source and tests and which browsers to capture. These prompts do not include the option to add RequireJs support automatically, so you’ll need to add those lines manually to your <code>testacular.conf.js</code> (see below). As of testacular 0.5.2, testacular init will prompt for usage of the RequireJs adapter.</p>
+<h3 id='testacular-include'><a class='heading_anchor' href='#testacular-include'><i class='headerLinkIcon'></i></a>Testacular Include</h3>
+<p>Testacular 0.5.1 (<strong>WARNING</strong> As of writing, npm install will give you 0.4.0, the latest stable version) This, while adding RequireJs support, has added a new concept of “included” to the files listed in your config. This is because RequireJs will balk about a the module not being loaded correctly (ie, loaded synchronously in the <code>&lt;head/&gt;</code> tag of the runner). From the RequireJs docs:</p>
+<blockquote>
+<p>“Be sure to load all scripts that call <code>define()</code> via the RequireJS API. Do not manually code script tags 
+in HTML to load scripts that have <code>define()</code> calls in them.”</p>
+</blockquote>
+<h3 id='requirejs-shim'><a class='heading_anchor' href='#requirejs-shim'><i class='headerLinkIcon'></i></a>RequireJs Shim</h3>
+<p>Not immediately apparent is the fact that the ‘shim’ config from RequireJs 2.x does not work from within Testacular. I haven’t yet figured out why. For instance, I was constantly getting “‘Backbone’ is not defined” messages even though it was specified in the ‘shim’ config and required in the test. I could have been doing something wrong. My solution thus far has been to list each of the non-RequireJs modules and their dependencies in the <code>files</code> attribute of <code>testacular.conf.js</code>.</p>
+<h3 id='<code>testacularconfjs</code>'><a class='heading_anchor' href='#<code>testacularconfjs</code>'><i class='headerLinkIcon'></i></a><code>testacular.conf.js</code></h3>
+<p>The final point is that the RequireJs main module for your test runner should be the last file listed.</p>
+<p>So, finally, here is the ‘file’ excerpt of <code>testacular.conf.js</code>:</p>
+<pre><code class="language-javascript">files = [
+  MOCHA,
+  MOCHA_ADAPTER,
+  REQUIRE,
+  REQUIRE_ADAPTER,
+
+  <span class="comment">// !! libs required for test framework</span>
+  {pattern: <span class="string">'node_modules/chai/chai.js'</span>, included: <span class="literal">false</span>},
+
+  <span class="comment">// !! put what used to be in your requirejs 'shim' config here</span>
+  <span class="string">'lib/jquery.js'</span>,
+  <span class="string">'lib/underscore.js'</span>,
+  <span class="string">'lib/backbone.js'</span>,
+  <span class="string">'lib/handlebars.js'</span>,
+
+  <span class="comment">// !! put all libs in requirejs 'paths' config here (included: false)</span>
+  {pattern: <span class="string">'lib/**/*.js'</span>, included: <span class="literal">false</span>},
+
+  <span class="comment">// !! all src and test modules (included: false)</span>
+  {pattern: <span class="string">'src/**/*'</span>, included: <span class="literal">false</span>},
+  {pattern: <span class="string">'test/**/*.test.js'</span>, included: <span class="literal">false</span>},
+
+  <span class="comment">// !! test main require module last</span>
+  <span class="string">'test/test-main.js'</span>
+];</code></pre>
+<p>This config is awesome. It replaces an html test runner that you would otherwise have to build.</p>
+<h2 id='requirejs-main-module'><a class='heading_anchor' href='#requirejs-main-module'><i class='headerLinkIcon'></i></a>RequireJs Main Module</h2>
+<p>Just like any RequireJs project, you need a main module to bootstrap your tests. In the main module, you setup the <code>require.config</code>.</p>
+<h3 id='testacular-<code>/base</code>-directory'><a class='heading_anchor' href='#testacular-<code>/base</code>-directory'><i class='headerLinkIcon'></i></a>Testacular <code>/base</code> Directory</h3>
+<p>Testacular serves files under the <code>/base</code> directory. So, on the server, requests to files will be served up under <code>http://localhost:9876/base/*</code>. The RequireJs config for <code>baseUrl</code> gives a starting context for modules that load with relative paths. When setting this value for the Testacular server, it will need to start with <code>/base</code>. I want my baseUrl to be at the root of my <code>/src</code> directory so relative requires in the source won’t need to change. My baseUrl has the value of <code>/base/src</code>.</p>
+<h3 id='require-each-test-file'><a class='heading_anchor' href='#require-each-test-file'><i class='headerLinkIcon'></i></a>Require Each Test File</h3>
+<p>One of the things I hate is having to update a master list of all tests to run every time I add a test. There is no config option for this, but there&#39;s an easy way to get around it by filtering the tests from the <code>window.__testacular__.files</code> object.
+The code is included in the example below and the original suggestion came from <a href="https://github.com/vojtajina/testacular/pull/236">https://github.com/vojtajina/testacular/pull/236</a>.</p>
+<h3 id='asynchronously-run-testacular'><a class='heading_anchor' href='#asynchronously-run-testacular'><i class='headerLinkIcon'></i></a>Asynchronously Run Testacular</h3>
+<p>Because the RequireJs require statements are asynchronous, Testacular needs to wait until they’re done (the code is loaded and ready) before it starts the tests.</p>
+<p>The main-test.js file ends up looking like this:</p>
+<pre><code class="language-javascript"><span class="keyword">var</span> tests = Object.keys(window.__testacular__.files).filter(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
+    <span class="keyword">return</span> <span class="regexp">/\.test\.js$/</span>.test(file);
+});
+
+require({
+
+  <span class="comment">// !! Testacular serves files from '/base'</span>
+  baseUrl: <span class="string">'/base/src'</span>,
+  paths: {
+    require: <span class="string">'../lib/require'</span>,
+    text: <span class="string">'../lib/text'</span>
+  },
+}, tests, <span class="keyword">function</span>() {
+  window.__testacular__.start();
+});</code></pre>
+<h2 id='requirejs-test-in-testacular'><a class='heading_anchor' href='#requirejs-test-in-testacular'><i class='headerLinkIcon'></i></a>RequireJs Test in Testacular</h2>
+<p>All the setup thus far has been in preparation for the code to follow. The test can now be setup as a RequireJs module. It can require the source code under test. It can use Mocha (or whatever framework there is a Testacular adapter for).</p>
+<p>I will also use Chai in order to get the ‘should’ BDD-style assertions. Note that by using RequireJs and running in the browser, we can’t just <code>require(&#39;chai&#39;)</code>. It has to be required using the asynchronous callback to avoid this error:</p>
+<pre><code class="language-bash">Uncaught Error: Module name “../node_modules/chai/chai” has not been loaded yet <span class="keyword">for</span> context: _. Use require([])</code></pre>
+<p>And finally, <code>should()</code> must be invoked to be available in the test.</p>
+<p>So, a simple test will look like:</p>
+<pre><code class="language-javascript">define([<span class="string">'../node_modules/chai/chai'</span>, <span class="string">'MyModule'</span>],
+  <span class="keyword">function</span>(chai, MyModule) {
+
+  <span class="keyword">var</span> assert = chai.assert,
+    expect = chai.expect,
+    should = chai.should();
+
+  describe(<span class="string">'MyModule'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    describe(<span class="string">'#initialize()'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      it(<span class="string">'should be a stinkin object'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">var</span> yippee = <span class="keyword">new</span> MyModule();
+        yippee.should.be.an(<span class="string">'object'</span>);
+      });
+    });
+  });
+});</code></pre>
+<h2 id='run-the-tests-in-testacular'><a class='heading_anchor' href='#run-the-tests-in-testacular'><i class='headerLinkIcon'></i></a>Run the Tests in Testacular</h2>
+<p>To start the Testacular server:</p>
+<pre><code class="language-bash">$ testacular start</code></pre>
+<p>Finally, if your Testacular server is already running and you want to kick off the tests, type:</p>
+<pre><code class="language-bash">$ testacular run</code></pre>
+<hr>
+<p>Source: <a href="http://jaketrent.com/post/test-requirejs-testacular/">Jake Trent</a></p>
+</div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <p>© Company 2012</p>
+    </footer>
+  </div>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+</body>

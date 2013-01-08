@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="utf-8">
+  <title>Testacular Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Le styles -->
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    }
+    .sidebar-nav {
+    padding: 9px 0;
+    }
+  </style>
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="#" class="brand">Testacular Documentation</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header">Sidebar</li>
+            <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="span9">
+        <div class="row-fluid">
+          <div id="content"><h2 id='requirements'><a class='heading_anchor' href='#requirements'><i class='headerLinkIcon'></i></a>Requirements</h2>
+<p>First, you need to install <a href="http://nodejs.org/">Node.js</a>. There are installers for both
+Macintosh and Windows. On Linux, we recommend using <a href="https://github.com/creationix/nvm">NVM</a>.</p>
+<h2 id='installation'><a class='heading_anchor' href='#installation'><i class='headerLinkIcon'></i></a>Installation</h2>
+<h3 id='global'><a class='heading_anchor' href='#global'><i class='headerLinkIcon'></i></a>Global</h3>
+<pre><code class="language-bash">$ npm install -g testacular</code></pre>
+<h3 id='local'><a class='heading_anchor' href='#local'><i class='headerLinkIcon'></i></a>Local</h3>
+<p>or install in a local folder (you have to create symlinks to binaries on
+your own)</p>
+<pre><code class="language-bash">$ npm install testacular</code></pre>
+<h3 id='without-npm'><a class='heading_anchor' href='#without-npm'><i class='headerLinkIcon'></i></a>Without NPM</h3>
+<p>You can install Testacular even without NPM, just get the latest package
+and create symlinks:</p>
+<pre><code class="language-bash">
+$ curl http://registry.npmjs.org/testacular/-/testacular-x.y.z.tgz | tar -xvz &amp;&amp; mv package testacular
+
+<span class="comment"># create symlinks (optional)</span>
+cd testacular
+$ sudo ln -s <span class="variable">$PWD</span>/bin/testacular /usr/local/bin/testacular</code></pre>
+<h2 id='basic-setup'><a class='heading_anchor' href='#basic-setup'><i class='headerLinkIcon'></i></a>Basic Setup</h2>
+<p>Go into your project and create a testacular configuration. Basically
+you need to specify the source files that you want to execute.</p>
+<p>For an example configuration, see <a href="https://github.com/vojtajina/testacular/blob/master/test/client/testacular.conf.js">test/client/testacular.conf.js</a>
+which contains most of the options.</p>
+<pre><code class="language-bash"><span class="comment"># create config file (testacular.conf.js by default)</span>
+$ testacular init
+
+<span class="comment"># start server</span>
+$ testacular start
+
+<span class="comment"># open browsers you want to test (if testacular is not configured to do it for you)</span>
+$ open http://localhost:<span class="number">8080</span>
+
+<span class="comment"># if you want to run tests manually (without auto watching file changes), you can:</span>
+$ testacular run</code></pre>
+</div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <p>© Company 2012</p>
+    </footer>
+  </div>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+</body>

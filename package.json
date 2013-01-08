@@ -1,0 +1,19 @@
+{
+  "name": "testacular-docs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dignifiedquire/testacular.git"
+  },
+  "author": "",
+  "license": "MIT",
+}

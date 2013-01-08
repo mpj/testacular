@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="utf-8">
+  <title>Testacular Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Le styles -->
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    }
+    .sidebar-nav {
+    padding: 9px 0;
+    }
+  </style>
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="#" class="brand">Testacular Documentation</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header">Sidebar</li>
+            <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="span9">
+        <div class="row-fluid">
+          <div id="content"><p>You have some problems. Look no further. Known problems and solutions are collected here so you don&#39;t have to figure them out again and again.</p>
+<h2 id='windows'><a class='heading_anchor' href='#windows'><i class='headerLinkIcon'></i></a>Windows</h2>
+<p>Oh our beloved Windows. </p>
+<h3 id='misc-tips'><a class='heading_anchor' href='#misc-tips'><i class='headerLinkIcon'></i></a>Misc tips</h3>
+<ul>
+<li>Use <a href="(http://chocolatey.org/)">chocolatey</a> for installation of tools. It helps. A lot.</li>
+</ul>
+<h3 id='specific-problems'><a class='heading_anchor' href='#specific-problems'><i class='headerLinkIcon'></i></a>Specific problems</h3>
+<h4 id='chrome-wont-start-issues:-<a-href=https://githubcom/vojtajina/testacular/issues/202>#202</a>-<a-href=https://githubcom/vojtajina/testacular/issues/74>#74</a>'><a class='heading_anchor' href='#chrome-wont-start-issues:-<a-href=https://githubcom/vojtajina/testacular/issues/202>#202</a>-<a-href=https://githubcom/vojtajina/testacular/issues/74>#74</a>'><i class='headerLinkIcon'></i></a>Chrome won&#39;t start. (Issues: <a href="https://github.com/vojtajina/testacular/issues/202">#202</a>, <a href="https://github.com/vojtajina/testacular/issues/74">#74</a>)</h4>
+<ol>
+<li>Set <code>CHROME_BIN</code> like this<pre><code>> export CHROME_BIN='C:<span class="command">\Program</span> Files (x86)<span class="command">\Google</span><span class="command">\Chrome</span><span class="command">\Application</span><span class="command">\chrome</span>.exe'</code></pre>
+</li>
+<li>Add the <code>--start-maximized</code> flag to the chrome options. See <a href="https://github.com/vojtajina/testacular/issues/202">#269</a>.</li>
+<li>Increase the timeout from 5000ms to 10000ms. At 5000ms, timeouts occurred and the retry logic kicks in and eventually resolves after 2~3 tries.</li>
+</ol>
+<h2 id='nix'><a class='heading_anchor' href='#nix'><i class='headerLinkIcon'></i></a>*nix</h2>
+<p>Even if you have a nice OS problems can still occur. </p>
+<h3 id='misc-tips'><a class='heading_anchor' href='#misc-tips'><i class='headerLinkIcon'></i></a>Misc tips</h3>
+<h3 id='specific-problems'><a class='heading_anchor' href='#specific-problems'><i class='headerLinkIcon'></i></a>Specific problems</h3>
+</div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <p>© Company 2012</p>
+    </footer>
+  </div>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+</body>

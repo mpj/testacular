@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="utf-8">
+  <title>Testacular Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Le styles -->
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    }
+    .sidebar-nav {
+    padding: 9px 0;
+    }
+  </style>
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="#" class="brand">Testacular Documentation</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header">Sidebar</li>
+            <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="span9">
+        <div class="row-fluid">
+          <div id="content"><p>If you are thinking about making Testacular better, or you just want to hack on it, that’s great here 
+are some tips to get you started.</p>
+<h2 id='getting-started'><a class='heading_anchor' href='#getting-started'><i class='headerLinkIcon'></i></a>Getting Started</h2>
+<ul>
+<li>Make sure you have a <a href="https://github.com/signup/free">GitHub account</a></li>
+<li><a href="https://github.com/vojtajina/testacular/issues/new">Submit</a> a ticket for your issue, assuming one does not
+already exist.<ul>
+<li>Clearly describe the issue including steps to reproduce when it is a bug.</li>
+<li>Make sure you fill in the earliest version that you know has the issue.</li>
+</ul>
+</li>
+<li>Fork the repository on GitHub</li>
+</ul>
+<h2 id='making-changes'><a class='heading_anchor' href='#making-changes'><i class='headerLinkIcon'></i></a>Making Changes</h2>
+<ul>
+<li>Clone your fork</li>
+<li><p>Install dependencies via </p>
+<pre><code class="language-bash">$ npm install</code></pre>
+</li>
+<li>Install global dependencies via <pre><code class="language-bash">$ npm install grunt-cli -g</code></pre>
+</li>
+<li>Checkout a new branch (usually based on <code>master</code>) and name it accordingly to what 
+you intend to do<ul>
+<li>Features get the prefix <code>feature-</code></li>
+<li>Bug fixes get the prefix <code>fix-</code></li>
+<li>Improvements to the documentation get the prefix <code>docs-</code></li>
+</ul>
+</li>
+</ul>
+<h2 id='testing-and-building'><a class='heading_anchor' href='#testing-and-building'><i class='headerLinkIcon'></i></a>Testing and Building</h2>
+<p>Run the tests via </p>
+<pre><code class="language-bash"><span class="comment"># All tests</span>
+$ grunt test
+
+$ grunt test:unit
+$ grunt test:e2e
+$ grunt test:client</code></pre>
+<p>Lint the files via</p>
+<pre><code class="language-bash">$ grunt lint</code></pre>
+<p>Build the project via</p>
+<pre><code class="language-bash">$ grunt build</code></pre>
+<p>The default task, just calling <code>grunt</code> will run <code>build lint test</code>.</p>
+<p>If grunt fails, make sure grunt-0.4x is installed: <a href="https://github.com/gruntjs/grunt/wiki/Getting-started">https://github.com/gruntjs/grunt/wiki/Getting-started</a>.</p>
+<h2 id='submitting-changes'><a class='heading_anchor' href='#submitting-changes'><i class='headerLinkIcon'></i></a>Submitting Changes</h2>
+<ul>
+<li>One branch per feature/fix </li>
+<li>Follow  <a href="http://nodeguide.com/style.html">http://nodeguide.com/style.html</a> (with exception of 100 characters per line)</li>
+<li>Send a pull request to the <code>master</code> branch.</li>
+</ul>
+<h1 id='additional-resources'><a class='heading_anchor' href='#additional-resources'><i class='headerLinkIcon'></i></a>Additional Resources</h1>
+<ul>
+<li><a href="https://github.com/vojtajina/testacular/issues">Issue tracker</a></li>
+<li><a href="https://groups.google.com/forum/#!forum/testacular">Mailing List</a></li>
+<li><a href="http://help.github.com/">General GitHub documentation</a></li>
+<li><a href="http://help.github.com/send-pull-requests/">GitHub pull request documentation</a></li>
+<li><a href="http://twitter.com/TestacularJS">@TestacularJS</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <p>© Company 2012</p>
+    </footer>
+  </div>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+</body>
