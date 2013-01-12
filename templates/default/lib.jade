@@ -1,0 +1,8 @@
+mixin sidebar(dirs)
+  .well.sidebar-nav
+    ul.nav.nav-list
+      each files, dir in dirs
+        li.nav-header= dir
+          each file in files
+            li
+              a(href='#{file.link}')= file.name

@@ -2,6 +2,11 @@ module.exports = (grunt) ->
 
   # Project configuration.
   grunt.initConfig
+    less:
+      docs:
+        files:
+          'templates/default/assets/css/app.css': 'templates/default/assets/less/app.less'
+
     pandadocs:
       options:
         title: 'Testacular Documentation'
@@ -9,9 +14,12 @@ module.exports = (grunt) ->
         output: './out'
         outputAssets: './out/assets'
         disableTests: true
-      docs: [ 'src' ]
+      docs: ['src']
+          
           
   
   grunt.loadTasks 'tasks'
+  grunt.loadNpmTasks 'grunt-contrib-less'
   
-  grunt.registerTask 'default', ['pandadocs']
+  grunt.registerTask 'docs', ['pandadocs']
+  grunt.registerTask 'default', ['less', 'docs']

@@ -7,12 +7,100 @@
 
 module.exports = function(grunt) {
 
-  var fs = require('fs');
   var wrench = require('wrench');
   var semver = require('semver');
   var path = require('path');
+  var fs = require('q-io/fs');
+  var q = require('q');
 
+  var sep = require('os').platform() === 'win32' ? '\\' : '/';
   var panda = require('panda-docs');
+
+
+  // Handle errors
+  var errorHandler = function(error) {
+    grunt.log.error(error);
+  };
+
+  // Map a folder of versions to an array of versions
+  var getVersions = function(folder) {
+    var guard = function(path, stat) {
+      if (stat.isDirectory() && path.split(sep).length === 2) {
+        return true;
+      }
+      return false;
+    };
+    return fs.listTree(folder, guard).then(function(dirs){
+      return dirs.map(function(dir) {
+        return dir.replace(folder + sep, '');
+      }).filter(function(version) {
+        return semver.valid(version);
+      });
+    });
+
+  };
+
+  var getFileList = function(srcPath, outPath) {
+    // Only add directories and markdown files
+    var guard = function(p, stat) {
+      if(stat.isDirectory()) return true;
+      if(p.split('.').pop() === 'md') return true;
+      return false;
+    };
+    return fs.listTree(srcPath, guard).then(function(dirs) {
+      var list = {};
+      dirs.forEach(function(dir) {
+        dir = dir.split(sep);
+        // Remove the first two (src, version)
+        dir.shift();
+        dir.shift();
+        if (dir.length === 0) return;
+
+        // Add to object
+        // dir looks now like this: ['category'] or ['category', 'article.md']
+        var key = dir.shift();
+        if (dir.length === 0) {
+          list[key] = [];
+        } else {
+          var name = dir.shift().replace(/\.md$/, '');
+          list[key].push({
+            name: name,
+            link: path.join(name + '.html')
+          });
+        }
+      });
+
+      return list;
+    });
+  };
+
+  // Generate docs for one specific version
+  var docsForVersion = function(version, options) {
+    var deferred = q.defer();
+
+    var srcPath = path.join(options.source, version);
+    var outPath = path.join(options.output, version);
+    var buildOptions = options;
+
+    buildOptions.output = outPath;
+    buildOptions.codeHighlightTheme = 'idea';
+
+    var srcArray = [
+      srcPath
+    ];
+
+    getFileList(srcPath, outPath).then(function(fileList){
+      grunt.log.ok(fileList);
+      buildOptions.fileList = fileList;
+      panda.make(srcArray, buildOptions, function(error, filesObject) {
+        if (error) {
+          deferred.reject(error);
+        }
+        deferred.resolve(filesObject.files);
+      });
+    }).fail(errorHandler);
+    return deferred.promise;
+  };
 
   grunt.registerMultiTask('pandadocs', 'Generate docs using panda-docs.', function() {
     // This is an async task.
@@ -21,44 +109,24 @@ module.exports = function(grunt) {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options();
 
-    var files = this.file.src;
-
-    files.forEach(function(dir) {
-      fs.readdir(dir, function(error, fileList) {
-        var sourceFiles = wrench.readdirSyncRecursive(dir).sort();
-        var versions = sourceFiles.filter(function(dir){
-          if (dir.indexOf("/") < 0 && semver.valid(dir)) {
-            return true;
-          }
-          return false;
-        });
-
+    var sourceFolders = this.filesSrc;
+    sourceFolders.forEach(function(folder) {
+      options.source = folder;
+      grunt.log.ok(folder);
+      getVersions(folder).then(function(versions) {
         grunt.log.ok(versions);
-        versions.forEach(function(version) {
-          var _options = options;
-          _options.output = path.join(options.output, version);
-          grunt.verbose.writeflags(options, 'Panda-docs options');
-          var input = [
-            path.join(dir, 'index.md'),
-            path.join(dir, version, 'about'),
-            path.join(dir, version, 'config'),
-            path.join(dir, version, 'dev'),
-            path.join(dir, version, 'intro'),
-            path.join(dir, version, 'plus')
-          ];
-          panda.make(input, _options, function(error, result) {
-            if (error) {
-              grunt.log.errorlns('There was an error', error);
-              return done(false);
-            }
-            // Otherwise, print a success message.
-            grunt.log.ok('Created ' + result.files.length + ' files.');
-            return done();
-          });
-        });
+        return q.all(versions.map(function(version) {
+          return docsForVersion(version, options);
+        }));
+      }).then(done, function(error){
+        grunt.log.error(error);
+        done(1);
       });
+
     });
 
   });
+
+
 
 };

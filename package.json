@@ -1,11 +1,14 @@
 {
   "name": "testacular-docs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.html",
-  "dependencies": {
-  },
+  "main": "",
+  "dependencies": {},
   "devDependencies": {
+    "grunt-contrib-less": "https://github.com/gruntjs/grunt-contrib-less/tarball/master",
+    "grunt": "~0.4.0rc5",
+    "q-io": "~1.5.2",
+    "q": "~0.8.12"
   },
   "scripts": {
     "test": ""
@@ -15,5 +18,5 @@
     "url": "https://github.com/Dignifiedquire/testacular.git"
   },
   "author": "",
-  "license": "MIT",
+  "license": "MIT"
 }
