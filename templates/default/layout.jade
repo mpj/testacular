@@ -14,13 +14,7 @@ html(lang='en')
             span.icon-bar
           a.brand(href='#')= title 
           .nav-collapse.collapse
-            ul.nav
-              li.active
-                a(href='#') Home
-              li
-                a(href='#about') About
-              li
-                a(href='#contact') Contact
+            mixin navigation(fileList)
     .container-fluid
       .row-fluid
         .span3

@@ -6,3 +6,17 @@ mixin sidebar(dirs)
           each file in files
             li
               a(href='#{file.link}')= file.name
+
+
+mixin navigation(dirs)
+  ul.nav
+    each files, dir in dirs
+      li.dropdown
+        a.dropdown-toggle(href='#', data-toggle='dropdown')
+          = dir
+          b.caret
+        ul.dropdown-menu
+          each file in files
+            li
+              a(href='#{file.link}')= file.name
+        
