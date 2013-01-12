@@ -11,8 +11,8 @@ module.exports = (grunt) ->
       options:
         title: 'Testacular Documentation'
         assets: './templates/default/assets'
-        output: './out'
-        outputAssets: './out/assets'
+        output: './public'
+        outputAssets: './public/assets'
         disableTests: true
       docs: ['src']
           
