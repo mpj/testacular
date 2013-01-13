@@ -8234,6 +8234,9 @@ body {
 body {
   background: #f4f1ed url('../img/bg.gif') repeat;
 }
+div.navbar {
+  border-top: 2px solid #9c0001;
+}
 div.navbar .navbar-inner {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
