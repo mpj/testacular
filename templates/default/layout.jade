@@ -5,32 +5,30 @@ html(lang='en')
   head
     include head
   body
-    .navbar.navbar-inverse.navbar-fixed-top
-      .navbar-inner
-        .container-fluid
-          a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.brand(href='index.html')= title 
-          .nav-collapse.collapse
-            mixin navigation(fileList)
-            mixin versionDropdown(versions, currentVersion)
-    .container-fluid
-      .row-fluid
-        .span3
-          mixin sidebar(toh)
-        .span9
-          .row-fluid
+    #wrap
+      .navbar.navbar-inverse
+        .navbar-inner
+          .container
+            a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.brand(href='index.html')= title 
+            .nav-collapse.collapse
+              mixin navigation(fileList)
+              mixin versionDropdown(versions, currentVersion)
+                
+      .container
+        .row-fluid
+          .span3
+            mixin sidebar(toh)
+          .span9
             h1= pageTitle
             #content!= content
-      hr
-      footer
-        ul
-          li
-            a(href='https://github.com/vojtajina') Testacular by Vojta Jina
-          li
-            a(href='https://github.com/Dignifiedquire') Site by Friedel Ziegelmayer
+      #push
+    #footer
+      .container
+        include footer
   
     // Placed at the end of the document so the pages load faster 
     include scripts

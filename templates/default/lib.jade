@@ -22,7 +22,7 @@ mixin navigation(dirs)
         
 
 mixin versionDropdown(versions, active)
-  ul.nav
+  ul.nav.pull-right
     li.dropdown
       a.dropdown-toggle(href='#', data-toggle='dropdown')
         = 'v' + active
@@ -32,4 +32,5 @@ mixin versionDropdown(versions, active)
           - var active = version === active ? 'active' : '';
           li
             a(href='../#{version}/index.html')= version
+
 

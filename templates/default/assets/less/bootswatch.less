@@ -15,11 +15,18 @@ body {
   background: #f4f1ed url('../img/bg.gif') repeat;
 }
 
+
 // SCAFFOLDING
 // -----------------------------------------------------
 
 // NAVBAR
 // -----------------------------------------------------
+
+div.navbar {
+  .navbar-inner {
+    .border-radius(0px);
+  }
+}
 
 div.subnav {
   .nav > li > a,
@@ -30,9 +37,10 @@ div.subnav {
   &-fixed {
     top: @navbarHeight;
   }
+
 }
 
-// NAV
+// SIDEBAR
 // -----------------------------------------------------
 
 // BUTTONS
@@ -59,5 +67,43 @@ div.subnav {
   }
 }
 
+#content {
+  padding-bottom: 20px;
+}
+
 // MEDIA QUERIES
 // -----------------------------------------------------
+
+
+// FOOTER
+// -----------------------------------------------------
+#footer {
+  background: @grayDarker;
+
+  ul {
+    list-style: none;
+    margin-top: 20px;
+    li {
+      float: left;
+      padding-left: 20px;
+      a {
+        color: @grayLighter;
+        &:hover {
+          text-decoration: none;
+          color: darken(@red, 5%);
+        }
+      }
+    }
+    
+    &.copy {
+      li {
+        padding-left: 40px;
+      }
+    }
+    &.social {
+      li {
+        float: right;
+      }
+    }
+  }
+}

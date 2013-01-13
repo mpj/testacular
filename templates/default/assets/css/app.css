@@ -6474,12 +6474,37 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+html,
 body {
-  padding-top: 60px;
-  padding-bottom: 40px;
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+
 }
-.sidebar-nav {
-  padding: 9px 0;
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+
+  margin: 0 auto -60px;
+}
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 60px;
+}
+#footer {
+  background-color: #f5f5f5;
+}
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 /*!
  * Bootstrap Responsive v2.2.2
@@ -8209,6 +8234,11 @@ body {
 body {
   background: #f4f1ed url('../img/bg.gif') repeat;
 }
+div.navbar .navbar-inner {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
 div.subnav .nav > li > a,
 div.subnav .nav > .active > a,
 div.subnav .nav > .active > a:hover {
@@ -8224,6 +8254,33 @@ div.subnav-fixed {
 .hero-unit h5,
 .hero-unit h6 {
   margin: 13px 0;
+}
+#content {
+  padding-bottom: 20px;
+}
+#footer {
+  background: #222222;
+}
+#footer ul {
+  list-style: none;
+  margin-top: 20px;
+}
+#footer ul li {
+  float: left;
+  padding-left: 20px;
+}
+#footer ul li a {
+  color: #eeeeee;
+}
+#footer ul li a:hover {
+  text-decoration: none;
+  color: #830001;
+}
+#footer ul.copy li {
+  padding-left: 40px;
+}
+#footer ul.social li {
+  float: right;
 }
 /*
  * github.com style (c) Vasily Polovnyov <vast@whiteants.net>
