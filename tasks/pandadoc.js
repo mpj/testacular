@@ -60,6 +60,7 @@ module.exports = function(grunt) {
         // dir looks now like this: ['category'] or ['category', 'article.md']
         var key = dir.shift();
         if (dir.length === 0) {
+          if (key.indexOf('.md') > -1) return;
           list[key] = [];
         } else {
           var name = dir.shift().replace(/\.md$/, '');
