@@ -1,11 +1,11 @@
-mixin sidebar(dirs)
+mixin sidebar(toh)
   .well.sidebar-nav
     ul.nav.nav-list
-      each files, dir in dirs
-        li.nav-header= dir
-          each file in files
+      li.nav-header= pageTitle
+        each heading in toh
+          if heading.rank === 2
             li
-              a(href='#{file.link}')= file.name
+              a(href='#{heading.link}')= heading.name
 
 
 mixin navigation(dirs)

@@ -18,14 +18,18 @@ html(lang='en')
     .container-fluid
       .row-fluid
         .span3
-          mixin sidebar(fileList)
+          mixin sidebar(toh)
         .span9
           .row-fluid
+            h2= fileName
             #content!= content
       hr
       footer
-        p © Company 2012
+        ul
+          li
+            a(href='https://github.com/vojtajina') Testacular by Vojta Jina
+          li
+            a(href='https://github.com/Dignifiedquire') Site by Friedel Ziegelmayer
   
     // Placed at the end of the document so the pages load faster 
-    script(src='../assets/js/jquery.js')
-  script(src='../assets/js/bootstrap.min.js')
+    include scripts

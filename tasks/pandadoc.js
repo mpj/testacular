@@ -83,7 +83,8 @@ module.exports = function(grunt) {
     var buildOptions = options;
 
     buildOptions.output = outPath;
-    buildOptions.codeHighlightTheme = 'idea';
+    buildOptions.highlight = true;
+    buildOptions.currentVersion = version;
 
     var srcArray = [
       srcPath
@@ -102,6 +103,7 @@ module.exports = function(grunt) {
     return deferred.promise;
   };
 
+  // The Task itself
   grunt.registerMultiTask('pandadocs', 'Generate docs using panda-docs.', function() {
     // This is an async task.
     var done = this.async();
@@ -111,10 +113,12 @@ module.exports = function(grunt) {
 
     var sourceFolders = this.filesSrc;
     sourceFolders.forEach(function(folder) {
-      options.source = folder;
-      grunt.log.ok(folder);
       getVersions(folder).then(function(versions) {
-        grunt.log.ok(versions);
+        // Add additional information to the options object to be passed
+        // into docsForVersion
+        options.source = folder;
+        options.versions = versions;
+
         return q.all(versions.map(function(version) {
           return docsForVersion(version, options);
         }));
