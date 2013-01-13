@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Testacular Documentation</title>
+    <title>Testacular</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -20,7 +20,7 @@
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container-fluid"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="#" class="brand">Testacular Documentation</a>
+        <div class="container-fluid"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="index.html" class="brand">Testacular</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">about<b class="caret"></b></a>
@@ -117,14 +117,14 @@ Check out <a href="https://github.com/vojtajina/testacular/blob/master/lib/launc
 <p>You can override these settings by <code>&lt;BROWSER&gt;_BIN</code> env variable,
 or alternatively by creating a <code>symlink</code></p>
 <h3 id='posix-shells'><a class='heading_anchor' href='#posix-shells'><i class='headerLinkIcon'></i></a>POSIX shells</h3>
-<pre><code class="language-javascript"># Example - changing path to Chrome binary:
-$ export CHROME_BIN=<span class="regexp">/usr/</span>local/bin/my-chrome-build
+<pre><code class="language-bash"><span class="comment"># Example - changing path to Chrome binary:</span>
+$ export CHROME_BIN=/usr/local/bin/my-chrome-build
 
-# Example - changing path to Chrome Canary binary:
-$ export CHROME_CANARY_BIN=<span class="regexp">/usr/</span>local/bin/my-chrome-build
+<span class="comment"># Example - changing path to Chrome Canary binary:</span>
+$ export CHROME_CANARY_BIN=/usr/local/bin/my-chrome-build
 
-# Example - changing path to PhantomJs binary:
-$ export PHANTOMJS_BIN=$HOME/local/bin/phantomjs</code></pre>
+<span class="comment"># Example - changing path to PhantomJs binary:</span>
+$ export PHANTOMJS_BIN=<span class="variable">$HOME</span>/local/bin/phantomjs</code></pre>
 <h3 id='windows-cmdexe'><a class='heading_anchor' href='#windows-cmdexe'><i class='headerLinkIcon'></i></a>Windows cmd.exe</h3>
 <pre><code class="language-bash">C:> SET IE_BIN=C:\Program Files\Internet Explorer\iexplore.exe</code></pre>
 <h3 id='windows-powershell'><a class='heading_anchor' href='#windows-powershell'><i class='headerLinkIcon'></i></a>Windows Powershell</h3>

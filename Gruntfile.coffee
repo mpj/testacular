@@ -9,7 +9,7 @@ module.exports = (grunt) ->
 
     pandadocs:
       options:
-        title: 'Testacular Documentation'
+        title: 'Testacular'
         assets: './templates/default/assets'
         output: './public'
         outputAssets: './public/assets'

@@ -105,7 +105,7 @@ module.exports = function(grunt) {
 
   // Build the index page
   var linkIndex = function(path) {
-    
+
   };
 
   // The Task itself
@@ -117,7 +117,7 @@ module.exports = function(grunt) {
     var options = this.options();
 
     var sourceFolders = this.filesSrc;
-    sourceFolders.forEach(function(folder) {
+    q.all(sourceFolders.map(function(folder) {
       return getVersions(folder).then(function(versions) {
         // Add additional information to the options object to be passed
         // into docsForVersion
@@ -128,11 +128,7 @@ module.exports = function(grunt) {
           return docsForVersion(version, options);
         }));
       });
-    })
-    .then(function() {
-      buildIndex(options);
-    })
-    .then(done, function(error){
+    })).then(done, function(error){
       grunt.log.error(error);
       done(1);
     });

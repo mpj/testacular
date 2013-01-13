@@ -31,7 +31,7 @@ or alternatively by creating a `symlink`
 
 ### POSIX shells
 
-```javascript
+```bash
 # Example - changing path to Chrome binary:
 $ export CHROME_BIN=/usr/local/bin/my-chrome-build
 
