@@ -44,5 +44,5 @@ variables:
 * `fileList` is an object containing the necessary information about
   the available documents for the current build.
 
-[grunt-cli]:
+[grunt-cli]: https://github.com/gruntjs/grunt-cli
 [panda-docs]: https://github.com/gjtorikian/panda-docs
