@@ -103,6 +103,11 @@ module.exports = function(grunt) {
     return deferred.promise;
   };
 
+  // Build the index page
+  var linkIndex = function(path) {
+    
+  };
+
   // The Task itself
   grunt.registerMultiTask('pandadocs', 'Generate docs using panda-docs.', function() {
     // This is an async task.
@@ -113,7 +118,7 @@ module.exports = function(grunt) {
 
     var sourceFolders = this.filesSrc;
     sourceFolders.forEach(function(folder) {
-      getVersions(folder).then(function(versions) {
+      return getVersions(folder).then(function(versions) {
         // Add additional information to the options object to be passed
         // into docsForVersion
         options.source = folder;
@@ -122,11 +127,14 @@ module.exports = function(grunt) {
         return q.all(versions.map(function(version) {
           return docsForVersion(version, options);
         }));
-      }).then(done, function(error){
-        grunt.log.error(error);
-        done(1);
       });
-
+    })
+    .then(function() {
+      buildIndex(options);
+    })
+    .then(done, function(error){
+      grunt.log.error(error);
+      done(1);
     });
 
   });

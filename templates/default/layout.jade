@@ -15,13 +15,14 @@ html(lang='en')
           a.brand(href='#')= title 
           .nav-collapse.collapse
             mixin navigation(fileList)
+            mixin versionDropdown(versions, currentVersion)
     .container-fluid
       .row-fluid
         .span3
           mixin sidebar(toh)
         .span9
           .row-fluid
-            h2= fileName
+            h1= pageTitle
             #content!= content
       hr
       footer

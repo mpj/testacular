@@ -20,3 +20,16 @@ mixin navigation(dirs)
             li
               a(href='#{file.link}')= file.name
         
+
+mixin versionDropdown(versions, active)
+  ul.nav
+    li.dropdown
+      a.dropdown-toggle(href='#', data-toggle='dropdown')
+        = 'v' + active
+        b.caret
+      ul.dropdown-menu
+        each version in versions
+          - var active = version === active ? 'active' : '';
+          li
+            a(href='../#{version}/index.html')= version
+
