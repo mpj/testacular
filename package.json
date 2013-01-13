@@ -8,7 +8,8 @@
     "grunt-contrib-less": "https://github.com/gruntjs/grunt-contrib-less/tarball/master",
     "grunt": "~0.4.0rc5",
     "q-io": "~1.5.2",
-    "q": "~0.8.12"
+    "q": "~0.8.12",
+    "panda-docs": "https://github.com/Dignifiedquire/panda-docs/tarball/templates"
   },
   "scripts": {
     "test": ""

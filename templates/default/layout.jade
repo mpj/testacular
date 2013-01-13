@@ -17,18 +17,20 @@ html(lang='en')
             .nav-collapse.collapse
               mixin navigation(fileList)
               mixin versionDropdown(versions, currentVersion)
-                
-      .container
-        .row-fluid
-          .span3
-            mixin sidebar(toh)
-          .span9
-            h1= pageTitle
-            #content!= content
+
+      block content
+        .container
+          .row
+            .span3
+              mixin sidebar(toh)
+            .span9
+              h1= pageTitle
+              #content!= content
       #push
     #footer
-      .container
-        include footer
+      block footer
+        .container
+           include footer
   
     // Placed at the end of the document so the pages load faster 
     include scripts

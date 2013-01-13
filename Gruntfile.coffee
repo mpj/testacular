@@ -14,6 +14,7 @@ module.exports = (grunt) ->
         output: './public'
         outputAssets: './public/assets'
         disableTests: true
+        skin: './templates/default'
       docs: ['src']
           
           
