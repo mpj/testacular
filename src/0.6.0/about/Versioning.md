@@ -1,3 +1,5 @@
+# Versioning
+
 Testacular uses [Semantic Versioning]. All even versions (eg. `0.2.x`,
 `0.4.x`) are considered to be stable - no breaking changes, only bug
 fixes.

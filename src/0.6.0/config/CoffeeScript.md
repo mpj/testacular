@@ -1,4 +1,5 @@
 # CoffeeScript
+
 If you want to use CoffeeScript for any files that Testacular uses, you can. 
 With the Testacular preprocessors you can automagically 
 compile your files whenever they change and let compiled versions be served by 

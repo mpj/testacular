@@ -1,4 +1,4 @@
-# Client - Server protocol
+# Client - Server Protocol
 
 These are the SocketIO events that are transmitted between the browser and the testacular server.
 

@@ -1,10 +1,9 @@
-Travis CI Integration
-=====================
+# Travis CI Integration
 
 [Travis CI] is a popular continuous integration service that integrates with your [Github] repository to automatically run your tests when code is pushed. Integration is done by adding a simple [YAML] file to your project root; Travis and Github take care of the rest. Travis results will appear in your Github pull requests and your history is available on their control panel. This article assumes you already have Travis account.
 
-Setup
------
+## Setup
+
 1. Create a file in your project root called `.travis.yml` with the following YAML:
    
    ```
@@ -57,8 +56,7 @@ Setup
 
 4. All that's left is to test the Cake task locally to assure it works as advertised, commit the files, push them to Github.
 
-Notes
------
+## Notes
 
 * Travis' Node environment has very little available. If the startup process in Travis fails check for missing module information and be sure to add them to your `package.json` dependencies.
 * Travis does not run in your local network so any code that attempts to connect to resources should be stubbed out using [Nock].

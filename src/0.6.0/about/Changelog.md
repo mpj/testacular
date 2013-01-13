@@ -1,3 +1,17 @@
+# Changelog
+
+### v0.5.7
+* Support code coverage for qunit.
+* Rename port-runner option in cli to runner-port
+* Fix proxy handler (when no proxy defined)
+* Fix #65
+
+### v0.5.6
+* Growl reporter !
+* Batch changes (eg. `git checkout` causes only single run now)
+* Handle uncaught errors and disconnect all browsers
+* Global binary prefers local versions
+
 ### v0.5.5
 * Add QUnit adapter
 * Report console.log()

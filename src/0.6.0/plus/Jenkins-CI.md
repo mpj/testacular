@@ -1,5 +1,4 @@
-Jenkins CI Integration
-======================
+# Jenkins CI Integration
 
 [Jenkins CI] is one of the most popular continuous integration servers
 in the market today. At some point while developing your [Angular]
@@ -11,8 +10,7 @@ Jenkins understands (i.e. no need to hunt down failures in the console
 log). This tutorial assumes you have Jenkins already setup and running
 on your CI environment.
 
-Setup
------
+## Setup
 
 1.  Install Node and testacular as per [[Installation]] on your
     Jenkins CI server.

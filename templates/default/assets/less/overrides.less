@@ -45,15 +45,15 @@
 // Typography
 // -------------------------
 @sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-@serifFontFamily:       "Sorts Mill Goudy", Georgia, "Times New Roman", Times, serif;
-@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+@serifFontFamily:       "Lora", Georgia, "Times New Roman", Times, serif;
+@monoFontFamily:        "Droid Sans Mono", Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@baseFontSize:          16px;
-@baseFontFamily:        @serifFontFamily;
-@baseLineHeight:        20px;
+@baseFontSize:          14px;
+@baseFontFamily:        @monoFontFamily;
+@baseLineHeight:        18px;
 @altFontFamily:         @sansFontFamily;
 
-@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
+@headingsFontFamily:    @serifFontFamily; // empty to use BS default, @baseFontFamily
 @headingsFontWeight:    bold;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
 

@@ -84,3 +84,8 @@ including their default values.
   * **Default.**   `{}`
   * **Description.** List modules to preprocess your files before they get served to the browser. 
   See [[Preprocessors]] for more.
+
+#### `proxies`
+  * **Type.** Object
+  * **Default.**   `{}`
+  * **Description.** List path-proxy pairs.  For example: `proxies: {'/static': 'http://gstatic.com', '/web': 'http://localhost:9000'}`.

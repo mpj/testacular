@@ -1,3 +1,5 @@
+# Why?
+
 ## Why should I use Testacular?
 
 Because It allows you to test code in real browsers (desktop, mobile, tablets):

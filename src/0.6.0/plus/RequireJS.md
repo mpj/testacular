@@ -1,4 +1,4 @@
-# Use RequireJS
+# RequireJS
 
 ## Configure Testacular
 

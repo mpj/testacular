@@ -1,4 +1,5 @@
-# `files`
+# Files
+
 The files array determines wich files are loaded, watched and served by Testacular.
 
 > **Warning** The order in which the files are defined, determines the load order!
