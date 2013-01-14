@@ -1,0 +1,123 @@
+/* Jumbotrons
+-------------------------------------------------- */
+.jumbotron {
+  position: relative;
+}
+.jumbotron h1 {
+  margin-bottom: 9px;
+  font-size: 81px;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.jumbotron p {
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+.jumbotron .btn-large {
+  font-size: 20px;
+  font-weight: normal;
+  padding: 14px 24px;
+  margin-right: 10px;
+  .border-radius(@baseBorderRadius);
+
+}
+.jumbotron .npm-install {
+  font-family: @codeFontFamily;
+  font-weight: bold;
+  padding: 15px 24px;
+}
+
+.fake-btn {
+  display: inline-block;
+  .ie7-inline-block();
+  padding: 4px 12px;
+  margin-bottom: 0; // For input.btn
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  text-align: center;
+  vertical-align: middle;
+  .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
+  border: 1px solid @btnBorder;
+  *border: 0; // Remove the border to prevent IE7's black border on input:focus
+  border-bottom-color: darken(@btnBorder, 10%);
+  .border-radius(@baseBorderRadius);
+  .ie7-restore-left-whitespace(); // Give IE7 some love
+  .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
+}
+
+
+/* Masthead (docs home) */
+.masthead {
+  padding-top: 36px;
+  margin-bottom: 72px;
+
+  h1, p {
+    text-align: center;
+  }
+  h1 {
+    margin-bottom: 18px;
+  }
+  p {
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+
+
+
+/* Quick links
+-------------------------------------------------- */
+.quick-links {
+  min-height: 30px;
+  padding: 5px 20px;
+  margin: 36px 0;
+  list-style: none;
+  text-align: center;
+  overflow: hidden;
+}
+.quick-links li {
+  display: inline;
+  margin: 0 5px;
+  color: #999;
+}
+.quick-links .github-btn,
+.quick-links .tweet-btn,
+.quick-links .follow-btn {
+  position: relative;
+  top: 5px;
+}
+
+
+/* Marketing section of Overview
+-------------------------------------------------- */
+.marketing .row {
+  margin-bottom: 9px;
+}
+.marketing h1 {
+  margin: 36px 0 27px;
+  font-size: 40px;
+  font-weight: 300;
+  text-align: center;
+}
+.marketing h2,
+.marketing h3 {
+  font-weight: 300;
+}
+.marketing h2 {
+  font-size: 22px;
+}
+.marketing p {
+  margin-right: 10px;
+}
+.marketing .bs-icon {
+  float: left;
+  margin: 7px 10px 0 0;
+  opacity: .8;
+}
+.marketing .small-bs-icon {
+  float: left;
+  margin: 4px 5px 0 0;
+}
+
