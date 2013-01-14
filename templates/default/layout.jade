@@ -6,7 +6,7 @@ html(lang='en')
     include head
   body
     #wrap
-      .navbar.navbar-inverse
+      .navbar.navbar-inverse.navbar-static-top
         .navbar-inner
           .container
             a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
@@ -19,7 +19,7 @@ html(lang='en')
               mixin versionDropdown(versions, currentVersion)
 
       block content
-        .container
+        #content-container.container
           .row
             .span3
               mixin sidebar(toh)

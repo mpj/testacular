@@ -7,8 +7,6 @@
 // -----------------------------------------------------
 
 @import url('http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic');
-@import url('http://fonts.googleapis.com/css?family=Droid+Sans+Mono');
-
 
 // BODY
 // -----------------------------------------------------
@@ -69,7 +67,8 @@ div.subnav {
   }
 }
 
-#content {
+#content-container {
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -82,31 +81,27 @@ div.subnav {
 // -----------------------------------------------------
 #footer {
   background: @grayDarker;
-
-  ul {
-    list-style: none;
-    margin-top: 20px;
-    li {
-      float: left;
-      padding-left: 20px;
-      a {
-        color: @grayLighter;
-        &:hover {
-          text-decoration: none;
-          color: darken(@red, 5%);
-        }
-      }
-    }
-    
-    &.copy {
-      li {
-        padding-left: 40px;
-      }
-    }
-    &.social {
-      li {
-        float: right;
-      }
+}
+#footer ul {
+  list-style: none;
+  margin-top: 20px;
+}
+#footer ul > li {
+  float: left;
+  padding-left: 20px;
+  a {
+    color: @navbarInverseLinkColor;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    &:hover {
+      color: @navbarInverseLinkColorHover;
+      text-decoration: none;
     }
   }
+}
+#footer ul.copy > li {
+  padding-left: 40px;
+}
+
+#footer ul.social > li {
+  float: right;
 }

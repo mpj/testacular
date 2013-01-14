@@ -7,15 +7,15 @@
 For clarity in the example configuration files and test below, the directory structure upon which these are based looks like this:
 ```
 project/
-    lib/
-        jquery.js #etc
-    node_modules/
-        chai/ #etc
-    src/
-        MyModule.js
-    test/
-        MyModule.test.js
-        test-main.js
+  lib/
+    jquery.js #etc
+  node_modules/
+    chai/ #etc
+  src/
+    MyModule.js
+  test/
+    MyModule.test.js
+    test-main.js
 testacular.conf.js
 ```
 

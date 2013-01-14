@@ -19,7 +19,7 @@
   </head>
   <body>
     <div id="wrap">
-      <div class="navbar navbar-inverse">
+      <div class="navbar navbar-inverse navbar-static-top">
         <div class="navbar-inner">
           <div class="container"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="index.html" class="brand">Testacular</a>
             <div class="nav-collapse collapse">
@@ -35,7 +35,7 @@
                   <ul class="dropdown-menu">
                     <li><a href="Browsers.html">Browsers</a></li>
                     <li><a href="CoffeeScript.html">CoffeeScript</a></li>
-                    <li><a href="Configuration-File-Overview.html">Configuration File Overview</a></li>
+                    <li><a href="Configuration-File.html">Configuration File</a></li>
                     <li><a href="Coverage-Reporter.html">Coverage Reporter</a></li>
                     <li><a href="Files.html">Files</a></li>
                     <li><a href="Preprocessors.html">Preprocessors</a></li>
@@ -78,94 +78,94 @@
           </div>
         </div>
       </div>
-      <div class="container">
+      <div id="content-container" class="container">
         <div class="row">
           <div class="span3">
             <div class="well sidebar-nav">
               <ul class="nav nav-list">
-                <li class="nav-header">Configuration File Overview</li>
+                <li class="nav-header">Configuration File
+                  <li><a href="#basepath">basePath</a></li>
+                  <li><a href="#files">files</a></li>
+                  <li><a href="#exclude">exclude</a></li>
+                  <li><a href="#reporters">reporters</a></li>
+                  <li><a href="#port">port</a></li>
+                  <li><a href="#runnerport">runnerPort</a></li>
+                  <li><a href="#colors">colors</a></li>
+                  <li><a href="#loglevel">logLevel</a></li>
+                  <li><a href="#autowatch">autoWatch</a></li>
+                  <li><a href="#browsers">browsers</a></li>
+                  <li><a href="#singlerun">singleRun</a></li>
+                  <li><a href="#preprocessors">preprocessors</a></li>
+                  <li><a href="#proxies">proxies</a></li></li>
               </ul>
             </div>
           </div>
           <div class="span9">
-            <h1>Configuration File Overview</h1>
+            <h1>Configuration File</h1>
             <div id="content"><p>To configure Testacular you use a configuration file and supply this
 file when starting Testacular.
 Here is a list of all possible configuration values that can be used,
 including their default values.</p>
-<h4 id='<code>basepath</code>'><a class='heading_anchor' href='#<code>basepath</code>'><i class='headerLinkIcon'></i></a><code>basePath</code></h4>
+<h2 id='basepath'><a class='heading_anchor' href='#basepath'><i class='headerLinkIcon'></i></a>basePath</h2>
+<p><strong>Type.</strong> String</p>
+<p><strong>Default.</strong> <code>&#39;&#39;</code></p>
+<p><strong>Description.</strong>  Base path, that will be used to resolve files and exclude.</p>
+<h2 id='files'><a class='heading_anchor' href='#files'><i class='headerLinkIcon'></i></a>files</h2>
+<p><strong>Type.</strong> Array</p>
+<p><strong>Default.</strong>   <code>[]</code></p>
+<p><strong>Description.</strong> List of files/patterns to load in the browser. See [[Files]] for more information.</p>
+<h2 id='exclude'><a class='heading_anchor' href='#exclude'><i class='headerLinkIcon'></i></a>exclude</h2>
+<p><strong>Type.</strong> Array</p>
+<p><strong>Default.</strong>   <code>[]</code></p>
+<p><strong>Description.</strong> List of files to exclude.</p>
+<h2 id='reporters'><a class='heading_anchor' href='#reporters'><i class='headerLinkIcon'></i></a>reporters</h2>
+<p><strong>Type.</strong> Array</p>
+<p><strong>Default.</strong>   <code>[&#39;progress&#39;]</code></p>
+<p><strong>Possible Values.</strong></p>
 <ul>
-<li><strong>Type.</strong> String</li>
-<li><strong>Default.</strong> <code>&#39;&#39;</code></li>
-<li><strong>Description.</strong>  Base path, that will be used to resolve files and exclude.</li>
-</ul>
-<h4 id='<code>files</code>'><a class='heading_anchor' href='#<code>files</code>'><i class='headerLinkIcon'></i></a><code>files</code></h4>
-<ul>
-<li><strong>Type.</strong> Array</li>
-<li><strong>Default.</strong>   <code>[]</code></li>
-<li><strong>Description.</strong> List of files/patterns to load in the browser. See [[Files]] for more information.</li>
-</ul>
-<h4 id='<code>exclude</code>'><a class='heading_anchor' href='#<code>exclude</code>'><i class='headerLinkIcon'></i></a><code>exclude</code></h4>
-<ul>
-<li><strong>Type.</strong> Array</li>
-<li><strong>Default.</strong>   <code>[]</code></li>
-<li><strong>Description.</strong> List of files to exclude.</li>
-</ul>
-<h4 id='<code>reporters</code>'><a class='heading_anchor' href='#<code>reporters</code>'><i class='headerLinkIcon'></i></a><code>reporters</code></h4>
-<ul>
-<li><strong>Type.</strong> Array</li>
-<li><strong>Default.</strong>   <code>[&#39;progress&#39;]</code></li>
-<li><strong>Possible Values.</strong><ul>
-<li><code>dots</code></li>
-<li><code>progress</code></li>
-<li><code>junit</code></li>
-</ul>
+<li><p><code>dots</code></p>
 </li>
-<li><strong>Description.</strong> A list of reporters to use. See [[Reporters]] for more.</li>
+<li><p><code>progress</code></p>
+</li>
+<li><p><code>junit</code></p>
+</li>
 </ul>
-<h4 id='<code>port</code>'><a class='heading_anchor' href='#<code>port</code>'><i class='headerLinkIcon'></i></a><code>port</code></h4>
+<p><strong>Description.</strong> A list of reporters to use. See [[Reporters]] for
+  more.</p>
+<h2 id='port'><a class='heading_anchor' href='#port'><i class='headerLinkIcon'></i></a>port</h2>
+<p><strong>Type.</strong> Number</p>
+<p><strong>Default.</strong> <code>8080</code></p>
+<p><strong>Description.</strong> Web server port </p>
+<h2 id='runnerport'><a class='heading_anchor' href='#runnerport'><i class='headerLinkIcon'></i></a>runnerPort</h2>
+<p><strong>Type.</strong> Number</p>
+<p><strong>Default.</strong> <code>9100</code></p>
+<p><strong>Description.</strong> Cli runner port </p>
+<h2 id='colors'><a class='heading_anchor' href='#colors'><i class='headerLinkIcon'></i></a>colors</h2>
+<p><strong>Type.</strong> Boolean</p>
+<p><strong>Default.</strong>   <code>true</code></p>
+<p><strong>Description.</strong>  Enable / disable colors in the output (reporters and logs).</p>
+<h2 id='loglevel'><a class='heading_anchor' href='#loglevel'><i class='headerLinkIcon'></i></a>logLevel</h2>
+<p><strong>Type.</strong> Constant</p>
+<p><strong>Default.</strong> <code>LOG_INFO</code></p>
+<p><strong>Possible values.</strong></p>
 <ul>
-<li><strong>Type.</strong> Number</li>
-<li><strong>Default.</strong> <code>8080</code></li>
-<li><strong>Description.</strong> Web server port </li>
-</ul>
-<h4 id='<code>runnerport</code>'><a class='heading_anchor' href='#<code>runnerport</code>'><i class='headerLinkIcon'></i></a><code>runnerPort</code></h4>
-<ul>
-<li><strong>Type.</strong> Number</li>
-<li><strong>Default.</strong>   <code>9100</code></li>
-<li><strong>Description.</strong> Cli runner port </li>
-</ul>
-<h4 id='<code>colors</code>'><a class='heading_anchor' href='#<code>colors</code>'><i class='headerLinkIcon'></i></a><code>colors</code></h4>
-<ul>
-<li><strong>Type.</strong> Boolean</li>
-<li><strong>Default.</strong>   <code>true</code></li>
-<li><strong>Description.</strong>  Enable / disable colors in the output (reporters and logs).</li>
-</ul>
-<h4 id='<code>loglevel</code>'><a class='heading_anchor' href='#<code>loglevel</code>'><i class='headerLinkIcon'></i></a><code>logLevel</code></h4>
-<ul>
-<li><strong>Type.</strong> Constant</li>
-<li><strong>Default.</strong>   <code>LOG_INFO</code></li>
-<li><strong>Possible values.</strong><ul>
 <li><code>LOG_DISABLE</code></li>
 <li><code>LOG_ERROR</code></li>
 <li><code>LOG_WARN</code></li>
 <li><code>LOG_INFO</code></li>
 <li><code>LOG_DEBUG</code> </li>
 </ul>
-</li>
-<li><strong>Description.</strong> Level of logging.</li>
-</ul>
-<h4 id='<code>autowatch</code>'><a class='heading_anchor' href='#<code>autowatch</code>'><i class='headerLinkIcon'></i></a><code>autoWatch</code></h4>
+<p><strong>Description.</strong> Level of logging.</p>
+<h2 id='autowatch'><a class='heading_anchor' href='#autowatch'><i class='headerLinkIcon'></i></a>autoWatch</h2>
+<p><strong>Type.</strong> Boolean</p>
+<p><strong>Default.</strong>  <code>false</code></p>
+<p><strong>Description.</strong> Enable/disable watching file and executing tests
+  whenever any file changes.</p>
+<h2 id='browsers'><a class='heading_anchor' href='#browsers'><i class='headerLinkIcon'></i></a>browsers</h2>
+<p><strong>Type.</strong> Array</p>
+<p><strong>Default.</strong>  <code>[]</code> </p>
+<p><strong>Possible Values.</strong></p>
 <ul>
-<li><strong>Type.</strong> Boolean</li>
-<li><strong>Default.</strong>  <code>false</code></li>
-<li><strong>Description.</strong> Enable/disable watching file and executing tests whenever any file changes.</li>
-</ul>
-<h4 id='<code>browsers</code>'><a class='heading_anchor' href='#<code>browsers</code>'><i class='headerLinkIcon'></i></a><code>browsers</code></h4>
-<ul>
-<li><strong>Type.</strong> Array</li>
-<li><strong>Default.</strong>  <code>[]</code> </li>
-<li><strong>Possible Values.</strong><ul>
 <li><code>Chrome</code></li>
 <li><code>ChromeCanary</code></li>
 <li><code>Firefox</code></li>
@@ -173,29 +173,26 @@ including their default values.</p>
 <li><code>Safari</code></li>
 <li><code>PhantomJS</code></li>
 </ul>
-</li>
-<li><strong>Description.</strong> A list of browsers to test in. See [[Browsers]] for more.</li>
-</ul>
-<h4 id='<code>singlerun</code>'><a class='heading_anchor' href='#<code>singlerun</code>'><i class='headerLinkIcon'></i></a><code>singleRun</code></h4>
-<ul>
-<li><strong>Type.</strong> Boolean</li>
-<li><strong>Default.</strong>   <code>false</code></li>
-<li><strong>Description.</strong> Continuous Integration mode if <code>true</code>, it captures browsers, runs
-tests and exits.</li>
-</ul>
-<h4 id='<code>preprocessors</code>'><a class='heading_anchor' href='#<code>preprocessors</code>'><i class='headerLinkIcon'></i></a><code>preprocessors</code></h4>
-<ul>
-<li><strong>Type.</strong> Object</li>
-<li><strong>Default.</strong>   <code>{}</code></li>
-<li><strong>Description.</strong> List modules to preprocess your files before they get served to the browser. 
-See [[Preprocessors]] for more.</li>
-</ul>
-<h4 id='<code>proxies</code>'><a class='heading_anchor' href='#<code>proxies</code>'><i class='headerLinkIcon'></i></a><code>proxies</code></h4>
-<ul>
-<li><strong>Type.</strong> Object</li>
-<li><strong>Default.</strong>   <code>{}</code></li>
-<li><strong>Description.</strong> List path-proxy pairs.  For example: <code>proxies: {&#39;/static&#39;: &#39;http://gstatic.com&#39;, &#39;/web&#39;: &#39;http://localhost:9000&#39;}</code>.</li>
-</ul>
+<p><strong>Description.</strong> A list of browsers to test in. See [[Browsers]] for more.</p>
+<h2 id='singlerun'><a class='heading_anchor' href='#singlerun'><i class='headerLinkIcon'></i></a>singleRun</h2>
+<p><strong>Type.</strong> Boolean</p>
+<p><strong>Default.</strong>   <code>false</code></p>
+<p><strong>Description.</strong> Continuous Integration mode if <code>true</code>, it captures
+  browsers, runs tests and exits.</p>
+<h2 id='preprocessors'><a class='heading_anchor' href='#preprocessors'><i class='headerLinkIcon'></i></a>preprocessors</h2>
+<p><strong>Type.</strong> Object</p>
+<p><strong>Default.</strong>   <code>{}</code></p>
+<p><strong>Description.</strong> List modules to preprocess your files before they get
+  served to the browser. </p>
+<p>  See [[Preprocessors]] for more.</p>
+<h2 id='proxies'><a class='heading_anchor' href='#proxies'><i class='headerLinkIcon'></i></a>proxies</h2>
+<p><strong>Type.</strong> Object</p>
+<p><strong>Default.</strong>   <code>{}</code></p>
+<p><strong>Description.</strong> List path-proxy pairs.  For example: </p>
+<pre><code class="language-javascript">proxies =  {
+  <span class="string">'/static'</span>: <span class="string">'http://gstatic.com'</span>, 
+  <span class="string">'/web'</span>: <span class="string">'http://localhost:9000'</span>
+};</code></pre>
 </div>
           </div>
         </div>
@@ -218,5 +215,8 @@ See [[Preprocessors]] for more.</li>
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="http://use.edgefonts.net/source-code-pro.js"></script>
+    <script src="http://use.edgefonts.net/source-sans-pro.js"></script>
+    <script src="http://use.edgefonts.net/gentium-book-basic.js"></script>
   </body>
 </html>
