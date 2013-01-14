@@ -3536,12 +3536,12 @@ ul.icons li [class*=" icon-"] {
   border: 1px solid rgba(0, 0, 0, 0.2);
   *border-right-width: 2px;
   *border-bottom-width: 2px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
@@ -3637,9 +3637,9 @@ ul.icons li [class*=" icon-"] {
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
-  -webkit-border-radius: 0 6px 6px 6px;
-  -moz-border-radius: 0 6px 6px 6px;
-  border-radius: 0 6px 6px 6px;
+  -webkit-border-radius: 0 2px 2px 2px;
+  -moz-border-radius: 0 2px 2px 2px;
+  border-radius: 0 2px 2px 2px;
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -3649,9 +3649,9 @@ ul.icons li [class*=" icon-"] {
   bottom: 0;
   margin-top: 0;
   margin-bottom: -2px;
-  -webkit-border-radius: 5px 5px 5px 0;
-  -moz-border-radius: 5px 5px 5px 0;
-  border-radius: 5px 5px 5px 0;
+  -webkit-border-radius: 2px 2px 2px 0;
+  -moz-border-radius: 2px 2px 2px 0;
+  border-radius: 2px 2px 2px 0;
 }
 .dropdown-submenu > a:after {
   display: block;
@@ -3675,9 +3675,9 @@ ul.icons li [class*=" icon-"] {
 .dropdown-submenu.pull-left > .dropdown-menu {
   left: -100%;
   margin-left: 10px;
-  -webkit-border-radius: 6px 0 6px 6px;
-  -moz-border-radius: 6px 0 6px 6px;
-  border-radius: 6px 0 6px 6px;
+  -webkit-border-radius: 2px 0 2px 2px;
+  -moz-border-radius: 2px 0 2px 2px;
+  border-radius: 2px 0 2px 2px;
 }
 .dropdown .dropdown-menu .nav-header {
   padding-left: 20px;
@@ -8399,27 +8399,6 @@ div.subnav-fixed {
   font-size: 30px;
   line-height: 36px;
 }
-/* Quick links
--------------------------------------------------- */
-.quick-links {
-  min-height: 30px;
-  padding: 5px 20px;
-  margin: 36px 0;
-  list-style: none;
-  text-align: center;
-  overflow: hidden;
-}
-.quick-links li {
-  display: inline;
-  margin: 0 5px;
-  color: #999;
-}
-.quick-links .github-btn,
-.quick-links .tweet-btn,
-.quick-links .follow-btn {
-  position: relative;
-  top: 5px;
-}
 /* Marketing section of Overview
 -------------------------------------------------- */
 .marketing {
@@ -8444,21 +8423,74 @@ div.subnav-fixed {
 .marketing p {
   margin-right: 10px;
 }
-.marketing .bs-icon {
-  float: left;
-  margin: 7px 10px 0 0;
-  opacity: .8;
-}
-.marketing .small-bs-icon {
-  float: left;
-  margin: 4px 5px 0 0;
-}
 .marketing-byline {
   margin: -18px 0 27px;
   font-size: 18px;
   font-weight: 300;
   line-height: 24px;
   text-align: center;
+}
+/* Responsive Docs
+-------------------------------------------------- */
+@media (max-width: 480px) {
+  /* Adjust the jumbotron */
+  .jumbotron h1,
+  .jumbotron p {
+    text-align: center;
+    margin-right: 0;
+  }
+  .jumbotron h1 {
+    font-size: 45px;
+    margin-right: 0;
+  }
+  .jumbotron p {
+    margin-right: 0;
+    margin-left: 0;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .jumbotron .btn {
+    display: block;
+    font-size: 18px;
+    padding: 10px 14px;
+    margin: 0 auto 10px;
+  }
+  .jumbotron .btn-fake {
+    display: block;
+  }
+  /* Masthead (home page jumbotron) */
+  .masthead {
+    padding-top: 0;
+  }
+}
+@media (max-width: 768px) {
+  /* Jumbotron buttons */
+  .jumbotron .btn-large {
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+  /* Scale down the jumbotron content */
+  .jumbotron h1 {
+    font-size: 54px;
+  }
+  .jumbotron p {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 980px) {
+  /* Scale down the jumbotron content */
+  .jumbotron h1 {
+    font-size: 72px;
+  }
+}
+@media (max-width: 980px) {
+  
+}
+/* LARGE DESKTOP SCREENS */
+@media (min-width: 1210px) {
+  
 }
 /*
  * github.com style (c) Vasily Polovnyov <vast@whiteants.net>
