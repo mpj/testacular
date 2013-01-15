@@ -6493,6 +6493,13 @@ body {
 }
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
+  #wrap {
+    margin: 0 auto -120px;
+  }
+  #push,
+  #footer {
+    height: 120px;
+  }
   #footer {
     margin-left: -20px;
     margin-right: -20px;
@@ -8279,8 +8286,29 @@ div.subnav-fixed {
 #footer ul.copy > li {
   padding-left: 40px;
 }
-#footer ul.social > li {
+#footer ul.social {
   float: right;
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  #footer ul.copy > li {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 767px) {
+  #footer ul {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  #footer ul.social,
+  #footer ul.copy {
+    float: none;
+  }
+  #footer ul.copy > li {
+    padding-bottom: 15px;
+    padding-left: 20px;
+  }
 }
 /* Jumbotrons
 -------------------------------------------------- */

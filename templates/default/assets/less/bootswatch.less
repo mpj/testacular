@@ -106,6 +106,34 @@ div.subnav {
   padding-left: 40px;
 }
 
-#footer ul.social > li {
+#footer ul.social {
   float: right;
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  #footer ul.copy > li {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  #footer {
+    ul {
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    ul.social {
+
+    }
+
+    ul.social, ul.copy {
+      float: none;
+    }
+    ul.copy > li {
+      padding-bottom: 15px;
+      padding-left: 20px;
+    }
+  }
 }
