@@ -1,3 +1,5 @@
+section: plus
+
 # RequireJS
 
 ## Configure Testacular

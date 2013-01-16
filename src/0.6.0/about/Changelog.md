@@ -1,4 +1,18 @@
+section: about
+
+
 # Changelog
+
+### v0.5.8
+* Fix #283
+* Suppress global leak for istanbul
+* Fix growl reporter to work with `testacular run`
+* Upgrade jasmine to 1.3.1
+* Fix file sorting
+* Fix #265
+* Support for more mime-types on served static files
+* Fix opening Chrome on Windows
+* Upgrade growly to 1.1.0
 
 ### v0.5.7
 * Support code coverage for qunit.
@@ -31,7 +45,7 @@
 * Support for Require.js
 * Fix testacular init basePath
 
-### v0.5.0
+## v0.5.0
 * Add preprocessor for LiveScript
 * Fix JUnit reporter
 * Enable process global in config file
@@ -40,9 +54,9 @@
 * Allow config to be written in CoffeeScript
 * Allow espaced characters in served urls
 
-### v0.4.0 (stable)
+## v0.4.0 (stable)
 
-### v0.3.12
+## v0.3.12
 * Allow calling run() pragmatically from JS
 
 ### v0.3.11
@@ -96,14 +110,14 @@
 * Run tests on start (if watching enabled)
 * Add launcher for IE8, IE9
 
-### v0.3.0
+## v0.3.0
 * Change browser binaries on linux to relative
 * Add report-slower-than to CLI options
 * Fix PhantomJS binary on Travis CI
 
-### v0.2.0 (stable)
+## v0.2.0 (stable)
 
-### v0.1.3
+## v0.1.3
 * Launch Canary with crankshaft disabled
 * Make the captured page nicer
 
@@ -120,7 +134,7 @@
 * Redirect /urlRoot to /urlRoot/
 * Fix serving with urlRoot
 
-### v0.1.0
+## v0.1.0
 * Adapter for AngularJS scenario runner
 * Allow serving Testacular from a subpath
 * Fix race condition in testacular run

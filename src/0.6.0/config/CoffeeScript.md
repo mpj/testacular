@@ -1,3 +1,5 @@
+section:config
+
 # CoffeeScript
 
 If you want to use CoffeeScript for any files that Testacular uses, you can. 

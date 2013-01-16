@@ -1,3 +1,5 @@
+section: about
+
 # Versioning
 
 Testacular uses [Semantic Versioning]. All even versions (eg. `0.2.x`,

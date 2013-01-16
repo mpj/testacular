@@ -1,20 +1,33 @@
-mixin sidebar(toh)
-  .well.sidebar-nav
+- var sections = ['intro', 'config', 'plus', 'dev', 'about']
+
+mixin sidebar(fileList, toh, currentFile, currentSection)
+  - currentSection = typeof currentSection === 'undefined' ? 'intro' : currentSection
+  .sidebar-nav.well
     ul.nav.nav-list
-      li.nav-header= pageTitle
-        each heading in toh
-          if heading.rank === 2
-            li
-              a(href='#{heading.link}')= heading.name
+      each heading in fileList[currentSection]
+        li.nav-header
+          a(href='#{heading.name}.html')= heading.name
+        if heading.name === currentFile
+          each heading in toh
+            if heading.rank === 2
+              li
+                a(href='#{heading.link}')= heading.name
+
+
+
 
 
 mixin navigation(dirs)
   ul.nav
-    mixin dropdown('intro', dirs.intro)
-    mixin dropdown('config', dirs.config)
-    mixin dropdown('plus', dirs.plus)
-    mixin dropdown('dev', dirs.dev)
-    mixin dropdown('about', dirs.about)
+    for section in sections
+      li
+        a(href='#{section}.html')= section
+
+    // mixin dropdown('intro', dirs.intro)
+    // mixin dropdown('config', dirs.config)
+    // mixin dropdown('plus', dirs.plus)
+    // mixin dropdown('dev', dirs.dev)
+    // mixin dropdown('about', dirs.about)
 
 mixin dropdown(name, files)
   li.dropdown

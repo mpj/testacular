@@ -1,3 +1,5 @@
+section: config
+
 # Configuration File
 
 To configure Testacular you use a configuration file and supply this

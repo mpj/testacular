@@ -1,3 +1,5 @@
+section: config
+
 # Browsers
 
 ## Starting browsers

@@ -22,10 +22,11 @@ html(lang='en')
         #content-container.container
           .row
             .span3
-              mixin sidebar(toh)
+              mixin sidebar(fileList, toh, fileName, metadata.section)
             .span9
-              h1= pageTitle
-              #content!= content
+              .well.well-large
+                h1= pageTitle
+                #content!= content
       #push
     #footer
       block footer

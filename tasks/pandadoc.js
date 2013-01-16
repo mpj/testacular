@@ -77,8 +77,6 @@ module.exports = function(grunt) {
 
   // Generate docs for one specific version
   var docsForVersion = function(version, options) {
-    var deferred = q.defer();
-
     var srcPath = path.join(options.source, version);
     var outPath = path.join(options.output, version);
     var buildOptions = options;
@@ -91,23 +89,37 @@ module.exports = function(grunt) {
       srcPath
     ];
 
-    getFileList(srcPath, outPath).then(function(fileList){
-      grunt.log.ok(fileList);
+    var basePath = path.join(__dirname, '..');
+    var sharedFiles = [
+      {src: 'CONTRIBUTING', dest: 'dev/Contributing'}
+    ];
+
+    // Copy the shared data to the folder of this version
+    return q.all(sharedFiles.map(function(file) {
+      grunt.log.ok('Copying shared files...');
+      var src = path.join(basePath, file.src + '.md' );
+      var dest = path.join(srcPath, file.dest + '.md');
+      return fs.copy(src, dest);
+    })).then(function() {
+      return getFileList(srcPath, outPath);
+    }).then(function(fileList){
+      grunt.log.ok('Building version ' + version);
       buildOptions.fileList = fileList;
+
+      var deferred = q.defer();
+
       panda.make(srcArray, buildOptions, function(error, filesObject) {
         if (error) {
           deferred.reject(error);
         }
         deferred.resolve(filesObject.files);
       });
+      return deferred.promise;
+
     }).fail(errorHandler);
-    return deferred.promise;
-  };
-
-  // Build the index page
-  var linkIndex = function(path) {
 
   };
+
 
   // The Task itself
   grunt.registerMultiTask('pandadocs', 'Generate docs using panda-docs.', function() {

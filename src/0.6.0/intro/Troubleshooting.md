@@ -1,3 +1,5 @@
+section: intro
+
 # Troubleshooting
 
 You have some problems. Look no further. Known problems and solutions are collected here so you don't have to figure them out again and again.
@@ -5,7 +7,7 @@ You have some problems. Look no further. Known problems and solutions are collec
 ## Windows
 Oh our beloved Windows. 
 
-### Misc tips
+### Tips & Tricks
 
 * Use [chocolatey] for installation of tools. It helps. A lot.
 
@@ -20,10 +22,10 @@ Oh our beloved Windows.
 2. Add the `--start-maximized` flag to the chrome options. See [#269].
 3. Increase the timeout from 5000ms to 10000ms. At 5000ms, timeouts occurred and the retry logic kicks in and eventually resolves after 2~3 tries.
 
-## *nix
+## Unix
 Even if you have a nice OS problems can still occur. 
 
-### Misc tips
+### Tips & Tricks
 
 ### Specific problems
 

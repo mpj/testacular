@@ -1,8 +1,10 @@
+section: config
+
 # Files
 
 The files array determines wich files are loaded, watched and served by Testacular.
 
-> **Warning** The order in which the files are defined, determines the load order!
+Warning: The order in which the files are defined, determines the load order!
 
 ## Adapters
 The first thing you usually need is an adapter. The following adapters are bundled with Testacular

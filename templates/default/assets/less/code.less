@@ -20,7 +20,7 @@ code {
   margin: 0 2px;
   padding: 0px 5px;
   white-space: nowrap;
-
+  .border-radius(@borderRadiusSmall);
 }
 
 // Blocks of code
@@ -34,6 +34,7 @@ pre {
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
+  .border-radius(@baseBorderRadius);
 
   // Make prettyprint styles more spaced out for readability
   &.prettyprint {
