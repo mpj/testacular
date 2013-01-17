@@ -1,3 +1,5 @@
+section: dev
+
 # Events
 
 #### browser_register(browser)

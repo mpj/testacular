@@ -73,12 +73,42 @@ h4 {
 
 
 // CONTENT
-.well {
+.content-well {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-// BUTTONS
+// SIDEBAR
 // -----------------------------------------------------
+.sidebar-well {
+  padding: 0px;
+
+  ul > li {
+    border-top: 1px solid #ddd;
+    padding-left: 20px;
+
+    &:first-child {
+      border-top: none
+    }
+
+    &.nav-header {
+      font-size: 16px;
+      padding-left: inherit;
+      padding-bottom: inherit;
+      padding-top: inherit;
+      margin-top: 0px;
+      padding-top: 9px;
+      padding-bottom: 9px;
+      text-transform: lowercase;
+    }
+  }
+
+  ul > li.active {
+    background-color: #9c0001;
+  }
+
+
+}
+
 
 // TABLES
 // -----------------------------------------------------

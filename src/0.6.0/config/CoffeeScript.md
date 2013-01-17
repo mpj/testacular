@@ -1,4 +1,4 @@
-section:config
+section: config
 
 # CoffeeScript
 

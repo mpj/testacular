@@ -2,17 +2,19 @@
 
 mixin sidebar(fileList, toh, currentFile, currentSection)
   - currentSection = typeof currentSection === 'undefined' ? 'intro' : currentSection
-  .sidebar-nav.well
+  .well.sidebar-well
     ul.nav.nav-list
       each heading in fileList[currentSection]
-        li.nav-header
-          a(href='#{heading.name}.html')= heading.name
         if heading.name === currentFile
+          li.nav-header.active
+            a(href='#{heading.name}.html')= heading.name
           each heading in toh
             if heading.rank === 2
               li
                 a(href='#{heading.link}')= heading.name
-
+        else
+          li.nav-header
+            a(href='#{heading.name}.html')= heading.name
 
 
 

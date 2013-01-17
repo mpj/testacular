@@ -8278,8 +8278,31 @@ h4 {
   font-size: 17.7px;
   line-height: 23.599999999999998px;
 }
-.well {
+.content-well {
   background-color: rgba(255, 255, 255, 0.9);
+}
+.sidebar-well {
+  padding: 0px;
+}
+.sidebar-well ul > li {
+  border-top: 1px solid #ddd;
+  padding-left: 20px;
+}
+.sidebar-well ul > li:first-child {
+  border-top: none;
+}
+.sidebar-well ul > li.nav-header {
+  font-size: 16px;
+  padding-left: inherit;
+  padding-bottom: inherit;
+  padding-top: inherit;
+  margin-top: 0px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  text-transform: lowercase;
+}
+.sidebar-well ul > li.active {
+  background-color: #9c0001;
 }
 #content-container {
   padding-top: 20px;
