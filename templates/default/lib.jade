@@ -1,7 +1,8 @@
 - var sections = ['intro', 'config', 'plus', 'dev', 'about']
 
 mixin sidebar(fileList, toh, currentFile, currentSection)
-  - currentSection = typeof currentSection === 'undefined' ? 'intro' : currentSection
+  // Default section
+  - currentSection = typeof currentSection === 'undefined' ? 'intro' : currentSection;
   .well.sidebar-well
     ul.nav.nav-list
       each heading in fileList[currentSection]
@@ -24,22 +25,6 @@ mixin navigation(dirs)
     for section in sections
       li
         a(href='#{section}.html')= section
-
-    // mixin dropdown('intro', dirs.intro)
-    // mixin dropdown('config', dirs.config)
-    // mixin dropdown('plus', dirs.plus)
-    // mixin dropdown('dev', dirs.dev)
-    // mixin dropdown('about', dirs.about)
-
-mixin dropdown(name, files)
-  li.dropdown
-    a.dropdown-toggle(href='#', data-toggle='dropdown')
-      = name
-      b.caret
-    ul.dropdown-menu
-      each file in files
-        li
-          a(href='#{file.link}')= file.name.replace(/\-/g, ' ')
         
 
 mixin versionDropdown(versions, active)
@@ -51,7 +36,7 @@ mixin versionDropdown(versions, active)
       ul.dropdown-menu
         each version in versions
           - var active = version === active ? 'active' : '';
-          li
+          li(class='#{active}')
             a(href='../#{version}/index.html')= version
 
 

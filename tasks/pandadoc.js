@@ -64,13 +64,17 @@ module.exports = function(grunt) {
           list[key] = [];
         } else {
           var name = dir.shift().replace(/\.md$/, '');
-          list[key].push({
+          var obj = {
             name: name,
             link: path.join(name + '.html')
-          });
+          };
+          // The first one should be the one with the same name as the category
+          if (name === key) {
+            return list[key].unshift(obj);
+          }
+          list[key].push(obj);
         }
       });
-
       return list;
     });
   };
