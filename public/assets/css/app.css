@@ -8280,12 +8280,17 @@ h4 {
 }
 .content-well {
   background-color: rgba(255, 255, 255, 0.9);
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .sidebar-well {
   padding: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .sidebar-well ul > li {
-  border-top: 1px solid #ddd;
   padding-left: 20px;
 }
 .sidebar-well ul > li:first-child {
@@ -8300,6 +8305,7 @@ h4 {
   padding-top: 9px;
   padding-bottom: 9px;
   text-transform: lowercase;
+  border-top: 1px solid #ddd;
 }
 .sidebar-well ul > li.active {
   background-color: #9c0001;
