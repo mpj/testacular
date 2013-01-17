@@ -1,6 +1,5 @@
 section: about
 
-
 # Changelog
 
 ### v0.5.8
@@ -56,7 +55,7 @@ section: about
 
 ## v0.4.0 (stable)
 
-## v0.3.12
+### v0.3.12
 * Allow calling run() pragmatically from JS
 
 ### v0.3.11
