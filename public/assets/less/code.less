@@ -20,7 +20,7 @@ code {
   margin: 0 2px;
   padding: 0px 5px;
   white-space: nowrap;
-  .border-radius(@borderRadiusSmall);
+  .border-radius(@borderRadiusSmall)
 }
 
 // Blocks of code
@@ -31,9 +31,10 @@ pre {
   font-size: @baseFontSize - 1; // 14px to 13px
   line-height: @baseLineHeight;
   word-break: break-all;
-  word-wrap: break-word;
+  //word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
+  overflow: auto;
   .border-radius(@baseBorderRadius);
 
   // Make prettyprint styles more spaced out for readability
@@ -46,7 +47,7 @@ pre {
     padding: 0;
     color: inherit;
     white-space: pre;
-    white-space: pre-wrap;
+    //white-space: pre-wrap;
     background-color: transparent;
     border: 0;
   }
