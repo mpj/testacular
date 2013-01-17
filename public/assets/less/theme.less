@@ -82,13 +82,16 @@ h4 {
 // -----------------------------------------------------
 .sidebar-well {
   padding: 0px;
-  .border-radius(0px);
+  background: none;
+  .box-shadow(none);
+  border: none;
 
   ul > li {
     padding-left: 20px;
 
     &:first-child {
-      border-top: none
+      border-bottom: 1px dashed #666;
+      margin-bottom: 20px;
     }
 
     &.nav-header {
@@ -100,15 +103,26 @@ h4 {
       padding-top: 9px;
       padding-bottom: 9px;
       text-transform: lowercase;
-      border-top: 1px solid #ddd;
     }
   }
 
-  ul > li.active {
-    background-color: #9c0001;
+  ul > li.active > a {
+    background: none;
+    color: @red;
+    &:hover {
+      background: none;
+      color: @red;
+    }
   }
 
+  ul > li > a {
 
+    color: @textColor;
+    &:hover {
+      //background-color: #ddd;
+      color: @grayLight;
+    }
+  }
 }
 
 

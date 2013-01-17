@@ -8,14 +8,27 @@ mixin sidebar(fileList, toh, currentFile, currentSection)
       each heading in fileList[currentSection]
         if heading.name === currentFile
           li.nav-header.active
-            a(href='#{heading.name}.html')= heading.name
-          each heading in toh
-            if heading.rank === 2
-              li
-                a(href='#{heading.link}')= heading.name
+            if heading.name === currentSection
+              a(href='#{heading.name}.html')
+                i.icon-bookmark
+                = heading.name
+            else
+              a(href='#{heading.name}.html')
+                i.icon-chevron-down
+                = heading.name
+              each heading in toh
+                if heading.rank === 2
+                  li
+                    a(href='#{heading.link}')= heading.name
         else
+            
           li.nav-header
-            a(href='#{heading.name}.html')= heading.name
+            a(href='#{heading.name}.html')
+              if heading.name === currentSection
+                i.icon-bookmark
+              else
+                i.icon-chevron-right
+              = heading.name
 
 
 
