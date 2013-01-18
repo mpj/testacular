@@ -1,6 +1,5 @@
 // Navigational Menu ddsmoothmenu
-$(document).ready(function(){
-
+;$(document).ready(function(){
   ddsmoothmenu.init({
     mainmenuid: "menu", //menu DIV id
     orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
@@ -289,5 +288,18 @@ $(function() {
     slideshow_interval	: 3000,
     thumbMaxWidth       : 188,
     titlesFactor		: 0
+  });
+});
+
+
+// github commits
+//
+$(function() {
+  $('#github-commits').githubInfoWidget({ 
+    user: 'testacular', 
+    repo: 'testacular', 
+    branch: 'master',
+    last: 2,
+    limitMessageTo: 40
   });
 });

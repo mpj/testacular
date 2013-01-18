@@ -4542,6 +4542,9 @@ table td {
 .services {
   margin-bottom: 25px !important;
 }
+#github-commits {
+  overflow: hidden;
+}
 #markdown p {
   font-size: 14px;
 }
