@@ -38,7 +38,11 @@ mixin navigation(currentSection)
     li
       - var active = section === currentSection ? 'active' : '';
       a(href='#{section}.html', class='#{active}')= section
-        
+      ul
+        each heading in fileList[section]
+          if heading.name !== section
+            li
+              a(href='#{heading.name}.html')= heading.name
 
 mixin versionDropdown(versions, active)
   li
