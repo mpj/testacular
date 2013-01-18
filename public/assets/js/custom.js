@@ -8,7 +8,7 @@ ddsmoothmenu.init({
 	//customtheme: ["#1c5a80", "#18374a"],
 	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
 })
-					   
+
 })
 
 $(document).ready(function(){
@@ -27,8 +27,8 @@ jQuery(document).ready(function () {
 });
 });
 
-// UItoTop plugin 
-$(document).ready(function() {		
+// UItoTop plugin
+$(document).ready(function() {
 $().UItoTop({ easingType: 'easeOutQuart' });
 });
 
@@ -41,40 +41,40 @@ $().UItoTop({ easingType: 'easeOutQuart' });
 	slideshow: true,                //Boolean: Animate slider automatically
 	slideshowSpeed: 4500,           //Integer: Set the speed of the slideshow cycling, in milliseconds
 	animationSpeed: 700,             //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
-	pauseOnHover: true, 
+	pauseOnHover: true,
 	pauseOnAction:false,
 	controlNav: true,
 	directionNav: false,
 	controlsContainer: '.flex-container'
 		});
-  
+
   $('.flexslider2').flexslider({
 	animation: 'slide',
 	animationLoop: true,             //Boolean: Should the animation loop? If false, directionNav will received "disable" classes at either end
 	slideshow: true,                //Boolean: Animate slider automatically
 	slideshowSpeed: 4500,           //Integer: Set the speed of the slideshow cycling, in milliseconds
 	animationSpeed: 700,             //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
-	pauseOnHover: true, 
+	pauseOnHover: true,
 	pauseOnAction:false,
 	controlNav: false,
 	directionNav: true,
 	controlsContainer: '.flex-container'
 		});
-  
+
   $('.flexslider3').flexslider({
 	animation: 'slide',
 	animationLoop: true,             //Boolean: Should the animation loop? If false, directionNav will received "disable" classes at either end
 	slideshow: false,                //Boolean: Animate slider automatically
 	slideshowSpeed: 4500,           //Integer: Set the speed of the slideshow cycling, in milliseconds
 	animationSpeed: 700,             //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
-	pauseOnHover: true, 
+	pauseOnHover: true,
 	pauseOnAction:false,
 	controlNav: false,
 	directionNav: true,
 	controlsContainer: '.flex-container'
 		});
-  
-  
+
+
 	});
 })(jQuery)
 
@@ -107,19 +107,18 @@ $(this)
 
 // Alert Boxes
 $(document).ready(function() {
-// Closing notifications 
+// Closing notifications
 // this is the class that we will target
 $(".hideit").click(function() {
-//fades the notification out	
+//fades the notification out
   $(this).fadeOut(600);});
-});	
+});
 
 // Tooltips
 $(document).ready(function(){
 
-	/* Adding a colortip to any tag with a title attribute: */
-
-	$('[data]').colorTip({color:'yellow'});
+  /* Adding a colortip to any tag with a title attribute: */
+  $('[data-tooltip]').colorTip({color:'white'});
 
 });
 
@@ -168,17 +167,17 @@ $("#vertical-tabs.c").tytabs({
 
 // Toggle
 $(document).ready(function () {
-	
+
 $('#toggle-view li').click(function () {
 
 var text = $(this).children('div.panel');
 
 if (text.is(':hidden')) {
 	text.slideDown('200');
-	$(this).children('span').html('-');		
+	$(this).children('span').html('-');
 } else {
 	text.slideUp('200');
-	$(this).children('span').html('+');		
+	$(this).children('span').html('+');
 }
 
 });
@@ -198,11 +197,11 @@ $('.slidewrap').carousel({
 	speed: 500 // ms.
 });
 
-$('.slidewrap2').carousel({ 
+$('.slidewrap2').carousel({
 namespace: "carousel2" // Defaults to “carousel”.
 })
 
-$('.slidewrap3').carousel({ 
+$('.slidewrap3').carousel({
 namespace: "carousel3" // Defaults to “carousel”.
 })
 
@@ -211,14 +210,14 @@ namespace: "carousel3" // Defaults to “carousel”.
 // jQuery Prettyphoto Lightbox
 $(document).ready(function(){
 	$("area[rel^='prettyPhoto']").prettyPhoto();
-	
+
 	$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',theme:'pp_default',slideshow:4000, opacity: 0.50, deeplinking: false, overlay_gallery: false, autoplay_slideshow: false});
-	
+
 });
 
 // Isotope Filtering
 $(function(){
-      
+
 var $container = $('#contain');
 
 // initialize Isotope
@@ -236,7 +235,7 @@ var $container = $('#contain');
 	  masonry: { columnWidth: $container.width() / 12 }
 	});
   });
-  
+
 
 $container.isotope({
   itemSelector : '.item',
@@ -275,7 +274,7 @@ $optionLinks.click(function(){
 	// otherwise, apply new options
 	$container.isotope( options );
   }
-  
+
   return false;
 });
 
@@ -292,4 +291,3 @@ $(function() {
 	  titlesFactor		: 0
   });
 });
-

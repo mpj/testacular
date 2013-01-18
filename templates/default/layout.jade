@@ -31,47 +31,7 @@ include html
               != content
       footer
         .container
-          block footer
-            .four.columns
-              .about
-                h3.title 
-                  | About Us
-                  span.line
-                p 
-                  | Consectetur adipiscing elit aeneane lorem lipsum,
-                  | condimentum ultrices consequat eu, vehicula mauris lipsum
-                  | adipiscing lipsum aenean orci lorem Asequat. 
-            .four.columns
-              .tweets
-                h3.title
-                  | Latest tweets
-                  span.line
-                .tweet.query.footer
-            .four.columns
-              .flickr
-                h3.title
-                  | Flickr
-                  span.line
-                ul#footer.thumbs
-            .four.columns
-              .subscribe
-                h3.title
-                  | Subscribe
-                  span.line
-                p Subscribe to our google-group to receive updates.
-            .sixteen.columns
-              hr.bottom
-            .eight.columns
-              span.copyright
-                | &copy; Copyright 2013 &nbsp;
-                a(href='index.html') Testacular
-                | . All Rights Reserved. by &nbsp;
-                a(href='https://github.com/Dignifiedquire', data='Friedel Ziegelmayer', target='_blank')
-                  | Friedel Ziegelmayer
-            .eight.columns
-              .social
-                a(href='#')
-                  img(src='../assets/img/icons/twitter.png', alt='@TestacularJS')
+          include footer
 
     // Placed at the end of the document so the pages load faster 
     include scripts
