@@ -33,10 +33,11 @@ mixin sidebar(fileList, toh, currentFile, currentSection)
 
 
 
-mixin navigation(dirs)
+mixin navigation(currentSection)
   for section in sections
     li
-      a(href='#{section}.html')= section
+      - var active = section === currentSection ? 'active' : '';
+      a(href='#{section}.html', class='#{active}')= section
         
 
 mixin versionDropdown(versions, active)
