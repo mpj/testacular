@@ -3491,6 +3491,9 @@ table td {
   text-align: center;
   color: #FFF;
 }
+#markdown p {
+  font-size: 14px;
+}
 #markdown h2 {
   padding: 5px 0 10px 0;
   border-bottom: 1px solid #ECECEC;
