@@ -1,208 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Testacular</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Le styles -->
-    <link href="../assets/css/app.css" rel="stylesheet">
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
-  </head>
-  <body>
-    <div id="wrap">
-      <div class="navbar navbar-inverse navbar-static-top">
-        <div class="navbar-inner">
-          <div class="container"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="index.html" class="brand">Testacular</a>
-            <div class="nav-collapse collapse">
-              <ul class="nav">
-                <li><a href="intro.html">intro</a></li>
-                <li><a href="config.html">config</a></li>
-                <li><a href="plus.html">plus</a></li>
-                <li><a href="dev.html">dev</a></li>
-                <li><a href="about.html">about</a></li>
-              </ul>
-              <ul class="nav pull-right">
-                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">v0.6.0<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class=""><a href="../0.6.0/index.html">0.6.0</a></li>
-                  </ul>
-                </li>
+<!DOCTYPE html><!--[if lt IE 7]>
+<html lang="en" class="ie ie6"></html><![endif]--><!--[if IE 7]>
+<html lang="en" class="ie ie7"></html><![endif]--><!--[if IE 8]>
+<html lang="en" class="ie ie8"></html><![endif]--><!--[if (gte IE 9)|!(IE)]>
+<html lang="en"></html>
+<head>
+  <!-- head.jade -->
+  <!---->
+  <!-- This this the template for the head part.-->
+  <!-- Basic Page Needs-->
+  <meta charset="utf-8">
+  <title>Testacular</title>
+  <!-- Mobile specific Metas-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Le styles -->
+  <link href="../assets/css/app.css" rel="stylesheet">
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+  <script src="../assets/js/html5.js"></script><![endif]-->
+  <!-- Fav and touch icons -->
+  <link rel="shortcut icon" href="../assets/img/favicon/favicon.ico">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png">
+</head>
+<body>
+  <div id="wrap" class="boxed">
+    <header>
+      <div class="container clearfix">
+        <div class="one-third column">
+          <div class="logo"><a href="index.html"><img src="../assets/img/logo.png" alt="Testacular"></a></div>
+        </div>
+        <div class="two-thirds column">
+          <nav id="menu" class="navigation">
+            <ul id="nav">
+              <li><a href="intro.html">intro</a></li>
+              <li><a href="config.html">config</a></li>
+              <li><a href="plus.html">plus</a></li>
+              <li><a href="dev.html">dev</a></li>
+              <li><a href="about.html">about</a></li>
+              <li><a href="">v0.6.0</a>
+                <ul>
+                  <li><a href="../0.6.0/index.html">v0.6.0</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="sixteen columns">
+          <hr>
+        </div>
+      </div>
+    </header>
+    <div id="slider">
+      <div class="container clearfix">
+        <div class="sixteen columns">
+          <div class="flex-container">
+            <div class="flexslider">
+              <ul class="slides">
+                <li><a href="#"><img src="../assets/img/img/sliders/slider-1-1.jpg" alt="Add me">
+                    <p class="flex-caption"><span>Awesome Testing</span>Great Stuff </p></a></li>
+                <li><a href="#"><img src="../assets/img/img/sliders/slider-1-2.jpg" alt="Add me">
+                    <p class="flex-caption"><span>Awesome Testing</span>Great Stuff </p></a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <div id="content-container" class="container">
-        <div class="row">
-          <div class="span3">
-            <!-- Default section-->
-            <div class="well sidebar-well">
-              <ul class="nav nav-list">
-                <li class="nav-header"><a href="plus.html"><i class="icon-bookmark"></i>plus</a></li>
-                <li class="nav-header"><a href="Cloud9.html"><i class="icon-chevron-right"></i>Cloud9</a></li>
-                <li class="nav-header"><a href="Jenkins-CI.html"><i class="icon-chevron-right"></i>Jenkins-CI</a></li>
-                <li class="nav-header active"><a href="RequireJS.html"><i class="icon-chevron-down"></i>RequireJS</a>
-                  <li><a href="#configure-testacular">Configure Testacular</a></li>
-                  <li><a href="#requirejs-main-module">RequireJs Main Module</a></li>
-                  <li><a href="#requirejs-test-in-testacular">RequireJs Test in Testacular</a></li>
-                  <li><a href="#run-the-tests-in-testacular">Run the Tests in Testacular</a></li>
-                </li>
-                <li class="nav-header"><a href="Teamcity.html"><i class="icon-chevron-right"></i>Teamcity</a></li>
-                <li class="nav-header"><a href="Travis-CI.html"><i class="icon-chevron-right"></i>Travis-CI</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="span9">
-            <div class="well content-well well-large">
-              <h1>RequireJS</h1>
-              <div id="content"><h2 id='configure-testacular'><a class='heading_anchor' href='#configure-testacular'><i class='headerLinkIcon'></i></a>Configure Testacular</h2>
-<h3 id='directory-setup'><a class='heading_anchor' href='#directory-setup'><i class='headerLinkIcon'></i></a>Directory Setup</h3>
-<p>For clarity in the example configuration files and test below, the directory structure upon which these are based looks like this:</p>
-<pre><code>project/
-  lib/
-    jquery<span class="variable">.js</span> <span class="preprocessor">#etc</span>
-  node_modules/
-    chai/ <span class="preprocessor">#etc</span>
-  src/
-    MyModule<span class="variable">.js</span>
-  test/
-    MyModule<span class="variable">.test</span><span class="variable">.js</span>
-    test-main<span class="variable">.js</span>
-testacular<span class="variable">.conf</span><span class="variable">.js</span></code></pre>
-<h3 id='initialize-testacular'><a class='heading_anchor' href='#initialize-testacular'><i class='headerLinkIcon'></i></a>Initialize Testacular</h3>
-<p>Testacular comes with a nice utility for generating a config file (default name: <code>testacular.conf.js</code>) that it needs in order to run. In your terminal, type:</p>
-<pre><code class="language-bash">$ testacular init</code></pre>
-<p>This will give you a series of prompts for things such as paths to source and tests and which browsers to capture. These prompts do not include the option to add RequireJs support automatically, so you’ll need to add those lines manually to your <code>testacular.conf.js</code> (see below). As of testacular 0.5.2, testacular init will prompt for usage of the RequireJs adapter.</p>
-<h3 id='testacular-include'><a class='heading_anchor' href='#testacular-include'><i class='headerLinkIcon'></i></a>Testacular Include</h3>
-<p>Testacular 0.5.1 (<strong>WARNING</strong> As of writing, npm install will give you 0.4.0, the latest stable version) This, while adding RequireJs support, has added a new concept of “included” to the files listed in your config. This is because RequireJs will balk about a the module not being loaded correctly (ie, loaded synchronously in the <code>&lt;head/&gt;</code> tag of the runner). From the RequireJs docs:</p>
-<blockquote>
-<p>“Be sure to load all scripts that call <code>define()</code> via the RequireJS API. Do not manually code script tags 
-in HTML to load scripts that have <code>define()</code> calls in them.”</p>
-</blockquote>
-<h3 id='requirejs-shim'><a class='heading_anchor' href='#requirejs-shim'><i class='headerLinkIcon'></i></a>RequireJs Shim</h3>
-<p>Not immediately apparent is the fact that the ‘shim’ config from RequireJs 2.x does not work from within Testacular. I haven’t yet figured out why. For instance, I was constantly getting “‘Backbone’ is not defined” messages even though it was specified in the ‘shim’ config and required in the test. I could have been doing something wrong. My solution thus far has been to list each of the non-RequireJs modules and their dependencies in the <code>files</code> attribute of <code>testacular.conf.js</code>.</p>
-<h3 id='<code>testacularconfjs</code>'><a class='heading_anchor' href='#<code>testacularconfjs</code>'><i class='headerLinkIcon'></i></a><code>testacular.conf.js</code></h3>
-<p>The final point is that the RequireJs main module for your test runner should be the last file listed.</p>
-<p>So, finally, here is the ‘file’ excerpt of <code>testacular.conf.js</code>:</p>
-<pre><code class="language-javascript">files = [
-  MOCHA,
-  MOCHA_ADAPTER,
-  REQUIRE,
-  REQUIRE_ADAPTER,
-
-  <span class="comment">// !! libs required for test framework</span>
-  {pattern: <span class="string">'node_modules/chai/chai.js'</span>, included: <span class="literal">false</span>},
-
-  <span class="comment">// !! put what used to be in your requirejs 'shim' config here</span>
-  <span class="string">'lib/jquery.js'</span>,
-  <span class="string">'lib/underscore.js'</span>,
-  <span class="string">'lib/backbone.js'</span>,
-  <span class="string">'lib/handlebars.js'</span>,
-
-  <span class="comment">// !! put all libs in requirejs 'paths' config here (included: false)</span>
-  {pattern: <span class="string">'lib/**/*.js'</span>, included: <span class="literal">false</span>},
-
-  <span class="comment">// !! all src and test modules (included: false)</span>
-  {pattern: <span class="string">'src/**/*'</span>, included: <span class="literal">false</span>},
-  {pattern: <span class="string">'test/**/*.test.js'</span>, included: <span class="literal">false</span>},
-
-  <span class="comment">// !! test main require module last</span>
-  <span class="string">'test/test-main.js'</span>
-];</code></pre>
-<p>This config is awesome. It replaces an html test runner that you would otherwise have to build.</p>
-<h2 id='requirejs-main-module'><a class='heading_anchor' href='#requirejs-main-module'><i class='headerLinkIcon'></i></a>RequireJs Main Module</h2>
-<p>Just like any RequireJs project, you need a main module to bootstrap your tests. In the main module, you setup the <code>require.config</code>.</p>
-<h3 id='testacular-<code>/base</code>-directory'><a class='heading_anchor' href='#testacular-<code>/base</code>-directory'><i class='headerLinkIcon'></i></a>Testacular <code>/base</code> Directory</h3>
-<p>Testacular serves files under the <code>/base</code> directory. So, on the server, requests to files will be served up under <code>http://localhost:9876/base/*</code>. The RequireJs config for <code>baseUrl</code> gives a starting context for modules that load with relative paths. When setting this value for the Testacular server, it will need to start with <code>/base</code>. I want my baseUrl to be at the root of my <code>/src</code> directory so relative requires in the source won’t need to change. My baseUrl has the value of <code>/base/src</code>.</p>
-<h3 id='require-each-test-file'><a class='heading_anchor' href='#require-each-test-file'><i class='headerLinkIcon'></i></a>Require Each Test File</h3>
-<p>One of the things I hate is having to update a master list of all tests to run every time I add a test. There is no config option for this, but there&#39;s an easy way to get around it by filtering the tests from the <code>window.__testacular__.files</code> object.
-The code is included in the example below and the original suggestion came from <a href="https://github.com/vojtajina/testacular/pull/236">https://github.com/vojtajina/testacular/pull/236</a>.</p>
-<h3 id='asynchronously-run-testacular'><a class='heading_anchor' href='#asynchronously-run-testacular'><i class='headerLinkIcon'></i></a>Asynchronously Run Testacular</h3>
-<p>Because the RequireJs require statements are asynchronous, Testacular needs to wait until they’re done (the code is loaded and ready) before it starts the tests.</p>
-<p>The main-test.js file ends up looking like this:</p>
-<pre><code class="language-javascript"><span class="keyword">var</span> tests = Object.keys(window.__testacular__.files).filter(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
-    <span class="keyword">return</span> <span class="regexp">/\.test\.js$/</span>.test(file);
-});
-
-require({
-
-  <span class="comment">// !! Testacular serves files from '/base'</span>
-  baseUrl: <span class="string">'/base/src'</span>,
-  paths: {
-    require: <span class="string">'../lib/require'</span>,
-    text: <span class="string">'../lib/text'</span>
-  },
-}, tests, <span class="keyword">function</span>() {
-  window.__testacular__.start();
-});</code></pre>
-<h2 id='requirejs-test-in-testacular'><a class='heading_anchor' href='#requirejs-test-in-testacular'><i class='headerLinkIcon'></i></a>RequireJs Test in Testacular</h2>
-<p>All the setup thus far has been in preparation for the code to follow. The test can now be setup as a RequireJs module. It can require the source code under test. It can use Mocha (or whatever framework there is a Testacular adapter for).</p>
-<p>I will also use Chai in order to get the ‘should’ BDD-style assertions. Note that by using RequireJs and running in the browser, we can’t just <code>require(&#39;chai&#39;)</code>. It has to be required using the asynchronous callback to avoid this error:</p>
-<pre><code class="language-bash">Uncaught Error: Module name “../node_modules/chai/chai” has not been loaded yet <span class="keyword">for</span> context: _. Use require([])</code></pre>
-<p>And finally, <code>should()</code> must be invoked to be available in the test.</p>
-<p>So, a simple test will look like:</p>
-<pre><code class="language-javascript">define([<span class="string">'../node_modules/chai/chai'</span>, <span class="string">'MyModule'</span>],
-  <span class="keyword">function</span>(chai, MyModule) {
-
-  <span class="keyword">var</span> assert = chai.assert,
-    expect = chai.expect,
-    should = chai.should();
-
-  describe(<span class="string">'MyModule'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-    describe(<span class="string">'#initialize()'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-      it(<span class="string">'should be a stinkin object'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-        <span class="keyword">var</span> yippee = <span class="keyword">new</span> MyModule();
-        yippee.should.be.an(<span class="string">'object'</span>);
-      });
-    });
-  });
-});</code></pre>
-<h2 id='run-the-tests-in-testacular'><a class='heading_anchor' href='#run-the-tests-in-testacular'><i class='headerLinkIcon'></i></a>Run the Tests in Testacular</h2>
-<p>To start the Testacular server:</p>
-<pre><code class="language-bash">$ testacular start</code></pre>
-<p>Finally, if your Testacular server is already running and you want to kick off the tests, type:</p>
-<pre><code class="language-bash">$ testacular run</code></pre>
-<hr>
-<p>Source: <a href="http://jaketrent.com/post/test-requirejs-testacular/">Jake Trent</a></p>
-</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="push"></div>
     </div>
-    <div id="footer">
+    <div class="container">
+      <div class="welcome">
+        <div class="sixteen columns">
+          <p>Welcome to <span class="color">Testacular</span>- Because Testing is hard enough.</p>
+        </div>
+      </div>
+      <div class="services clearfix">
+        <div class="sixteen columns">
+          <h2 class="title">
+             
+            Why Testacular?<span class="line"></span>
+          </h2>
+        </div>
+        <ul id="sti-menu" class="sti-menu">
+          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
+              <h2 data-type="mText" class="sti-item">Web Design</h2>
+              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
+          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
+              <h2 data-type="mText" class="sti-item">Web Design</h2>
+              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
+          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
+              <h2 data-type="mText" class="sti-item">Web Design</h2>
+              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
+          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
+              <h2 data-type="mText" class="sti-item">Web Design</h2>
+              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
+        </ul>
+      </div>
+      <div class="recent-work clearfix">
+        <div class="sixteen columns">
+          <h2 class="title">Recent Work<span class="line"></span></h2>
+          <p>Welcome to our latest stuff</p>
+        </div>
+      </div>
+    </div>
+    <footer>
       <div class="container">
-        <div class="row">
-          <div class="span8">
-            <ul class="copy">
-              <li><a href="https://github.com/vojtajina">Testacular by Vojta Jina</a></li>
-              <li><a href="https://github.com/Dignifiedquire">Site by Friedel Ziegelmayer</a></li>
-            </ul>
-          </div>
-          <div class="span4">
-            <ul class="social">
-              <li><a href="https://github.com/vojtajina/testacular/" rel="tooltip" data-original-title="GitHub Repo"><i class="icon-github-alt icon-large"></i></a></li>
-              <li><a href="https://github.com/vojtajina/testacular/issues" rel="tooltip" data-original-title="GitHub Issues"><i class="icon-beaker icon-large"></i></a></li>
-              <li><a href="http://twitter.com/TestacularJS" rel="tooltip" data-original-title="@TestacularJS"><i class="icon-twitter icon-large"></i></a></li>
-              <li><a href="https://groups.google.com/forum/#!forum/testacular" rel="tooltip" data-original-title="Mailing List"><i class="icon-envelope-alt icon-large"></i></a></li>
-            </ul>
+        <div class="four columns">
+          <div class="about">
+            <h3 class="title">
+               
+              About Us<span class="line"></span>
+            </h3>
+            <p>
+               
+              Consectetur adipiscing elit aeneane lorem lipsum,
+              condimentum ultrices consequat eu, vehicula mauris lipsum
+              adipiscing lipsum aenean orci lorem Asequat. 
+            </p>
           </div>
         </div>
+        <div class="four columns">
+          <div class="tweets">
+            <h3 class="title">Latest tweets<span class="line"></span></h3>
+            <div class="tweet query footer"></div>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="flickr">
+            <h3 class="title">Flickr<span class="line"></span></h3>
+            <ul id="footer" class="thumbs"></ul>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="subscribe">
+            <h3 class="title">Subscribe<span class="line"></span></h3>
+            <p>Subscribe to our google-group to receive updates.</p>
+          </div>
+        </div>
+        <div class="sixteen columns">
+          <hr class="bottom">
+        </div>
+        <div class="eight columns"><span class="copyright">&copy; Copyright 2013 &nbsp;<a href="index.html">Testacular</a>. All Rights Reserved. by <a href="https://github.com/Dignifiedquire" data="Friedel Ziegelmayer" target="_blank"> </a></span></div>
+        <div class="eight columns">
+          <div class="social"><a href="#"><img src="../assets/img/icons/twitter.png" alt="@TestacularJS"></a></div>
+        </div>
       </div>
-    </div>
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/app.js"></script>
-  </body>
-</html>
+    </footer>
+  </div>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <!-- jQuery library-->
+  <script src="../assets/js/jquery-1.7.2.min.js"></script>
+  <!-- jQuery Easing-->
+  <script src="../assets/js/jquery.easing.1.3.min.js"></script>
+  <!-- jQuery Ui.min.js-->
+  <script src="../assets/js/jquery-ui.min.js"></script>
+  <!-- jQuery cookie-->
+  <script src="../assets/js/jquery.cookie.js"></script>
+  <!-- jQuery Uniform-->
+  <script src="../assets/js/jquery.uniform.min.js"></script>
+  <!-- Nav Menu ddsmoothmenuin.js"-->
+  <script src="../assets/js/ddsmoothmenu.js"></script>
+  <!-- Flex Slider -->
+  <script src="../assets/js/jquery.flexslider.js"></script>
+  <!-- Elastic Slider -->
+  <script src="../assets/js/jquery.eislideshow.js"></script>
+  <!-- Sliding Text and Icon Menu Style-->
+  <script src="../assets/js/jquery.iconmenu.js"></script>
+  <!-- Colortip Tooltip Plugin -->
+  <script src="../assets/js/colortip.js"></script>
+  <!-- ugin tytabs -->
+  <script src="../assets/js/tytabs.js"></script>
+  <!-- jQuery Carousel /script-->
+  <script src="../assets/js/carousel.js"></script>
+  <!-- jQuery Prettyphoto -->
+  <script src="../assets/js/jquery.prettyPhoto.js"></script>
+  <!-- Isotope Filtering -->
+  <script src="../assets/js/jquery.isotope.min.js"></script>
+  <!-- Responsive Navigation Menu by SelectNave-->
+  <script src="../assets/js/selectnav.js"></script>
+  <!-- Isotope Filtering-->
+  <script src="../assets/js/jquery.ui.totop.js"></script>
+  <!--  file for javascript in html-->
+  <script src="../assets/js/custom.js"></script>
+  <!-- jQuery Tweetsipt-->
+  <script src="../assets/js/jquery.tweet.js"></script>
+  <!-- jQuery Flickr-->
+  <script src="../assets/js/jflickrfeed.min.js"></script>
+  <!-- jQuery Tweets Options-->
+  <script src="../assets/js/twitter-flickr-options.js"></script>
+</body><![endif]-->

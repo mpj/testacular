@@ -34,22 +34,17 @@ mixin sidebar(fileList, toh, currentFile, currentSection)
 
 
 mixin navigation(dirs)
-  ul.nav
-    for section in sections
-      li
-        a(href='#{section}.html')= section
+  for section in sections
+    li
+      a(href='#{section}.html')= section
         
 
 mixin versionDropdown(versions, active)
-  ul.nav.pull-right
-    li.dropdown
-      a.dropdown-toggle(href='#', data-toggle='dropdown')
-        = 'v' + active
-        b.caret
-      ul.dropdown-menu
-        each version in versions
-          - var active = version === active ? 'active' : '';
-          li(class='#{active}')
-            a(href='../#{version}/index.html')= version
+  li
+    a(href='')= 'v' + active
+    ul
+      each version in versions
+        li
+          a(href='../#{version}/index.html')= 'v' + version
 
 

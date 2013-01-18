@@ -1,38 +1,111 @@
 include lib
 
 !!! 5
-html(lang='en')
+include html
   head
     include head
   body
-    #wrap
-      .navbar.navbar-inverse.navbar-static-top
-        .navbar-inner
-          .container
-            a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.brand(href='index.html')= title 
-            .nav-collapse.collapse
-              mixin navigation(fileList)
-              mixin versionDropdown(versions, currentVersion)
+    #wrap.boxed
+      header
+        .container.clearfix
+          .one-third.column
+            .logo
+              a(href='index.html')
+                img(src='../assets/img/logo.png', alt='Testacular')
+          .two-thirds.column
+            nav#menu.navigation
+              ul#nav
+                mixin navigation(fileList)
+                mixin versionDropdown(versions, currentVersion)
+          .sixteen.columns
+            hr
 
       block content
-        #content-container.container
-          .row
-            .span3
-              mixin sidebar(fileList, toh, fileName, metadata.section)
-            .span9
-              .well.content-well.well-large
-                h1= pageTitle
-                #content!= content
-      #push
-    #footer
-      block footer
+        include slider
         .container
-          .row
-            include footer
-  
+          .welcome
+            .sixteen.columns
+              p
+                | Welcome to 
+                span.color Testacular
+                | - Because Testing is hard enough.
+
+          .services.clearfix
+            .sixteen.columns
+              h2.title 
+                | Why Testacular?
+                span.line
+            ul#sti-menu.sti-menu
+              li.four.columns
+                a(href='')
+                  span.sti-icon.sti-item.color-1(data-type='icon')
+                  h2.sti-item(data-type='mText') Web Design
+                  p.sti-item(data-type='sText') Shaping a creative identity, rich and versatile Enhance your corporate image.
+              li.four.columns
+                a(href='')
+                  span.sti-icon.sti-item.color-1(data-type='icon')
+                  h2.sti-item(data-type='mText') Web Design
+                  p.sti-item(data-type='sText') Shaping a creative identity, rich and versatile Enhance your corporate image.
+              li.four.columns
+                a(href='')
+                  span.sti-icon.sti-item.color-1(data-type='icon')
+                  h2.sti-item(data-type='mText') Web Design
+                  p.sti-item(data-type='sText') Shaping a creative identity, rich and versatile Enhance your corporate image.
+              li.four.columns
+                a(href='')
+                  span.sti-icon.sti-item.color-1(data-type='icon')
+                  h2.sti-item(data-type='mText') Web Design
+                  p.sti-item(data-type='sText') Shaping a creative identity, rich and versatile Enhance your corporate image.
+
+          .recent-work.clearfix
+            .sixteen.columns
+              h2.title
+                | Recent Work
+                span.line
+              p Welcome to our latest stuff
+
+      footer
+        .container
+          block footer
+            .four.columns
+              .about
+                h3.title 
+                  | About Us
+                  span.line
+                p 
+                  | Consectetur adipiscing elit aeneane lorem lipsum,
+                  | condimentum ultrices consequat eu, vehicula mauris lipsum
+                  | adipiscing lipsum aenean orci lorem Asequat. 
+            .four.columns
+              .tweets
+                h3.title
+                  | Latest tweets
+                  span.line
+                .tweet.query.footer
+            .four.columns
+              .flickr
+                h3.title
+                  | Flickr
+                  span.line
+                ul#footer.thumbs
+            .four.columns
+              .subscribe
+                h3.title
+                  | Subscribe
+                  span.line
+                p Subscribe to our google-group to receive updates.
+            .sixteen.columns
+              hr.bottom
+            .eight.columns
+              span.copyright
+                | &copy; Copyright 2013 &nbsp;
+                a(href='index.html') Testacular
+                | . All Rights Reserved. by 
+                a(href='https://github.com/Dignifiedquire', data='Friedel Ziegelmayer', target='_blank') 
+            .eight.columns
+              .social
+                a(href='#')
+                  img(src='../assets/img/icons/twitter.png', alt='@TestacularJS')
+
     // Placed at the end of the document so the pages load faster 
     include scripts
