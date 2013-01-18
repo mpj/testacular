@@ -46,8 +46,8 @@
                 <ul>
                   <li><a href="Browsers.html">Browsers</a></li>
                   <li><a href="CoffeeScript.html">CoffeeScript</a></li>
-                  <li><a href="Configuration-File.html">Configuration-File</a></li>
-                  <li><a href="Coverage-Reporter.html">Coverage-Reporter</a></li>
+                  <li><a href="Configuration_File.html">Configuration File</a></li>
+                  <li><a href="Coverage_Reporter.html">Coverage Reporter</a></li>
                   <li><a href="Files.html">Files</a></li>
                   <li><a href="Preprocessors.html">Preprocessors</a></li>
                 </ul>
@@ -55,18 +55,18 @@
               <li><a href="plus.html" class="active">plus</a>
                 <ul>
                   <li><a href="Cloud9.html">Cloud9</a></li>
-                  <li><a href="Jenkins-CI.html">Jenkins-CI</a></li>
+                  <li><a href="Jenkins_CI.html">Jenkins CI</a></li>
                   <li><a href="RequireJS.html">RequireJS</a></li>
                   <li><a href="Teamcity.html">Teamcity</a></li>
-                  <li><a href="Travis-CI.html">Travis-CI</a></li>
+                  <li><a href="Travis_CI.html">Travis CI</a></li>
                 </ul>
               </li>
               <li><a href="dev.html" class="">dev</a>
                 <ul>
-                  <li><a href="Client---server-protocol.html">Client---server-protocol</a></li>
+                  <li><a href="Client_-_Server_Protocol.html">Client - Server Protocol</a></li>
                   <li><a href="Contributing.html">Contributing</a></li>
                   <li><a href="Events.html">Events</a></li>
-                  <li><a href="Public-apis.html">Public-apis</a></li>
+                  <li><a href="Public_API.html">Public API</a></li>
                   <li><a href="Todos.html">Todos</a></li>
                 </ul>
               </li>
@@ -96,7 +96,7 @@
         </h1>
       </div>
       <div class="page-columns">
-        <div class="sixteen columns bottom"><h2 id='configure-testacular'><a class='heading_anchor' href='#configure-testacular'><i class='headerLinkIcon'></i></a>Configure Testacular</h2>
+        <div id="markdown" class="sixteen columns bottom"><h2 id='configure-testacular'><a class='heading_anchor' href='#configure-testacular'><i class='headerLinkIcon'></i></a>Configure Testacular</h2>
 <h3 id='directory-setup'><a class='heading_anchor' href='#directory-setup'><i class='headerLinkIcon'></i></a>Directory Setup</h3>
 <p>For clarity in the example configuration files and test below, the directory structure upon which these are based looks like this:</p>
 <pre><code>project/
@@ -117,8 +117,8 @@ testacular<span class="variable">.conf</span><span class="variable">.js</span></
 <h3 id='testacular-include'><a class='heading_anchor' href='#testacular-include'><i class='headerLinkIcon'></i></a>Testacular Include</h3>
 <p>Testacular 0.5.1 (<strong>WARNING</strong> As of writing, npm install will give you 0.4.0, the latest stable version) This, while adding RequireJs support, has added a new concept of “included” to the files listed in your config. This is because RequireJs will balk about a the module not being loaded correctly (ie, loaded synchronously in the <code>&lt;head/&gt;</code> tag of the runner). From the RequireJs docs:</p>
 <blockquote>
-<p>“Be sure to load all scripts that call <code>define()</code> via the RequireJS API. Do not manually code script tags 
-in HTML to load scripts that have <code>define()</code> calls in them.”</p>
+<p>Be sure to load all scripts that call <code>define()</code> via the RequireJS API. Do not manually code script tags 
+in HTML to load scripts that have <code>define()</code> calls in them.</p>
 </blockquote>
 <h3 id='requirejs-shim'><a class='heading_anchor' href='#requirejs-shim'><i class='headerLinkIcon'></i></a>RequireJs Shim</h3>
 <p>Not immediately apparent is the fact that the ‘shim’ config from RequireJs 2.x does not work from within Testacular. I haven’t yet figured out why. For instance, I was constantly getting “‘Backbone’ is not defined” messages even though it was specified in the ‘shim’ config and required in the test. I could have been doing something wrong. My solution thus far has been to list each of the non-RequireJs modules and their dependencies in the <code>files</code> attribute of <code>testacular.conf.js</code>.</p>

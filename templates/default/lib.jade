@@ -1,37 +1,4 @@
-- var sections = ['intro', 'config', 'plus', 'dev', 'about']
-
-mixin sidebar(fileList, toh, currentFile, currentSection)
-  // Default section
-  - currentSection = typeof currentSection === 'undefined' ? 'intro' : currentSection;
-  .well.sidebar-well
-    ul.nav.nav-list
-      each heading in fileList[currentSection]
-        if heading.name === currentFile
-          li.nav-header.active
-            if heading.name === currentSection
-              a(href='#{heading.name}.html')
-                i.icon-bookmark
-                = heading.name
-            else
-              a(href='#{heading.name}.html')
-                i.icon-chevron-down
-                = heading.name
-              each heading in toh
-                if heading.rank === 2
-                  li
-                    a(href='#{heading.link}')= heading.name
-        else
-            
-          li.nav-header
-            a(href='#{heading.name}.html')
-              if heading.name === currentSection
-                i.icon-bookmark
-              else
-                i.icon-chevron-right
-              = heading.name
-
-
-
+- var sections = ['intro', 'config', 'plus', 'dev', 'about'];
 
 mixin navigation(currentSection)
   for section in sections
@@ -40,9 +7,10 @@ mixin navigation(currentSection)
       a(href='#{section}.html', class='#{active}')= section
       ul
         each heading in fileList[section]
-          if heading.name !== section
+          unless heading.name == section
             li
-              a(href='#{heading.name}.html')= heading.name
+              a(href='#{heading.name}.html')
+                = heading.name.replace(/_/g, ' ')
 
 mixin versionDropdown(versions, active)
   li

@@ -46,8 +46,8 @@
                 <ul>
                   <li><a href="Browsers.html">Browsers</a></li>
                   <li><a href="CoffeeScript.html">CoffeeScript</a></li>
-                  <li><a href="Configuration-File.html">Configuration-File</a></li>
-                  <li><a href="Coverage-Reporter.html">Coverage-Reporter</a></li>
+                  <li><a href="Configuration_File.html">Configuration File</a></li>
+                  <li><a href="Coverage_Reporter.html">Coverage Reporter</a></li>
                   <li><a href="Files.html">Files</a></li>
                   <li><a href="Preprocessors.html">Preprocessors</a></li>
                 </ul>
@@ -55,18 +55,18 @@
               <li><a href="plus.html" class="">plus</a>
                 <ul>
                   <li><a href="Cloud9.html">Cloud9</a></li>
-                  <li><a href="Jenkins-CI.html">Jenkins-CI</a></li>
+                  <li><a href="Jenkins_CI.html">Jenkins CI</a></li>
                   <li><a href="RequireJS.html">RequireJS</a></li>
                   <li><a href="Teamcity.html">Teamcity</a></li>
-                  <li><a href="Travis-CI.html">Travis-CI</a></li>
+                  <li><a href="Travis_CI.html">Travis CI</a></li>
                 </ul>
               </li>
               <li><a href="dev.html" class="">dev</a>
                 <ul>
-                  <li><a href="Client---server-protocol.html">Client---server-protocol</a></li>
+                  <li><a href="Client_-_Server_Protocol.html">Client - Server Protocol</a></li>
                   <li><a href="Contributing.html">Contributing</a></li>
                   <li><a href="Events.html">Events</a></li>
-                  <li><a href="Public-apis.html">Public-apis</a></li>
+                  <li><a href="Public_API.html">Public API</a></li>
                   <li><a href="Todos.html">Todos</a></li>
                 </ul>
               </li>
@@ -96,7 +96,7 @@
         </h1>
       </div>
       <div class="page-columns">
-        <div class="sixteen columns bottom"><p>The files array determines wich files are loaded, watched and served by Testacular.</p>
+        <div id="markdown" class="sixteen columns bottom"><p>The files array determines wich files are loaded, watched and served by Testacular.</p>
 <div class="alert alert-block"><h4 class="alert-heading">Warning: </h4>The order in which the files are defined, determines the load order!
 
 </div>
@@ -119,7 +119,7 @@ example if you want to use Mocha you have the following in your config file.</p>
 For example you can just write <code>myFile.js</code> or something more elaborate like <code>test/unit/**/*.spec.js</code>. 
 These files get resolved to absolute paths using the <code>basePath</code> options, so if we set <code>basePath = &#39;../&#39;</code> and our configuration is in the folder <code>projectRoot/config</code>, our files get resolved to</p>
 <ul>
-<li><code>myFile.js</code> --&gt; `/projectRoot/myFile.js``</li>
+<li><code>myFile.js</code> --&gt; <code>/projectRoot/myFile.js</code></li>
 <li><code>test/unit/**/*.spec.js</code> --&gt; <code>/projectRoot/test/unit/**/*.spec.js</code></li>
 </ul>
 <p>and then they are matched using <a href="https://github.com/isaacs/minimatch">minimatch</a> against the file system.</p>

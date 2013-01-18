@@ -46,8 +46,8 @@
                 <ul>
                   <li><a href="Browsers.html">Browsers</a></li>
                   <li><a href="CoffeeScript.html">CoffeeScript</a></li>
-                  <li><a href="Configuration-File.html">Configuration-File</a></li>
-                  <li><a href="Coverage-Reporter.html">Coverage-Reporter</a></li>
+                  <li><a href="Configuration_File.html">Configuration File</a></li>
+                  <li><a href="Coverage_Reporter.html">Coverage Reporter</a></li>
                   <li><a href="Files.html">Files</a></li>
                   <li><a href="Preprocessors.html">Preprocessors</a></li>
                 </ul>
@@ -55,18 +55,18 @@
               <li><a href="plus.html" class="active">plus</a>
                 <ul>
                   <li><a href="Cloud9.html">Cloud9</a></li>
-                  <li><a href="Jenkins-CI.html">Jenkins-CI</a></li>
+                  <li><a href="Jenkins_CI.html">Jenkins CI</a></li>
                   <li><a href="RequireJS.html">RequireJS</a></li>
                   <li><a href="Teamcity.html">Teamcity</a></li>
-                  <li><a href="Travis-CI.html">Travis-CI</a></li>
+                  <li><a href="Travis_CI.html">Travis CI</a></li>
                 </ul>
               </li>
               <li><a href="dev.html" class="">dev</a>
                 <ul>
-                  <li><a href="Client---server-protocol.html">Client---server-protocol</a></li>
+                  <li><a href="Client_-_Server_Protocol.html">Client - Server Protocol</a></li>
                   <li><a href="Contributing.html">Contributing</a></li>
                   <li><a href="Events.html">Events</a></li>
-                  <li><a href="Public-apis.html">Public-apis</a></li>
+                  <li><a href="Public_API.html">Public API</a></li>
                   <li><a href="Todos.html">Todos</a></li>
                 </ul>
               </li>
@@ -96,21 +96,22 @@
         </h1>
       </div>
       <div class="page-columns">
-        <div class="sixteen columns bottom"><p><a href="https://c9.io/">Cloud9 IDE</a> is an open source web-based cloud integrated development environment that supports several programming languages, with a focus on the web stack (specifically JavaScript and <a href="http://nodejs.org/">NodeJS</a>). It is written almost entirely in JavaScript, and uses <a href="http://nodejs.org/">NodeJS</a> on the back-end. </p>
+        <div id="markdown" class="sixteen columns bottom"><p><a href="https://c9.io/">Cloud9 IDE</a> is an open source web-based cloud integrated development environment that supports several programming languages, with a focus on the web stack (specifically JavaScript and <a href="http://nodejs.org/">NodeJS</a>). It is written almost entirely in JavaScript, and uses <a href="http://nodejs.org/">NodeJS</a> on the back-end. </p>
 <h2 id='configuration'><a class='heading_anchor' href='#configuration'><i class='headerLinkIcon'></i></a>Configuration</h2>
 <p>There are 2 possibilities in order to run unit tests with testacular in <a href="https://c9.io/">Cloud9 IDE</a>: </p>
-<h3 id='capture-the-browser-manually-on-the-local-machine:'><a class='heading_anchor' href='#capture-the-browser-manually-on-the-local-machine:'><i class='headerLinkIcon'></i></a>Capture the browser manually on the local machine:</h3>
-<p>Call <a href="http://[projectName].[cloud9User].c9.io/">http://[projectName].[cloud9User].c9.io/</a> in your browser.</p>
-<h3 id='run-testacular-unit-tests-with-phantomjs-in-cloud9-ide:'><a class='heading_anchor' href='#run-testacular-unit-tests-with-phantomjs-in-cloud9-ide:'><i class='headerLinkIcon'></i></a>Run testacular unit tests with PhantomJS in cloud9 IDE:</h3>
+<h3 id='capture-the-browser-manually-on-the-local-machine'><a class='heading_anchor' href='#capture-the-browser-manually-on-the-local-machine'><i class='headerLinkIcon'></i></a>Capture the browser manually on the local machine</h3>
+<p>Call <code>http://[projectName].[cloud9User].c9.io/</code> in your browser.</p>
+<h3 id='run-testacular-unit-tests-with-phantomjs-in-cloud9-ide'><a class='heading_anchor' href='#run-testacular-unit-tests-with-phantomjs-in-cloud9-ide'><i class='headerLinkIcon'></i></a>Run testacular unit tests with PhantomJS in cloud9 IDE</h3>
 <ol>
-<li>PhantomJS must be installed with &quot;npm install phantomjs&quot;.</li>
+<li>PhantomJS must be installed with <code>npm install phantomjs</code>.</li>
 <li>The host must be configurable (requested in pull request <a href="https://github.com/vojtajina/testacular/pull/276">https://github.com/vojtajina/testacular/pull/276</a>). </li>
-<li>The testacular.conf.js file (tried it out for the <a href="https://github.com/IgorMinar/foodme">AngularJS foodme app</a>) must include the following entries: <pre><code class="language-javascript">     browsers = [<span class="string">'PhantomJS'</span>];
-     host = process.env.IP;
-     port = process.env.PORT;
-     runnerPort = <span class="number">0</span>;</code></pre>
-</li>
+<li>The testacular.conf.js file (tried it out for the
+<a href="https://github.com/IgorMinar/foodme">AngularJS foodme app</a>) must include the following entries: </li>
 </ol>
+<pre><code class="language-javascript">browsers = [<span class="string">'PhantomJS'</span>];
+host = process.env.IP;
+port = process.env.PORT;
+runnerPort = <span class="number">0</span>;</code></pre>
 
         </div>
       </div>

@@ -33,8 +33,8 @@ This will give you a series of prompts for things such as paths to source and te
 
 Testacular 0.5.1 (**WARNING** As of writing, npm install will give you 0.4.0, the latest stable version) This, while adding RequireJs support, has added a new concept of “included” to the files listed in your config. This is because RequireJs will balk about a the module not being loaded correctly (ie, loaded synchronously in the `<head/>` tag of the runner). From the RequireJs docs:
 
-> “Be sure to load all scripts that call `define()` via the RequireJS API. Do not manually code script tags 
-> in HTML to load scripts that have `define()` calls in them.”
+> Be sure to load all scripts that call `define()` via the RequireJS API. Do not manually code script tags 
+> in HTML to load scripts that have `define()` calls in them.
 
 ### RequireJs Shim
 

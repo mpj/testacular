@@ -27,7 +27,7 @@ All files that come from you and are not bundled with Testacular can get include
 For example you can just write `myFile.js` or something more elaborate like `test/unit/**/*.spec.js`. 
 These files get resolved to absolute paths using the `basePath` options, so if we set `basePath = '../'` and our configuration is in the folder `projectRoot/config`, our files get resolved to
 
-* `myFile.js` --> `/projectRoot/myFile.js``
+* `myFile.js` --> `/projectRoot/myFile.js`
 * `test/unit/**/*.spec.js` --> `/projectRoot/test/unit/**/*.spec.js`
 
 and then they are matched using [minimatch](https://github.com/isaacs/minimatch) against the file system.

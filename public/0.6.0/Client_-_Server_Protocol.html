@@ -46,27 +46,27 @@
                 <ul>
                   <li><a href="Browsers.html">Browsers</a></li>
                   <li><a href="CoffeeScript.html">CoffeeScript</a></li>
-                  <li><a href="Configuration-File.html">Configuration-File</a></li>
-                  <li><a href="Coverage-Reporter.html">Coverage-Reporter</a></li>
+                  <li><a href="Configuration_File.html">Configuration File</a></li>
+                  <li><a href="Coverage_Reporter.html">Coverage Reporter</a></li>
                   <li><a href="Files.html">Files</a></li>
                   <li><a href="Preprocessors.html">Preprocessors</a></li>
                 </ul>
               </li>
-              <li><a href="plus.html" class="active">plus</a>
+              <li><a href="plus.html" class="">plus</a>
                 <ul>
                   <li><a href="Cloud9.html">Cloud9</a></li>
-                  <li><a href="Jenkins-CI.html">Jenkins-CI</a></li>
+                  <li><a href="Jenkins_CI.html">Jenkins CI</a></li>
                   <li><a href="RequireJS.html">RequireJS</a></li>
                   <li><a href="Teamcity.html">Teamcity</a></li>
-                  <li><a href="Travis-CI.html">Travis-CI</a></li>
+                  <li><a href="Travis_CI.html">Travis CI</a></li>
                 </ul>
               </li>
-              <li><a href="dev.html" class="">dev</a>
+              <li><a href="dev.html" class="active">dev</a>
                 <ul>
-                  <li><a href="Client---server-protocol.html">Client---server-protocol</a></li>
+                  <li><a href="Client_-_Server_Protocol.html">Client - Server Protocol</a></li>
                   <li><a href="Contributing.html">Contributing</a></li>
                   <li><a href="Events.html">Events</a></li>
-                  <li><a href="Public-apis.html">Public-apis</a></li>
+                  <li><a href="Public_API.html">Public API</a></li>
                   <li><a href="Todos.html">Todos</a></li>
                 </ul>
               </li>
@@ -92,54 +92,34 @@
     </header>
     <div class="container clearfix">
       <div class="sixteen columns">
-        <h1 class="page-title">Jenkins CI Integration<span class="line"></span>
+        <h1 class="page-title">Client - Server Protocol<span class="line"></span>
         </h1>
       </div>
       <div class="page-columns">
-        <div class="sixteen columns bottom"><p><a href="http://jenkins-ci.org/">Jenkins CI</a> is one of the most popular continuous integration servers
-in the market today. At some point while developing your <a href="http://angularjs.org">Angular</a>
-project (hopefully early on), you might want to have automated tests run
-off your code versioning system. Jenkins will help you with this task.
-You can integrate testacular to your Jenkins setup fairly easy and as of
-version 0.3.12, test results can be “pretty printed” into a format
-Jenkins understands (i.e. no need to hunt down failures in the console
-log). This tutorial assumes you have Jenkins already setup and running
-on your CI environment.</p>
-<h2 id='setup'><a class='heading_anchor' href='#setup'><i class='headerLinkIcon'></i></a>Setup</h2>
-<ol>
-<li>Install Node and testacular as per [[Installation]] on your
-Jenkins CI server.</li>
-<li>Highly suggest installing the following Jenkins plug-in:
-<a href="https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin">EnvInject</a> as it makes things easier under certain linux
-distributions and user permissions.</li>
-<li><p>Make the following additions and changes to your testacular config
-file as needed:</p>
-<pre><code class="language-javascript">singleRun = <span class="literal">true</span>;
-reporters = [<span class="string">'dots'</span>, <span class="string">'junit'</span>];
-junitReporter = {
-  outputFile: <span class="string">'test-results.xml'</span>
-};</code></pre>
-<p>Please note the test-result.xml file will be output to the present
-working directory (and you will need to tell Jenkins where to find it).</p>
-</li>
-<li><p>In Jenkins, start a new job for Angular/Testacular with the basic
-settings (Name, description, parameters, source code repo to pull
-from, etc.)</p>
-</li>
-<li>Go to the job page and click on configure.</li>
-<li><p>In the Build Environment sub-section, check the “Inject environment
-variables to the build process” checkbox. A few textboxes will
-appear and in the “Properties Content” box set the following:</p>
-<pre><code class="language-bash">$ PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
-$ PHANTOMJS_BIN=/usr/local/bin/phantomjs <span class="comment">#or wherever PhantomJS happens to be installed</span></code></pre>
-</li>
-<li><p>Further down the page, in the Post-build Actions sub-section add a
-“Publish JUnit test result report” from the Post-build action drop
-down menu. When the textbox labeled Test report XMLs appears, enter
-the path to where the test-results.xml is relative to the root of
-your Jenkins job workspace.</p>
-</li>
-</ol>
+        <div id="markdown" class="sixteen columns bottom"><p>These are the SocketIO events that are transmitted between the browser and the testacular server.</p>
+<h2 id='server--&gt;-client-protocol'><a class='heading_anchor' href='#server--&gt;-client-protocol'><i class='headerLinkIcon'></i></a>Server -&gt; Client protocol</h2>
+<h4 id='execute[config]'><a class='heading_anchor' href='#execute[config]'><i class='headerLinkIcon'></i></a>execute([config])</h4>
+<ul>
+<li></li>
+</ul>
+<h4 id='info'><a class='heading_anchor' href='#info'><i class='headerLinkIcon'></i></a>info()</h4>
+<ul>
+<li>Returns:    Information about all captured browsers</li>
+<li>Return type:    Array</li>
+</ul>
+<h2 id='client--&gt;-server-protocol'><a class='heading_anchor' href='#client--&gt;-server-protocol'><i class='headerLinkIcon'></i></a>Client -&gt; Server protocol</h2>
+<h4 id='info'><a class='heading_anchor' href='#info'><i class='headerLinkIcon'></i></a>info()</h4>
+<ul>
+<li>Returns:    Object with information (i.e. browser name)</li>
+<li>Return type:    Object</li>
+</ul>
+<h4 id='result'><a class='heading_anchor' href='#result'><i class='headerLinkIcon'></i></a>result()</h4>
+<ul>
+<li>Returns:    Result object</li>
+<li>Return type:    Object</li>
+</ul>
+<h4 id='error'><a class='heading_anchor' href='#error'><i class='headerLinkIcon'></i></a>error()</h4>
+<h4 id='complete'><a class='heading_anchor' href='#complete'><i class='headerLinkIcon'></i></a>complete()</h4>
 
         </div>
       </div>
