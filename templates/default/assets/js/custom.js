@@ -302,4 +302,12 @@ $(function() {
     last: 2,
     limitMessageTo: 40
   });
+  $('#github-footer').githubInfoWidget({ 
+    user: 'testacular', 
+    repo: 'testacular', 
+    branch: 'master',
+    last: 4,
+    limitMessageTo: 40
+  });
+
 });
