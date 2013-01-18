@@ -57,41 +57,38 @@
         </div>
       </div>
     </header>
-    <!--include slider-->
-    <div class="container">
-      <div id="description">
-        <div class="sixteen columns">
-          <div class="description">
-            <p>Welcome to <span class="color">Testacular</span>- Because Testing is hard enough.</p>
-          </div>
-        </div>
+    <div class="container clearfix">
+      <div class="sixteen columns">
+        <h1 class="page-title">Installation<span class="line"></span>
+        </h1>
       </div>
-      <div class="services clearfix">
-        <div class="sixteen columns">
-          <h2 class="title">
-             
-            Why Testacular?<span class="line"></span>
-          </h2>
-        </div>
-        <ul id="sti-menu" class="sti-menu">
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-        </ul>
-      </div>
-      <div class="recent-work clearfix">
-        <div class="sixteen columns">
-          <h2 class="title">Recent Work<span class="line"></span></h2>
-          <p>Welcome to our latest stuff</p>
+      <div class="page-columns">
+        <div class="sixteen columns bottom"><p>Testacular uses <a href="http://nodejs.org/">Node.js</a> and is available as a node module via npm. 
+If you already got <a href="http://nodejs.org/">Node.js</a> and npm installed and know how to install 
+node modules go ahead, and look for it under <code>testacular</code>.</p>
+<p>If you have never installed a node module or need a quick reminder continue
+reading.</p>
+<h2 id='requirements'><a class='heading_anchor' href='#requirements'><i class='headerLinkIcon'></i></a>Requirements</h2>
+<p>First, you need to install <a href="http://nodejs.org/">Node.js</a>. There are installers for both
+Macintosh and Windows. On Linux, we recommend using <a href="https://github.com/creationix/nvm">NVM</a>.</p>
+<h2 id='with-npm'><a class='heading_anchor' href='#with-npm'><i class='headerLinkIcon'></i></a>With NPM</h2>
+<p>You can install Testacular either globally,</p>
+<pre><code class="language-bash">$ npm install -g testacular
+<span class="comment"># Executing</span>
+$ testacular start</code></pre>
+<p>or locally</p>
+<pre><code class="language-bash">$ npm install testacular
+<span class="comment"># Executing</span>
+$ ./node_modules/.bin/testacular start</code></pre>
+<h2 id='without-npm'><a class='heading_anchor' href='#without-npm'><i class='headerLinkIcon'></i></a>Without NPM</h2>
+<p>If you want to install it without npm you can do so:</p>
+<pre><code class="language-bash"><span class="comment"># replace x.y.z with latest version</span>
+$ curl http://registry.npmjs.org/testacular/-/testacular-x.y.z.tgz | tar -xvz &amp;&amp; mv package testacular
+
+<span class="comment"># create symlinks (optional)</span>
+cd testacular
+$ sudo ln -s <span class="variable">$PWD</span>/bin/testacular /usr/local/bin/testacular</code></pre>
+
         </div>
       </div>
     </div>

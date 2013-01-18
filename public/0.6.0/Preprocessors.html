@@ -57,41 +57,36 @@
         </div>
       </div>
     </header>
-    <!--include slider-->
-    <div class="container">
-      <div id="description">
-        <div class="sixteen columns">
-          <div class="description">
-            <p>Welcome to <span class="color">Testacular</span>- Because Testing is hard enough.</p>
-          </div>
-        </div>
+    <div class="container clearfix">
+      <div class="sixteen columns">
+        <h1 class="page-title">Preprocessors<span class="line"></span>
+        </h1>
       </div>
-      <div class="services clearfix">
-        <div class="sixteen columns">
-          <h2 class="title">
-             
-            Why Testacular?<span class="line"></span>
-          </h2>
-        </div>
-        <ul id="sti-menu" class="sti-menu">
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-        </ul>
-      </div>
-      <div class="recent-work clearfix">
-        <div class="sixteen columns">
-          <h2 class="title">Recent Work<span class="line"></span></h2>
-          <p>Welcome to our latest stuff</p>
+      <div class="page-columns">
+        <div class="sixteen columns bottom"><p>Preprocessors in Testacular allow you to do some work with your files before
+they get served to the browser. The configuration of these happens in this block
+in the config file.</p>
+<pre><code class="language-javascript">preprocessors = {
+  <span class="string">'**/mini.match'</span>: <span class="string">'preprocessor1'</span>,
+  <span class="string">'**/*.all'</span>: <span class="string">'preprocessor2'</span>
+};</code></pre>
+<h2 id='available-preprocessors'><a class='heading_anchor' href='#available-preprocessors'><i class='headerLinkIcon'></i></a>Available Preprocessors</h2>
+<ul>
+<li>[[CoffeeScript]]</li>
+<li>[[Live]] (<code>&gt;=0.5</code>)</li>
+<li>[[Coverage]] (<code>&gt;= 0.5</code>)</li>
+</ul>
+<h2 id='minimatching'><a class='heading_anchor' href='#minimatching'><i class='headerLinkIcon'></i></a>Minimatching</h2>
+<p>The keys of the preprocessors config object are used to filter the files specified in
+the <code>files</code> configuration. The file paths are expanded to an absolute path, based on 
+the <code>basePath</code> config and the directory of the configuration file. See [[Files]] for more
+information on that. 
+This expanded path is then matched using <a href="https://github.com/isaacs/minimatch">minimatch</a>
+against the specified key.
+So for example the path <code>/my/absolute/path/to/test/unit/file.coffee</code> matched against
+the key <code>**/*.coffee</code> would return true, but the matched against just <code>*.coffee</code> it would
+return false and the preprocessor would not be executed on the CoffeeScript files.</p>
+
         </div>
       </div>
     </div>

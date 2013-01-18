@@ -2,7 +2,7 @@
 jQuery(function($){
   jQuery(".tweet").tweet({
 	join_text: false,
-	username: "envato", // Change username here
+	username: "TestacularJS", // Change username here
 	avatar_size: false, // you can active avatar
 	count: 2, // number of tweets
 	seconds_ago_text: "about %d seconds ago",
@@ -28,7 +28,7 @@ $(document).ready(function(){
 		},
 		itemTemplate: '<li><a href="{{link}}" title="{{title}}" target="_blank"><img src="{{image_m}}" alt="{{title}}" /></a></li>'
 	});
-	
+
 	$('#footer').jflickrfeed({
 		limit: 4,
 		qstrings: {
@@ -38,4 +38,3 @@ $(document).ready(function(){
 	});
 
 });
-

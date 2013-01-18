@@ -21,50 +21,14 @@ include html
             hr
 
       block content
-        //include slider
-        .container
-          #description
-            .sixteen.columns
-              .description
-                p
-                  | Welcome to 
-                  span.color Testacular
-                  | - Because Testing is hard enough.
-
-          .services.clearfix
-            .sixteen.columns
-              h2.title 
-                | Why Testacular?
-                span.line
-            ul#sti-menu.sti-menu
-              li.four.columns
-                a(href='')
-                  span.sti-icon.sti-item.color-1(data-type='icon')
-                  h2.sti-item(data-type='mText') Web Design
-                  p.sti-item(data-type='sText') Shaping a creative identity, rich and versatile Enhance your corporate image.
-              li.four.columns
-                a(href='')
-                  span.sti-icon.sti-item.color-1(data-type='icon')
-                  h2.sti-item(data-type='mText') Web Design
-                  p.sti-item(data-type='sText') Shaping a creative identity, rich and versatile Enhance your corporate image.
-              li.four.columns
-                a(href='')
-                  span.sti-icon.sti-item.color-1(data-type='icon')
-                  h2.sti-item(data-type='mText') Web Design
-                  p.sti-item(data-type='sText') Shaping a creative identity, rich and versatile Enhance your corporate image.
-              li.four.columns
-                a(href='')
-                  span.sti-icon.sti-item.color-1(data-type='icon')
-                  h2.sti-item(data-type='mText') Web Design
-                  p.sti-item(data-type='sText') Shaping a creative identity, rich and versatile Enhance your corporate image.
-
-          .recent-work.clearfix
-            .sixteen.columns
-              h2.title
-                | Recent Work
-                span.line
-              p Welcome to our latest stuff
-
+        .container.clearfix
+          .sixteen.columns
+            h1.page-title
+              = pageTitle
+              span.line
+          .page-columns
+            .sixteen.columns.bottom
+              != content
       footer
         .container
           block footer

@@ -57,41 +57,82 @@
         </div>
       </div>
     </header>
-    <!--include slider-->
-    <div class="container">
-      <div id="description">
-        <div class="sixteen columns">
-          <div class="description">
-            <p>Welcome to <span class="color">Testacular</span>- Because Testing is hard enough.</p>
-          </div>
-        </div>
+    <div class="container clearfix">
+      <div class="sixteen columns">
+        <h1 class="page-title">Files<span class="line"></span>
+        </h1>
       </div>
-      <div class="services clearfix">
-        <div class="sixteen columns">
-          <h2 class="title">
-             
-            Why Testacular?<span class="line"></span>
-          </h2>
-        </div>
-        <ul id="sti-menu" class="sti-menu">
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-          <li class="four columns"><a href=""><span data-type="icon" class="sti-icon sti-item color-1"></span>
-              <h2 data-type="mText" class="sti-item">Web Design</h2>
-              <p data-type="sText" class="sti-item">Shaping a creative identity, rich and versatile Enhance your corporate image.</p></a></li>
-        </ul>
-      </div>
-      <div class="recent-work clearfix">
-        <div class="sixteen columns">
-          <h2 class="title">Recent Work<span class="line"></span></h2>
-          <p>Welcome to our latest stuff</p>
+      <div class="page-columns">
+        <div class="sixteen columns bottom"><p>The files array determines wich files are loaded, watched and served by Testacular.</p>
+<div class="alert alert-block"><h4 class="alert-heading">Warning: </h4>The order in which the files are defined, determines the load order!
+
+</div>
+<h2 id='adapters'><a class='heading_anchor' href='#adapters'><i class='headerLinkIcon'></i></a>Adapters</h2>
+<p>The first thing you usually need is an adapter. The following adapters are bundled with Testacular</p>
+<ul>
+<li>Mocha</li>
+<li>Jasmine</li>
+<li>QUnit (0.5.5)</li>
+<li>RequireJS (0.5.1)</li>
+</ul>
+<p>If you want to use any of these you add <code>LIBRARY</code> and <code>LIBRARY_ADAPTER</code> to your <code>files</code> list. So for
+example if you want to use Mocha you have the following in your config file.</p>
+<pre><code class="language-javascript">files = [
+  MOCHA,
+  MOCHA_ADAPTER
+];</code></pre>
+<h2 id='pattern-matching-and-<code>basepath</code>'><a class='heading_anchor' href='#pattern-matching-and-<code>basepath</code>'><i class='headerLinkIcon'></i></a>Pattern matching and <code>basePath</code></h2>
+<p>All files that come from you and are not bundled with Testacular can get included via glob patterns. 
+For example you can just write <code>myFile.js</code> or something more elaborate like <code>test/unit/**/*.spec.js</code>. 
+These files get resolved to absolute paths using the <code>basePath</code> options, so if we set <code>basePath = &#39;../&#39;</code> and our configuration is in the folder <code>projectRoot/config</code>, our files get resolved to</p>
+<ul>
+<li><code>myFile.js</code> --&gt; `/projectRoot/myFile.js``</li>
+<li><code>test/unit/**/*.spec.js</code> --&gt; <code>/projectRoot/test/unit/**/*.spec.js</code></li>
+</ul>
+<p>and then they are matched using <a href="https://github.com/isaacs/minimatch">minimatch</a> against the file system.</p>
+<h2 id='included-served-watched'><a class='heading_anchor' href='#included-served-watched'><i class='headerLinkIcon'></i></a>Included, served, watched</h2>
+<p>Since version 0.5.2 there is the ability to configure the patterns more closely. If you define them like before a simple pattern like <code>&#39;test/unit/*.js&#39;</code> gets expanded internally to the following</p>
+<pre><code class="language-javascript">  {pattern: <span class="string">'test/unit/*.js'</span>, watched: <span class="literal">true</span>, included: <span class="literal">true</span>, served: <span class="literal">true</span>}</code></pre>
+<h3 id='<code>pattern</code>'><a class='heading_anchor' href='#<code>pattern</code>'><i class='headerLinkIcon'></i></a><code>pattern</code></h3>
+<ul>
+<li><strong>Description.</strong> The pattern to use for matching.</li>
+</ul>
+<h3 id='<code>watched</code>'><a class='heading_anchor' href='#<code>watched</code>'><i class='headerLinkIcon'></i></a><code>watched</code></h3>
+<ul>
+<li><strong>Type.</strong> Boolean</li>
+<li><strong>Default.</strong> <code>true</code></li>
+<li><strong>Description.</strong> 
+If <code>autoWatch</code> is <code>true</code> all files that have set <code>watched</code> to true will be 
+polled for changes.</li>
+</ul>
+<h3 id='<code>included</code>'><a class='heading_anchor' href='#<code>included</code>'><i class='headerLinkIcon'></i></a><code>included</code></h3>
+<ul>
+<li><strong>Type.</strong> Boolean</li>
+<li><strong>Default.</strong> <code>true</code></li>
+<li><strong>Description.</strong> Should the files be included into the loading process of the files into the browser.</li>
+</ul>
+<h3 id='<code>served</code>'><a class='heading_anchor' href='#<code>served</code>'><i class='headerLinkIcon'></i></a><code>served</code></h3>
+<ul>
+<li><strong>Type.</strong> Boolean</li>
+<li><strong>Default.</strong> <code>true</code></li>
+<li><strong>Description.</strong> Should the files be served by Testaculars webserver.</li>
+</ul>
+<h2 id='finished-example'><a class='heading_anchor' href='#finished-example'><i class='headerLinkIcon'></i></a>Finished example</h2>
+<p>Here is a complete example showing the different options that are possible.</p>
+<pre><code class="language-javascript">files = [
+  <span class="comment">// Adapter</span>
+  MOCHA,
+  MOCHA_ADAPTER,
+  <span class="comment">// simple patterns to load the needed testfiles</span>
+  <span class="string">'test/fixtures/**/*.html'</span>,
+  <span class="string">'test/unit/*.spec.js'</span>,
+  <span class="comment">// this file gets served but will be ignored by the watcher</span>
+  {pattern: <span class="string">'compiled/index.html'</span>, watched: <span class="literal">false</span>},
+  <span class="comment">// this file only gets watched but otherwise ignored</span>
+  {pattern: <span class="string">'app/index.html'</span>, included: <span class="literal">false</span>, served: <span class="literal">false</span>}
+
+];</code></pre>
+
         </div>
       </div>
     </div>
