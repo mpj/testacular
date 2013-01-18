@@ -1,24 +1,59 @@
-/*
+//
+// Code (inline and blocK)
+// --------------------------------------------------
+//
+// Based on github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+// and twitter bootstrap
 
-github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+// Import Source Code Pro from googlefonts
+@import url('http://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700');
 
-*/
-
-code {
-  font-family: monospace;
-  background: #f8f8ff;
-  color: #333;
-}
+// Inline and block code styles
+code,
 pre {
-  padding: 5px 0 5px 0;
+  padding: 0 3px 2px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
+  color: #333;
 }
 
-pre code {
-  display: block; padding: 1em;
+// Inline code
+code {
+  padding: 1px 4px;
   color: #333;
-  background: #f8f8ff;
-  line-height: 1.3em;
+  background-color: #F8F8FF;
+  white-space: nowrap;
 }
+
+// Blocks of code
+pre {
+  display: block;
+  padding: 0.6em;
+  margin: 0.6em 0 0.6em;
+  font-size: 13px;
+  line-height: 1.2em;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: #F8F8FF;
+
+  // Make prettyprint styles more spaced out for readability
+  &.prettyprint {
+    margin-bottom: 1.2em;
+  }
+
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    padding: 0;
+    color: inherit;
+    white-space: pre;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
 
 pre .comment,
 pre .template_comment,

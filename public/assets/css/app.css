@@ -1,6 +1,8 @@
 @import 'uniform.css';
 
 @import 'icons.css';
+
+@import url('http://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700');
 /*
 * Theme Name: Crevision
 * Theme URI: http://www.jozoor.com
@@ -6006,25 +6008,41 @@ ul.icons li [class*=" icon-"] {
 .icon-folder-open-alt:before {
   content: "\f115";
 }
-/*
-
-github.com style (c) Vasily Polovnyov <vast@whiteants.net>
-
-*/
-code {
-  font-family: monospace;
-  background: #f8f8ff;
+code,
+pre {
+  padding: 0 3px 2px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
   color: #333;
+}
+code {
+  padding: 1px 4px;
+  color: #333;
+  background-color: #F8F8FF;
+  white-space: nowrap;
 }
 pre {
-  padding: 5px 0 5px 0;
+  display: block;
+  padding: 0.6em;
+  margin: 0.6em 0 0.6em;
+  font-size: 13px;
+  line-height: 1.2em;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: #F8F8FF;
+}
+pre.prettyprint {
+  margin-bottom: 1.2em;
 }
 pre code {
-  display: block;
-  padding: 1em;
-  color: #333;
-  background: #f8f8ff;
-  line-height: 1.3em;
+  padding: 0;
+  color: inherit;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border: 0;
 }
 pre .comment,
 pre .template_comment,
