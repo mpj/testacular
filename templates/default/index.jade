@@ -2,6 +2,23 @@ extends layout
 
 block content
   .container.clearfix
+    .sixteen.columns.bottom
+      .flex-container
+        .flexslider
+          ul.slides
+            li
+              a(href='http://www.youtube.com/watch?v=MVw8N3hTfCI&feature=player_embedded')
+                img(src='../assets/img/img/screencast.png', alt='Screencast')
+              p.flex-caption
+                span Introductory Screencast 
+                | The spectacular quick start to Testacular.
+            li
+              a(href='http://www.youtube.com/watch?v=5mHjJ4xf_K0')
+                img(src='../assets/img/img/jseverywhere.png', alt='Screencast')
+              p.flex-caption
+                span JS Everywhere 2012 Europe
+                | Watch Vojta Jína present Testacular at JS Everyhwhere.
+  .container.clearfix
     #welcome
       .sixteen.columns
         .qoute
@@ -25,9 +42,9 @@ block content
           h3 Installation
           p
             | Be sure to read the getting started guide, which is a
-            | complete guide to integrate into testacular your
+            | complete guide to integrate Testacular into your
             | project.
-            br
+          p
             | Install using 
             code npm install -g testacular
 
@@ -110,65 +127,3 @@ block content
           p 
             | Developed for and maintained by the open source community at GitHub. 
 
-// .container
-// ader.jumbotron.masthead
-// h1= pageTitle
-// p Making your life easier 
-//   i since 2011
-// p.download-info
-//   span.btn-large.fake-btn.npm-install 
-//     i.icon-hdd
-//     | &nbsp; npm -g install testacular
-//   a.btn.btn-primary.btn-large(href='https://github.com/vojtajina/testacular/')
-//     i.icon-github-alt
-//     | &nbsp; View on GitHub
-
-// arketing
-// h1 Designed for quick development.
-// p.marketing-byline 
-//   | Relying on the best ones - 
-//   a(href='http://nodejs.org/') Node.js 
-//   | &amp; &nbsp;
-//   a(href='http://socket.io/') Socket.io.
-// .row
-//   .span4
-//     h2 
-//       i.icon-group
-//       | &nbsp; Open Source
-//     p 
-//       | Developed for and maintained by open source community at GitHub. 
-//       | Feel free to fork the repository and send us a pull request with
-//       | some cool improvements.
-//   .span4
-//     h2
-//       i.icon-resize-small
-//       | &nbsp; Remote Control
-//     p
-//       | Control the whole workflow from the command line or your 
-//       | favourite IDE. Just save a file and Testacular will run all the tests.
-//   .span4
-//     h2
-//       i.icon-mobile-phone
-//       | &nbsp; Test on Real Devices
-//     p
-//             | Test your code on real browsers and real devices such as phones, 
-//             | tablets or headless PhantomJS.
-//       .row
-//         .span4
-//           h2 
-//             i.icon-magic
-//             | &nbsp; Easy Debugging
-//           p Easy debugging directly from your IDE (WebStorm).
-//         .span4
-//           h2
-//             i.icon-globe
-//             | &nbsp; Jasmine, Mocha &amp; QUnit
-//           p
-//             | Testacular is framework agnostic. However it ships with 
-//             | adapters for Jasmine, Mocha, QUnit as well as AngularJS's
-//             | scenario runner.
-//         .span4
-//           h2
-//             i.icon-refresh
-//             | &nbsp; Continuous Integration
-//           p Simple integration with Jenkins or Travis.
