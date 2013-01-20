@@ -7676,10 +7676,8 @@ pre {
   margin: 0.6em 0 0.6em;
   font-size: 13px;
   line-height: 1.2em;
-  word-break: break-all;
-  word-wrap: break-word;
-  white-space: pre;
-  white-space: pre-wrap;
+  overflow: auto;
+  width: auto;
 }
 pre.prettyprint {
   margin-bottom: 1.2em;
@@ -7687,16 +7685,15 @@ pre.prettyprint {
 pre code {
   padding: 0;
   color: inherit;
-  white-space: pre;
-  white-space: pre-wrap;
   background-color: transparent;
   border: 0;
+  white-space: inherit;
 }
 .tomorrow-comment,
 pre .comment,
 pre .title {
   color: #969896;
-  float: left;
+  float: none;
 }
 .tomorrow-red,
 pre .variable,
