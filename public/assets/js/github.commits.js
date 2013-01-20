@@ -42,9 +42,11 @@
           list.append(
             '<li ' + itemClass(c, totalCommits) + ' >' +
               ' ' + ((commit.author !== null) ? avatar(commit.author.gravatar_id, avatarSize) : '') +
+              '<div class="github-commits-content">' +
               ' ' + ((commit.author !== null) ? author(commit.author.login) : commit.commit.committer.name) +
               ' committed ' + message(replaceHtmlTags(commit.commit.message), commit.sha) +
               ' ' + when(commit.commit.committer.date) +
+              '</div>' + 
               '</li>');
         }
         element.append('<p class="github-commits-widget-by">by <a href="https://github.com/alexanderbeletsky/github.commits.widget">github.commits.widget</a></p>');
