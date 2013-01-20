@@ -1,23 +1,24 @@
 extends layout
 
 block content
-  .container.clearfix
-    .sixteen.columns.bottom
-      .flex-container
-        .flexslider
-          ul.slides
-            li
-              a(href='http://www.youtube.com/watch?v=MVw8N3hTfCI&feature=player_embedded')
-                img(src='../assets/img/img/screencast.png', alt='Screencast')
-              p.flex-caption
-                span Introductory Screencast 
-                | The spectacular quick start to Testacular.
-            li
-              a(href='http://www.youtube.com/watch?v=5mHjJ4xf_K0')
-                img(src='../assets/img/img/jseverywhere.png', alt='Screencast')
-              p.flex-caption
-                span JS Everywhere 2012 Europe
-                | Watch Vojta Jína present Testacular at JS Everyhwhere.
+  #slider
+    .container.clearfix
+      .sixteen.columns
+        .flex-container
+          .flexslider
+            ul.slides
+              li
+                a(href='http://www.youtube.com/watch?v=MVw8N3hTfCI&feature=player_embedded')
+                  img(src='../assets/img/img/screencast.png', alt='Screencast')
+                p.flex-caption
+                  span Introductory Screencast 
+                  | The spectacular quick start to Testacular.
+              li
+                a(href='http://www.youtube.com/watch?v=5mHjJ4xf_K0')
+                  img(src='../assets/img/img/jseverywhere.png', alt='Screencast')
+                p.flex-caption
+                  span JS Everywhere 2012 Europe
+                  | Watch Vojta Jína present Testacular at JS Everyhwhere.
   .container.clearfix
     #welcome
       .sixteen.columns
