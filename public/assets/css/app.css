@@ -1294,12 +1294,12 @@ table th,
 .categories,
 .post-content p,
 .ei-title h3 {
-  font-size: 16px;
+  font-size: 15px;
 }
 .progress-bar h5,
 .button.medium,
 .tables-column .list li {
-  font-size: 17px;
+  font-size: 16px;
 }
 .navigation ul li a,
 .flex-caption,
@@ -1309,7 +1309,8 @@ a.link,
 #vertical-tabs ul.tabs li,
 input.subscribe-text,
 input.subscribe-button {
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 16px;
 }
 .button.large,
 .dropcap {
