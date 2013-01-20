@@ -4545,6 +4545,9 @@ table td {
 #github-commits {
   overflow: hidden;
 }
+footer .social {
+  padding-top: 5px;
+}
 #markdown p {
   font-size: 14px;
 }
@@ -4999,7 +5002,7 @@ input.submit-search {
 }
 /* footer */
 footer {
-  padding: 5px 0 22px 0;
+  padding: 15px 0 22px 0;
   margin: 25px 0 0 0;
 }
 h3.title {
