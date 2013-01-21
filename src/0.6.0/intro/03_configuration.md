@@ -1,26 +1,43 @@
 section: intro
 
 # Configuration
-
-## Basic Setup
-
-Go into your project and create a testacular configuration. Basically
-you need to specify the source files that you want to execute.
+In order to serve you well, Testacular needs to know about your project. That's done through a configuration file.
 
 For an example configuration, see [test/client/testacular.conf.js]
 which contains most of the options.
+
+
+## Generating the config file
+You can write the config file by hand or copy paste from some other project.
+
+Another way is to use `testacular init` to generate it.
+
 ```bash
-# create config file (testacular.conf.js by default)
-$ testacular init
-
-# start server
-$ testacular start
-
-# open browsers you want to test (if testacular is not configured to do it for you)
-$ open http://localhost:8080
-
-# if you want to run tests manually (without auto watching file changes), you can:
-$ testacular run
+# will ask you a few questions and generate the config file for you
+$ testacular init my.conf.js
 ```
 
-[test/client/testacular.conf.js]: https://github.com/vojtajina/testacular/blob/master/test/client/testacular.conf.js
+
+## Starting Testacular
+When starting testacular, you can pass a path to the configuration file as an argument.
+
+By default, Testacular will look for `testacular.conf.js` in the current directory.
+
+```bash
+# start testacular using your configuration
+$ testacular start my.conf.js
+```
+
+For more info about configuration file, see the [configuration file docs].
+
+
+## Command line arguments
+
+Some of the configuration can be specified as a CLI argument, which overrides the configuration from the config file.
+
+Try `testacular start --help` to see all the available options.
+
+
+[test/client/testacular.conf.js]: https://github.com/testacular/testacular/blob/master/test/client/testacular.conf.js
+
+[configuration file docs]: configuration_file.html

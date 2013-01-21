@@ -2,46 +2,34 @@ section: intro
 
 # Installation
 
-Testacular uses [Node.js] and is available as a node module via npm. 
-If you already got [Node.js] and npm installed and know how to install 
-node modules go ahead, and look for it under `testacular`.
-
-If you have never installed a node module or need a quick reminder continue
-reading.
+Testacular runs on [Node.js] and is available as a node module via [NPM].
 
 ## Requirements
 
 First, you need to install [Node.js]. There are installers for both
 Macintosh and Windows. On Linux, we recommend using [NVM].
 
-## With NPM
+## Global instalalation
+This is the recommended way. It will install Testacular into your global `node_modules` and create a symlink to its binary.
 
-You can install Testacular either globally,
 ```bash
 $ npm install -g testacular
-# Executing
+
+# start testacular...
 $ testacular start
 ```
-or locally
+
+## Local instalalation
+Local installation will install Testacular into your current directory's `node_modules`. That allows you to have a different version for different project.
+
 ```bash
 $ npm install testacular
-# Executing
+
+# starting testacular
 $ ./node_modules/.bin/testacular start
 ```
 
-## Without NPM
-
-If you want to install it without npm you can do so:
-```bash
-# replace x.y.z with latest version
-$ curl http://registry.npmjs.org/testacular/-/testacular-x.y.z.tgz | tar -xvz && mv package testacular
-
-# create symlinks (optional)
-cd testacular
-$ sudo ln -s $PWD/bin/testacular /usr/local/bin/testacular
-```
-
-
 
 [Node.js]: http://nodejs.org/
+[NPM]: https://npmjs.org/
 [NVM]: https://github.com/creationix/nvm
