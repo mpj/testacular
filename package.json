@@ -9,7 +9,8 @@
     "grunt": "~0.4.0rc5",
     "q-io": "~1.5.2",
     "q": "~0.8.12",
-    "panda-docs": "https://github.com/Dignifiedquire/panda-docs/tarball/templates"
+    "panda-docs": "https://github.com/Dignifiedquire/panda-docs/tarball/templates",
+    "grunt-contrib-concat": "~0.1.2rc6"
   },
   "scripts": {
     "test": ""
