@@ -3034,6 +3034,10 @@ table td {
   text-align: center;
   color: #FFF;
 }
+.services .nohover > .item:hover .square {
+  background: #585858;
+  border-right: 5px solid #585858;
+}
 .services i {
   color: #FFF;
   width: inherit;
@@ -3108,6 +3112,12 @@ footer .social {
   color: inherit;
   display: inline;
   margin-left: 25px;
+}
+#welcome a.code {
+  font-family: "Source Sans Pro", Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+#welcome a.link:hover {
+  background: #00AEC8;
 }
 .icon.glass {
   background-position: -1px 0;
@@ -8765,7 +8775,8 @@ pre {
   padding: 0 3px 2px;
   font-family: 'Source Code Pro', monospace;
   font-size: 13px;
-  background: #eee;
+  background-color: #eee;
+  background-color: #fafafa;
   color: #4d4d4c;
 }
 code {

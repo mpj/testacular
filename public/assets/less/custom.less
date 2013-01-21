@@ -106,22 +106,26 @@
 
 
 // Icons in services
-.services .item .square i {
+.services {
+  .item .square i {
     display: block;
     text-align: center;
     color: #FFF;
-}
-
-.services i {
+  }
+  .nohover > .item:hover .square  {
+      background: #585858;
+      border-right: 5px solid #585858;
+  }  
+  i {
     color: #FFF;
     width: inherit;
-}
+  }
 
-.services .icon-box {
+  .icon-box {
     width: 40px;
     
+  }
 }
-
 .services {
     margin-bottom: 25px !important;
 }
@@ -208,3 +212,14 @@ footer .social {
 }
 
 
+// Welcome paragraph
+#welcome {
+  a.code {
+      font-family: @monoFontFamily;
+  }
+  a.link {
+      &:hover {
+          background: #00AEC8;
+      }
+  }
+}

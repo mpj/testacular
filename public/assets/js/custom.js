@@ -6,9 +6,9 @@
     classname: 'navigation', //class added to menu's outer DIV
     //customtheme: ["#1c5a80", "#18374a"],
     contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-  })
+  });
 
-})
+});
 
 $(document).ready(function(){
   $("input:checkbox, input:radio, input:file").uniform();
@@ -295,16 +295,16 @@ $(function() {
 // github commits
 //
 $(function() {
-  $('#github-commits').githubInfoWidget({ 
-    user: 'testacular', 
-    repo: 'testacular', 
+  $('#github-commits').githubInfoWidget({
+    user: 'testacular',
+    repo: 'testacular',
     branch: 'master',
     last: 2,
     limitMessageTo: 40
   });
-  $('#github-footer').githubInfoWidget({ 
-    user: 'testacular', 
-    repo: 'testacular', 
+  $('#github-footer').githubInfoWidget({
+    user: 'testacular',
+    repo: 'testacular',
     branch: 'master',
     last: 4,
     limitMessageTo: 40
