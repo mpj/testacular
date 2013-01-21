@@ -2648,18 +2648,6 @@ blockquote {
   padding: 5px 5px 5px 15px;
   line-height: 20px;
 }
-.square-list li:hover,
-.check-list li:hover,
-.plus-list li:hover,
-.arrow-list li:hover,
-.cross-list li:hover,
-.star-list li:hover,
-.minus-list li:hover,
-.arrow2-list li:hover,
-.circle-list li:hover {
-  padding-left: 18px;
-  background-position: 1% 50%;
-}
 .square-list li {
   background: url(../img/icons/list-icons/square.png) no-repeat;
   background-position: 0 50%;
