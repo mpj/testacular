@@ -22,17 +22,17 @@ include html
 
       block content
         .container.clearfix
-          .sixteen.columns
+          .sixteen.columns.bottom
             h1.page-title
               = pageTitle
               span.line
-          .four.columns.bottom
+          #sidebar.four.columns.bottom
             h2.title.bottom-2
               | Table of Content
               span.line
             mixin sidebar(toh)
           .page-columns
-            #markdown.twelve.columns.bottom
+            #markdown.twelve.columns.offset-by-four.bottom
               != content
       footer
         .container
