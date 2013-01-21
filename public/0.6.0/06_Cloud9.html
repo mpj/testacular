@@ -36,45 +36,41 @@
             <ul id="nav">
               <li><a href="" class="">intro</a>
                 <ul>
-                  <li><a href="configuration.html">configuration</a></li>
-                  <li><a href="installation.html">installation</a></li>
-                  <li><a href="troubleshooting.html">troubleshooting</a></li>
-                  <li><a href="why.html">why</a></li>
+                  <li><a href="01_why.html">why</a></li>
+                  <li><a href="02_installation.html">installation</a></li>
+                  <li><a href="03_configuration.html">configuration</a></li>
+                  <li><a href="04_troubleshooting.html">troubleshooting</a></li>
                 </ul>
               </li>
               <li><a href="" class="">config</a>
                 <ul>
-                  <li><a href="browsers.html">browsers</a></li>
-                  <li><a href="CoffeeScript.html">CoffeeScript</a></li>
-                  <li><a href="Configuration_File.html">Configuration File</a></li>
-                  <li><a href="Coverage_Reporter.html">Coverage Reporter</a></li>
-                  <li><a href="Files.html">Files</a></li>
-                  <li><a href="Preprocessors.html">Preprocessors</a></li>
+                  <li><a href="01_configuration_file.html">configuration file</a></li>
+                  <li><a href="02_files.html">files</a></li>
+                  <li><a href="03_browsers.html">browsers</a></li>
+                  <li><a href="04_preprocessors.html">preprocessors</a></li>
+                  <li><a href="05_coverage.html">coverage</a></li>
                 </ul>
               </li>
               <li><a href="" class="active">plus</a>
                 <ul>
-                  <li><a href="Cloud9.html">Cloud9</a></li>
-                  <li><a href="Jenkins_CI.html">Jenkins CI</a></li>
-                  <li><a href="RequireJS.html">RequireJS</a></li>
-                  <li><a href="Teamcity.html">Teamcity</a></li>
-                  <li><a href="Travis_CI.html">Travis CI</a></li>
+                  <li><a href="01_AngularJS.html">AngularJS</a></li>
+                  <li><a href="02_Travis_CI.html">Travis CI</a></li>
+                  <li><a href="03_Jenkins_CI.html">Jenkins CI</a></li>
+                  <li><a href="04_RequireJS.html">RequireJS</a></li>
+                  <li><a href="05_Teamcity.html">Teamcity</a></li>
+                  <li><a href="06_Cloud9.html">Cloud9</a></li>
                 </ul>
               </li>
               <li><a href="" class="">dev</a>
                 <ul>
-                  <li><a href="Client_-_Server_Protocol.html">Client - Server Protocol</a></li>
-                  <li><a href="Contributing.html">Contributing</a></li>
-                  <li><a href="Events.html">Events</a></li>
-                  <li><a href="Public_API.html">Public API</a></li>
-                  <li><a href="Todos.html">Todos</a></li>
+                  <li><a href="01_contributing.html">contributing</a></li>
+                  <li><a href="02_public_API.html">public API</a></li>
                 </ul>
               </li>
               <li><a href="" class="">about</a>
                 <ul>
-                  <li><a href="Changelog.html">Changelog</a></li>
-                  <li><a href="Versioning.html">Versioning</a></li>
-                  <li><a href="Who.html">Who</a></li>
+                  <li><a href="01_changelog.html">changelog</a></li>
+                  <li><a href="02_versioning.html">versioning</a></li>
                 </ul>
               </li>
               <li><a href="">v0.6.0</a>
@@ -92,16 +88,33 @@
     </header>
     <div class="container clearfix">
       <div class="sixteen columns">
-        <h1 class="page-title">Teamcity<span class="line"></span>
+        <h1 class="page-title">Cloud9 IDE Integration<span class="line"></span>
         </h1>
       </div>
       <div class="four columns bottom">
         <h2 class="title bottom-2">Table of Content<span class="line"></span></h2>
         <ul class="square-list categories bottom">
+          <li><a href="#configuration"><p>Configuration</p>
+</a></li>
         </ul>
       </div>
       <div class="page-columns">
-        <div id="markdown" class="twelve columns bottom"><p>Not available yet. See this <a href="https://github.com/vojtajina/testacular/pull/262">pull request</a>.</p>
+        <div id="markdown" class="twelve columns bottom"><p><a href="https://c9.io/">Cloud9 IDE</a> is an open source web-based cloud integrated development environment that supports several programming languages, with a focus on the web stack (specifically JavaScript and <a href="http://nodejs.org/">NodeJS</a>). It is written almost entirely in JavaScript, and uses <a href="http://nodejs.org/">NodeJS</a> on the back-end. </p>
+<h2 id='configuration'><a class='heading_anchor' href='#configuration'><i class='headerLinkIcon'></i></a>Configuration</h2>
+<p>There are 2 possibilities in order to run unit tests with testacular in <a href="https://c9.io/">Cloud9 IDE</a>: </p>
+<h3 id='capture-the-browser-manually-on-the-local-machine'><a class='heading_anchor' href='#capture-the-browser-manually-on-the-local-machine'><i class='headerLinkIcon'></i></a>Capture the browser manually on the local machine</h3>
+<p>Call <code>http://[projectName].[cloud9User].c9.io/</code> in your browser.</p>
+<h3 id='run-testacular-unit-tests-with-phantomjs-in-cloud9-ide'><a class='heading_anchor' href='#run-testacular-unit-tests-with-phantomjs-in-cloud9-ide'><i class='headerLinkIcon'></i></a>Run testacular unit tests with PhantomJS in cloud9 IDE</h3>
+<ol>
+<li>PhantomJS must be installed with <code>npm install phantomjs</code>.</li>
+<li>The host must be configurable (requested in pull request <a href="https://github.com/vojtajina/testacular/pull/276">https://github.com/vojtajina/testacular/pull/276</a>). </li>
+<li>The testacular.conf.js file (tried it out for the
+<a href="https://github.com/IgorMinar/foodme">AngularJS foodme app</a>) must include the following entries: </li>
+</ol>
+<pre><code class="language-javascript">browsers = [<span class="string">'PhantomJS'</span>];
+host = process.env.IP;
+port = process.env.PORT;
+runnerPort = <span class="number">0</span>;</code></pre>
 
         </div>
       </div>

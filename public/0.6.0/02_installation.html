@@ -34,47 +34,43 @@
         <div class="two-thirds column">
           <nav id="menu" class="navigation">
             <ul id="nav">
-              <li><a href="" class="">intro</a>
+              <li><a href="" class="active">intro</a>
                 <ul>
-                  <li><a href="configuration.html">configuration</a></li>
-                  <li><a href="installation.html">installation</a></li>
-                  <li><a href="troubleshooting.html">troubleshooting</a></li>
-                  <li><a href="why.html">why</a></li>
+                  <li><a href="01_why.html">why</a></li>
+                  <li><a href="02_installation.html">installation</a></li>
+                  <li><a href="03_configuration.html">configuration</a></li>
+                  <li><a href="04_troubleshooting.html">troubleshooting</a></li>
                 </ul>
               </li>
               <li><a href="" class="">config</a>
                 <ul>
-                  <li><a href="browsers.html">browsers</a></li>
-                  <li><a href="CoffeeScript.html">CoffeeScript</a></li>
-                  <li><a href="Configuration_File.html">Configuration File</a></li>
-                  <li><a href="Coverage_Reporter.html">Coverage Reporter</a></li>
-                  <li><a href="Files.html">Files</a></li>
-                  <li><a href="Preprocessors.html">Preprocessors</a></li>
+                  <li><a href="01_configuration_file.html">configuration file</a></li>
+                  <li><a href="02_files.html">files</a></li>
+                  <li><a href="03_browsers.html">browsers</a></li>
+                  <li><a href="04_preprocessors.html">preprocessors</a></li>
+                  <li><a href="05_coverage.html">coverage</a></li>
                 </ul>
               </li>
               <li><a href="" class="">plus</a>
                 <ul>
-                  <li><a href="Cloud9.html">Cloud9</a></li>
-                  <li><a href="Jenkins_CI.html">Jenkins CI</a></li>
-                  <li><a href="RequireJS.html">RequireJS</a></li>
-                  <li><a href="Teamcity.html">Teamcity</a></li>
-                  <li><a href="Travis_CI.html">Travis CI</a></li>
+                  <li><a href="01_AngularJS.html">AngularJS</a></li>
+                  <li><a href="02_Travis_CI.html">Travis CI</a></li>
+                  <li><a href="03_Jenkins_CI.html">Jenkins CI</a></li>
+                  <li><a href="04_RequireJS.html">RequireJS</a></li>
+                  <li><a href="05_Teamcity.html">Teamcity</a></li>
+                  <li><a href="06_Cloud9.html">Cloud9</a></li>
                 </ul>
               </li>
-              <li><a href="" class="active">dev</a>
+              <li><a href="" class="">dev</a>
                 <ul>
-                  <li><a href="Client_-_Server_Protocol.html">Client - Server Protocol</a></li>
-                  <li><a href="Contributing.html">Contributing</a></li>
-                  <li><a href="Events.html">Events</a></li>
-                  <li><a href="Public_API.html">Public API</a></li>
-                  <li><a href="Todos.html">Todos</a></li>
+                  <li><a href="01_contributing.html">contributing</a></li>
+                  <li><a href="02_public_API.html">public API</a></li>
                 </ul>
               </li>
               <li><a href="" class="">about</a>
                 <ul>
-                  <li><a href="Changelog.html">Changelog</a></li>
-                  <li><a href="Versioning.html">Versioning</a></li>
-                  <li><a href="Who.html">Who</a></li>
+                  <li><a href="01_changelog.html">changelog</a></li>
+                  <li><a href="02_versioning.html">versioning</a></li>
                 </ul>
               </li>
               <li><a href="">v0.6.0</a>
@@ -92,16 +88,47 @@
     </header>
     <div class="container clearfix">
       <div class="sixteen columns">
-        <h1 class="page-title">Let's hack on Testacular<span class="line"></span>
+        <h1 class="page-title">Installation<span class="line"></span>
         </h1>
       </div>
       <div class="four columns bottom">
         <h2 class="title bottom-2">Table of Content<span class="line"></span></h2>
         <ul class="square-list categories bottom">
+          <li><a href="#requirements"><p>Requirements</p>
+</a></li>
+          <li><a href="#with-npm"><p>With NPM</p>
+</a></li>
+          <li><a href="#without-npm"><p>Without NPM</p>
+</a></li>
         </ul>
       </div>
       <div class="page-columns">
-        <div id="markdown" class="twelve columns bottom">
+        <div id="markdown" class="twelve columns bottom"><p>Testacular uses <a href="http://nodejs.org/">Node.js</a> and is available as a node module via npm. 
+If you already got <a href="http://nodejs.org/">Node.js</a> and npm installed and know how to install 
+node modules go ahead, and look for it under <code>testacular</code>.</p>
+<p>If you have never installed a node module or need a quick reminder continue
+reading.</p>
+<h2 id='requirements'><a class='heading_anchor' href='#requirements'><i class='headerLinkIcon'></i></a>Requirements</h2>
+<p>First, you need to install <a href="http://nodejs.org/">Node.js</a>. There are installers for both
+Macintosh and Windows. On Linux, we recommend using <a href="https://github.com/creationix/nvm">NVM</a>.</p>
+<h2 id='with-npm'><a class='heading_anchor' href='#with-npm'><i class='headerLinkIcon'></i></a>With NPM</h2>
+<p>You can install Testacular either globally,</p>
+<pre><code class="language-bash">$ npm install -g testacular
+<span class="comment"># Executing</span>
+$ testacular start</code></pre>
+<p>or locally</p>
+<pre><code class="language-bash">$ npm install testacular
+<span class="comment"># Executing</span>
+$ ./node_modules/.bin/testacular start</code></pre>
+<h2 id='without-npm'><a class='heading_anchor' href='#without-npm'><i class='headerLinkIcon'></i></a>Without NPM</h2>
+<p>If you want to install it without npm you can do so:</p>
+<pre><code class="language-bash"><span class="comment"># replace x.y.z with latest version</span>
+$ curl http://registry.npmjs.org/testacular/-/testacular-x.y.z.tgz | tar -xvz &amp;&amp; mv package testacular
+
+<span class="comment"># create symlinks (optional)</span>
+cd testacular
+$ sudo ln -s <span class="variable">$PWD</span>/bin/testacular /usr/local/bin/testacular</code></pre>
+
         </div>
       </div>
     </div>

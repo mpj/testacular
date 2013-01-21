@@ -36,45 +36,41 @@
             <ul id="nav">
               <li><a href="" class="">intro</a>
                 <ul>
-                  <li><a href="configuration.html">configuration</a></li>
-                  <li><a href="installation.html">installation</a></li>
-                  <li><a href="troubleshooting.html">troubleshooting</a></li>
-                  <li><a href="why.html">why</a></li>
+                  <li><a href="01_why.html">why</a></li>
+                  <li><a href="02_installation.html">installation</a></li>
+                  <li><a href="03_configuration.html">configuration</a></li>
+                  <li><a href="04_troubleshooting.html">troubleshooting</a></li>
                 </ul>
               </li>
               <li><a href="" class="">config</a>
                 <ul>
-                  <li><a href="browsers.html">browsers</a></li>
-                  <li><a href="CoffeeScript.html">CoffeeScript</a></li>
-                  <li><a href="Configuration_File.html">Configuration File</a></li>
-                  <li><a href="Coverage_Reporter.html">Coverage Reporter</a></li>
-                  <li><a href="Files.html">Files</a></li>
-                  <li><a href="Preprocessors.html">Preprocessors</a></li>
+                  <li><a href="01_configuration_file.html">configuration file</a></li>
+                  <li><a href="02_files.html">files</a></li>
+                  <li><a href="03_browsers.html">browsers</a></li>
+                  <li><a href="04_preprocessors.html">preprocessors</a></li>
+                  <li><a href="05_coverage.html">coverage</a></li>
                 </ul>
               </li>
               <li><a href="" class="">plus</a>
                 <ul>
-                  <li><a href="Cloud9.html">Cloud9</a></li>
-                  <li><a href="Jenkins_CI.html">Jenkins CI</a></li>
-                  <li><a href="RequireJS.html">RequireJS</a></li>
-                  <li><a href="Teamcity.html">Teamcity</a></li>
-                  <li><a href="Travis_CI.html">Travis CI</a></li>
+                  <li><a href="01_AngularJS.html">AngularJS</a></li>
+                  <li><a href="02_Travis_CI.html">Travis CI</a></li>
+                  <li><a href="03_Jenkins_CI.html">Jenkins CI</a></li>
+                  <li><a href="04_RequireJS.html">RequireJS</a></li>
+                  <li><a href="05_Teamcity.html">Teamcity</a></li>
+                  <li><a href="06_Cloud9.html">Cloud9</a></li>
                 </ul>
               </li>
               <li><a href="" class="active">dev</a>
                 <ul>
-                  <li><a href="Client_-_Server_Protocol.html">Client - Server Protocol</a></li>
-                  <li><a href="Contributing.html">Contributing</a></li>
-                  <li><a href="Events.html">Events</a></li>
-                  <li><a href="Public_API.html">Public API</a></li>
-                  <li><a href="Todos.html">Todos</a></li>
+                  <li><a href="01_contributing.html">contributing</a></li>
+                  <li><a href="02_public_API.html">public API</a></li>
                 </ul>
               </li>
               <li><a href="" class="">about</a>
                 <ul>
-                  <li><a href="Changelog.html">Changelog</a></li>
-                  <li><a href="Versioning.html">Versioning</a></li>
-                  <li><a href="Who.html">Who</a></li>
+                  <li><a href="01_changelog.html">changelog</a></li>
+                  <li><a href="02_versioning.html">versioning</a></li>
                 </ul>
               </li>
               <li><a href="">v0.6.0</a>
@@ -92,57 +88,26 @@
     </header>
     <div class="container clearfix">
       <div class="sixteen columns">
-        <h1 class="page-title">Todos<span class="line"></span>
+        <h1 class="page-title">Public API<span class="line"></span>
         </h1>
       </div>
       <div class="four columns bottom">
         <h2 class="title bottom-2">Table of Content<span class="line"></span></h2>
         <ul class="square-list categories bottom">
-          <li><a href="#features">FEATURES</a></li>
-          <li><a href="#internal/refactoring">INTERNAL/REFACTORING</a></li>
-          <li><a href="#bugs">BUGS</a></li>
-          <li><a href="#organization">ORGANIZATION</a></li>
-          <li><a href="#docs">DOCS</a></li>
+          <li><a href="#testacularserver"><p><code>testacular.server</code></p>
+</a></li>
+          <li><a href="#testacularrunner"><p><code>testacular.runner</code></p>
+</a></li>
+          <li><a href="#testacularlauncher"><p><code>testacular.launcher</code></p>
+</a></li>
         </ul>
       </div>
       <div class="page-columns">
-        <div id="markdown" class="twelve columns bottom"><p>I went through my list and these are the ones that I think are more important. Items within a section are ordered by priority.</p>
-<h2 id='features'><a class='heading_anchor' href='#features'><i class='headerLinkIcon'></i></a>FEATURES</h2>
-<ul>
-<li>auto reload config change (at least files,exclude)</li>
-<li>timeout (per spec/suite)</li>
-<li>handle unload event (full page reload)</li>
-<li>sudden death (first failure, stop execution)</li>
-<li>global ~/.testacular config <a href="https://github.com/vojtajina/testacular/issues/264">#64</a></li>
-<li>normalize browser errors</li>
-<li>use single port for web/cli (remove runner-port)</li>
-<li>don&#39;t synchronize browsers (don&#39;t wait for all browsers, just execute) + sharding</li>
-</ul>
-<h2 id='internal/refactoring'><a class='heading_anchor' href='#internal/refactoring'><i class='headerLinkIcon'></i></a>INTERNAL/REFACTORING</h2>
-<ul>
-<li>better e2e framework (for testing Testacular)</li>
-<li>reorganize: plugins (reporters, preprocessors, adapters, launchers) <a href="https://github.com/vojtajina/testacular/i158">#158</a></li>
-<li>refactor logger to support appending to files (log4js) <a href="https://github.com/vojtajina/testacular/pull/188">#188</a></li>
-<li>refactor web server using connect <a href="https://github.com/vojtajina/testacular/issues/253">#253</a> and <a href="https://github.com/vojtajina/testacular/issues/105">#105</a></li>
-<li>don&#39;t watch non-matching files</li>
-<li>write some descriptions/comments to each module/component </li>
-</ul>
-<h2 id='bugs'><a class='heading_anchor' href='#bugs'><i class='headerLinkIcon'></i></a>BUGS</h2>
-<ul>
-<li>chokidar <a href="https://github.com/paulmillr/chokidar/issues/16">https://github.com/paulmillr/chokidar/issues/16</a></li>
-</ul>
-<h2 id='organization'><a class='heading_anchor' href='#organization'><i class='headerLinkIcon'></i></a>ORGANIZATION</h2>
-<ul>
-<li>better release cycle, automate canary release ? <a href="https://github.com/vojtajina/testacular/issues/210">#210</a></li>
-<li>git commit msg convention + generating changelog</li>
-<li>pre-commit hook (unmerged stuff, iit, ddescribe)</li>
-<li>pre-commit hook (check msg convention)</li>
-<li>JS Validator, see <a href="http://ariya.ofilabs.com/2012/10/javascript-validator-with-esprima.html">this</a> post either as pre-commit hook or as grunt task</li>
-</ul>
-<h2 id='docs'><a class='heading_anchor' href='#docs'><i class='headerLinkIcon'></i></a>DOCS</h2>
-<ul>
-<li>polish the docs and publish it on the homepage</li>
-</ul>
+        <div id="markdown" class="twelve columns bottom"><h2 id='<code>testacularserver</code>'><a class='heading_anchor' href='#<code>testacularserver</code>'><i class='headerLinkIcon'></i></a><code>testacular.server</code></h2>
+<h3 id='<code>startoptions-[callback=processexit]</code>'><a class='heading_anchor' href='#<code>startoptions-[callback=processexit]</code>'><i class='headerLinkIcon'></i></a><code>.start(options, [callback=process.exit])</code></h3>
+<h2 id='<code>testacularrunner</code>'><a class='heading_anchor' href='#<code>testacularrunner</code>'><i class='headerLinkIcon'></i></a><code>testacular.runner</code></h2>
+<h3 id='<code>runoptions-[callback=processexit]</code>'><a class='heading_anchor' href='#<code>runoptions-[callback=processexit]</code>'><i class='headerLinkIcon'></i></a><code>.run(options, [callback=process.exit])</code></h3>
+<h2 id='<code>testacularlauncher</code>'><a class='heading_anchor' href='#<code>testacularlauncher</code>'><i class='headerLinkIcon'></i></a><code>testacular.launcher</code></h2>
 
         </div>
       </div>

@@ -34,47 +34,43 @@
         <div class="two-thirds column">
           <nav id="menu" class="navigation">
             <ul id="nav">
-              <li><a href="" class="active">intro</a>
+              <li><a href="" class="">intro</a>
                 <ul>
-                  <li><a href="configuration.html">configuration</a></li>
-                  <li><a href="installation.html">installation</a></li>
-                  <li><a href="troubleshooting.html">troubleshooting</a></li>
-                  <li><a href="why.html">why</a></li>
+                  <li><a href="01_why.html">why</a></li>
+                  <li><a href="02_installation.html">installation</a></li>
+                  <li><a href="03_configuration.html">configuration</a></li>
+                  <li><a href="04_troubleshooting.html">troubleshooting</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">config</a>
+              <li><a href="" class="active">config</a>
                 <ul>
-                  <li><a href="browsers.html">browsers</a></li>
-                  <li><a href="CoffeeScript.html">CoffeeScript</a></li>
-                  <li><a href="Configuration_File.html">Configuration File</a></li>
-                  <li><a href="Coverage_Reporter.html">Coverage Reporter</a></li>
-                  <li><a href="Files.html">Files</a></li>
-                  <li><a href="Preprocessors.html">Preprocessors</a></li>
+                  <li><a href="01_configuration_file.html">configuration file</a></li>
+                  <li><a href="02_files.html">files</a></li>
+                  <li><a href="03_browsers.html">browsers</a></li>
+                  <li><a href="04_preprocessors.html">preprocessors</a></li>
+                  <li><a href="05_coverage.html">coverage</a></li>
                 </ul>
               </li>
               <li><a href="" class="">plus</a>
                 <ul>
-                  <li><a href="Cloud9.html">Cloud9</a></li>
-                  <li><a href="Jenkins_CI.html">Jenkins CI</a></li>
-                  <li><a href="RequireJS.html">RequireJS</a></li>
-                  <li><a href="Teamcity.html">Teamcity</a></li>
-                  <li><a href="Travis_CI.html">Travis CI</a></li>
+                  <li><a href="01_AngularJS.html">AngularJS</a></li>
+                  <li><a href="02_Travis_CI.html">Travis CI</a></li>
+                  <li><a href="03_Jenkins_CI.html">Jenkins CI</a></li>
+                  <li><a href="04_RequireJS.html">RequireJS</a></li>
+                  <li><a href="05_Teamcity.html">Teamcity</a></li>
+                  <li><a href="06_Cloud9.html">Cloud9</a></li>
                 </ul>
               </li>
               <li><a href="" class="">dev</a>
                 <ul>
-                  <li><a href="Client_-_Server_Protocol.html">Client - Server Protocol</a></li>
-                  <li><a href="Contributing.html">Contributing</a></li>
-                  <li><a href="Events.html">Events</a></li>
-                  <li><a href="Public_API.html">Public API</a></li>
-                  <li><a href="Todos.html">Todos</a></li>
+                  <li><a href="01_contributing.html">contributing</a></li>
+                  <li><a href="02_public_API.html">public API</a></li>
                 </ul>
               </li>
               <li><a href="" class="">about</a>
                 <ul>
-                  <li><a href="Changelog.html">Changelog</a></li>
-                  <li><a href="Versioning.html">Versioning</a></li>
-                  <li><a href="Who.html">Who</a></li>
+                  <li><a href="01_changelog.html">changelog</a></li>
+                  <li><a href="02_versioning.html">versioning</a></li>
                 </ul>
               </li>
               <li><a href="">v0.6.0</a>
@@ -92,25 +88,42 @@
     </header>
     <div class="container clearfix">
       <div class="sixteen columns">
-        <h1 class="page-title">Welcome to Testacular<span class="line"></span>
+        <h1 class="page-title">Preprocessors<span class="line"></span>
         </h1>
       </div>
       <div class="four columns bottom">
         <h2 class="title bottom-2">Table of Content<span class="line"></span></h2>
         <ul class="square-list categories bottom">
-          <li><a href="#basics">Basics</a></li>
+          <li><a href="#available-preprocessors"><p>Available Preprocessors</p>
+</a></li>
+          <li><a href="#minimatching"><p>Minimatching</p>
+</a></li>
         </ul>
       </div>
       <div class="page-columns">
-        <div id="markdown" class="twelve columns bottom"><p>It&#39;s great that you&#39;ve found your way here. If this is your first
-time here have a look at the basics, such as installation and
-configuration.</p>
-<h2 id='basics'><a class='heading_anchor' href='#basics'><i class='headerLinkIcon'></i></a>Basics</h2>
+        <div id="markdown" class="twelve columns bottom"><p>Preprocessors in Testacular allow you to do some work with your files before
+they get served to the browser. The configuration of these happens in this block
+in the config file.</p>
+<pre><code class="language-javascript">preprocessors = {
+  <span class="string">'**/mini.match'</span>: <span class="string">'preprocessor1'</span>,
+  <span class="string">'**/*.all'</span>: <span class="string">'preprocessor2'</span>
+};</code></pre>
+<h2 id='available-preprocessors'><a class='heading_anchor' href='#available-preprocessors'><i class='headerLinkIcon'></i></a>Available Preprocessors</h2>
 <ul>
-<li><a href="Installation.html">Installing</a> Testacular on your system</li>
-<li><a href="Configuration.html">Configure</a> your newly installed Testacular</li>
-<li><a href="Troubleshooting.html">Troubleshooting</a> - In the rare case something goes wrong</li>
+<li>[[CoffeeScript]]</li>
+<li>[[Live]] (<code>&gt;=0.5</code>)</li>
+<li>[[Coverage]] (<code>&gt;= 0.5</code>)</li>
 </ul>
+<h2 id='minimatching'><a class='heading_anchor' href='#minimatching'><i class='headerLinkIcon'></i></a>Minimatching</h2>
+<p>The keys of the preprocessors config object are used to filter the files specified in
+the <code>files</code> configuration. The file paths are expanded to an absolute path, based on 
+the <code>basePath</code> config and the directory of the configuration file. See [[Files]] for more
+information on that. 
+This expanded path is then matched using <a href="https://github.com/isaacs/minimatch">minimatch</a>
+against the specified key.
+So for example the path <code>/my/absolute/path/to/test/unit/file.coffee</code> matched against
+the key <code>**/*.coffee</code> would return true, but the matched against just <code>*.coffee</code> it would
+return false and the preprocessor would not be executed on the CoffeeScript files.</p>
 
         </div>
       </div>

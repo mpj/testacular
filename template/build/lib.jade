@@ -9,7 +9,7 @@ mixin navigation(currentSection)
         each heading in fileList[section]
           unless heading.name == section
             li
-              a(href='#{heading.name}.html')
+              a(href='#{heading.link}')
                 = heading.name.replace(/_/g, ' ')
 
 mixin versionDropdown(versions, active)
@@ -26,4 +26,5 @@ mixin sidebar(toh)
     for heading in toh
       if heading.rank === 2
         li
-          a(href='#{heading.link}')= heading.name.replace(/_/g, ' ')
+          a(href='#{heading.link}')
+            != markdown(heading.name.replace(/_/g, ' ')).html

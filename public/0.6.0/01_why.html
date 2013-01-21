@@ -34,47 +34,43 @@
         <div class="two-thirds column">
           <nav id="menu" class="navigation">
             <ul id="nav">
-              <li><a href="" class="">intro</a>
+              <li><a href="" class="active">intro</a>
                 <ul>
-                  <li><a href="configuration.html">configuration</a></li>
-                  <li><a href="installation.html">installation</a></li>
-                  <li><a href="troubleshooting.html">troubleshooting</a></li>
-                  <li><a href="why.html">why</a></li>
+                  <li><a href="01_why.html">why</a></li>
+                  <li><a href="02_installation.html">installation</a></li>
+                  <li><a href="03_configuration.html">configuration</a></li>
+                  <li><a href="04_troubleshooting.html">troubleshooting</a></li>
                 </ul>
               </li>
-              <li><a href="" class="active">config</a>
+              <li><a href="" class="">config</a>
                 <ul>
-                  <li><a href="browsers.html">browsers</a></li>
-                  <li><a href="CoffeeScript.html">CoffeeScript</a></li>
-                  <li><a href="Configuration_File.html">Configuration File</a></li>
-                  <li><a href="Coverage_Reporter.html">Coverage Reporter</a></li>
-                  <li><a href="Files.html">Files</a></li>
-                  <li><a href="Preprocessors.html">Preprocessors</a></li>
+                  <li><a href="01_configuration_file.html">configuration file</a></li>
+                  <li><a href="02_files.html">files</a></li>
+                  <li><a href="03_browsers.html">browsers</a></li>
+                  <li><a href="04_preprocessors.html">preprocessors</a></li>
+                  <li><a href="05_coverage.html">coverage</a></li>
                 </ul>
               </li>
               <li><a href="" class="">plus</a>
                 <ul>
-                  <li><a href="Cloud9.html">Cloud9</a></li>
-                  <li><a href="Jenkins_CI.html">Jenkins CI</a></li>
-                  <li><a href="RequireJS.html">RequireJS</a></li>
-                  <li><a href="Teamcity.html">Teamcity</a></li>
-                  <li><a href="Travis_CI.html">Travis CI</a></li>
+                  <li><a href="01_AngularJS.html">AngularJS</a></li>
+                  <li><a href="02_Travis_CI.html">Travis CI</a></li>
+                  <li><a href="03_Jenkins_CI.html">Jenkins CI</a></li>
+                  <li><a href="04_RequireJS.html">RequireJS</a></li>
+                  <li><a href="05_Teamcity.html">Teamcity</a></li>
+                  <li><a href="06_Cloud9.html">Cloud9</a></li>
                 </ul>
               </li>
               <li><a href="" class="">dev</a>
                 <ul>
-                  <li><a href="Client_-_Server_Protocol.html">Client - Server Protocol</a></li>
-                  <li><a href="Contributing.html">Contributing</a></li>
-                  <li><a href="Events.html">Events</a></li>
-                  <li><a href="Public_API.html">Public API</a></li>
-                  <li><a href="Todos.html">Todos</a></li>
+                  <li><a href="01_contributing.html">contributing</a></li>
+                  <li><a href="02_public_API.html">public API</a></li>
                 </ul>
               </li>
               <li><a href="" class="">about</a>
                 <ul>
-                  <li><a href="Changelog.html">Changelog</a></li>
-                  <li><a href="Versioning.html">Versioning</a></li>
-                  <li><a href="Who.html">Who</a></li>
+                  <li><a href="01_changelog.html">changelog</a></li>
+                  <li><a href="02_versioning.html">versioning</a></li>
                 </ul>
               </li>
               <li><a href="">v0.6.0</a>
@@ -92,28 +88,33 @@
     </header>
     <div class="container clearfix">
       <div class="sixteen columns">
-        <h1 class="page-title">CoffeeScript<span class="line"></span>
+        <h1 class="page-title">Why?<span class="line"></span>
         </h1>
       </div>
       <div class="four columns bottom">
         <h2 class="title bottom-2">Table of Content<span class="line"></span></h2>
         <ul class="square-list categories bottom">
-          <li><a href="#configuration">Configuration</a></li>
+          <li><a href="#why-should-i-use-testacular?"><p>Why should I use Testacular?</p>
+</a></li>
+          <li><a href="#why-am-i-doing-this?"><p>Why am I doing this?</p>
+</a></li>
         </ul>
       </div>
       <div class="page-columns">
-        <div id="markdown" class="twelve columns bottom"><p>If you want to use CoffeeScript for any files that Testacular uses, you can. 
-With the Testacular preprocessors you can automagically 
-compile your files whenever they change and let compiled versions be served by 
-Testacular.</p>
-<h2 id='configuration'><a class='heading_anchor' href='#configuration'><i class='headerLinkIcon'></i></a>Configuration</h2>
-<p>If you add this</p>
-<pre><code class="language-javascript">preprocessors = {
-  <span class="string">'**/*.coffee'</span>: <span class="string">'coffee'</span>
-}</code></pre>
-<p>to your configuration file all files that you added under the <code>files</code> option, that 
-end in <code>.coffee</code> will be processed by CoffeeScript before Testacular serves them
-to the browser. For more information on how to configure preprocessors, see [[Preprocessors#Minimatch]].</p>
+        <div id="markdown" class="twelve columns bottom"><h2 id='why-should-i-use-testacular?'><a class='heading_anchor' href='#why-should-i-use-testacular?'><i class='headerLinkIcon'></i></a>Why should I use Testacular?</h2>
+<p>Because It allows you to test code in real browsers (desktop, mobile, tablets):</p>
+<ul>
+<li>executing tests locally during development</li>
+<li>executing tests on a continuous integration server</li>
+</ul>
+<p>Also see <a href="http://www.youtube.com/watch?v=5mHjJ4xf_K0">this</a> introduction video on youtube.</p>
+<h2 id='why-am-i-doing-this?'><a class='heading_anchor' href='#why-am-i-doing-this?'><i class='headerLinkIcon'></i></a>Why am I doing this?</h2>
+<p>Throughout the development of <a href="http://angularjs.org/">AngularJS</a>, we’ve been using <a href="http://code.google.com/p/js-test-driver/">JSTD</a>
+for testing. I really think that JSTD is a great idea. Unfortunately, we
+had many problems with JSTD, so we decided to write our own test runner
+based on the same idea. We wanted a simple tool just for executing
+JavaScript tests that is both stable and fast. That’s why we use the
+awesome <a href="http://socket.io/">SocketIO</a> library and <a href="http://nodejs.org/">Node.js</a>.</p>
 
         </div>
       </div>

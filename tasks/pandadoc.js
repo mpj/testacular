@@ -65,7 +65,7 @@ module.exports = function(grunt) {
         } else {
           var name = dir.shift().replace(/\.md$/, '');
           var obj = {
-            name: name,
+            name: name.replace(/^\d*_/, ''),
             link: path.join(name + '.html')
           };
           // The first one should be the one with the same name as the category
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
 
     var basePath = path.join(__dirname, '..');
     var sharedFiles = [
-      {src: 'CONTRIBUTING', dest: 'dev/Contributing'}
+      {src: 'CONTRIBUTING', dest: 'dev/01_contributing'}
     ];
 
     // Copy the shared data to the folder of this version
