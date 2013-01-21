@@ -5,38 +5,41 @@ module.exports = (grunt) ->
     less:
       docs:
         files:
-          'templates/default/assets/css/app.css': 'templates/default/assets/less/app.less'
+          'template/src/css/app.css': 'template/src/less/app.less'
 
-    concat:
-      options:
-        seperator: ';'
+    uglify:
       docs:
-        src: [
-          'templates/default/assets/js/jquery.js'
-          'templates/default/assets/js/jquery.easing.js'
-          'templates/default/assets/js/ddsmoothmenu.js'
-          'templates/default/assets/js/jquery.flexslider.js'
-          'templates/default/assets/js/colortip.js'
-          'templates/default/assets/js/selectnav.js'
-          'templates/default/assets/js/custom.js'
-        ]
-        dest: 'templates/default/assets/js/app.js'
+        files:
+          'template/build/assets/js/app.js': [
+            'template/src/js/jquery.js'
+            'template/src/js/jquery.easing.js'
+            'template/src/js/ddsmoothmenu.js'
+            'template/src/js/jquery.flexslider.js'
+            'template/src/js/colortip.js'
+            'template/src/js/selectnav.js'
+            'template/src/js/custom.js'
+          ]
+    mincss:
+      docs:
+        files:
+          'template/build/assets/css/app.css': 'template/src/css/app.css'
     pandadocs:
       options:
         title: 'Testacular'
-        assets: './templates/default/assets'
+        assets: './template/build/assets'
         output: './public'
         outputAssets: './public/assets'
         disableTests: true
-        skin: './templates/default'
+        skin: './template/build'
       docs: ['src']
           
           
   
   grunt.loadTasks 'tasks'
   grunt.loadNpmTasks 'grunt-contrib-less'
-  grunt.loadNpmTasks 'grunt-contrib-concat'
-  
-  grunt.registerTask 'build', ['less', 'concat']
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
+  grunt.loadNpmTasks 'grunt-contrib-mincss'
+        
+  grunt.registerTask 'build', ['less', 'mincss', 'uglify']
   grunt.registerTask 'docs', ['pandadocs']
   grunt.registerTask 'default', ['build', 'docs']
