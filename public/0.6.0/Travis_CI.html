@@ -36,15 +36,15 @@
             <ul id="nav">
               <li><a href="" class="">intro</a>
                 <ul>
-                  <li><a href="Configuration.html">Configuration</a></li>
-                  <li><a href="Installation.html">Installation</a></li>
-                  <li><a href="Troubleshooting.html">Troubleshooting</a></li>
-                  <li><a href="Why.html">Why</a></li>
+                  <li><a href="configuration.html">configuration</a></li>
+                  <li><a href="installation.html">installation</a></li>
+                  <li><a href="troubleshooting.html">troubleshooting</a></li>
+                  <li><a href="why.html">why</a></li>
                 </ul>
               </li>
               <li><a href="" class="">config</a>
                 <ul>
-                  <li><a href="Browsers.html">Browsers</a></li>
+                  <li><a href="browsers.html">browsers</a></li>
                   <li><a href="CoffeeScript.html">CoffeeScript</a></li>
                   <li><a href="Configuration_File.html">Configuration File</a></li>
                   <li><a href="Coverage_Reporter.html">Coverage Reporter</a></li>
@@ -95,8 +95,15 @@
         <h1 class="page-title">Travis CI Integration<span class="line"></span>
         </h1>
       </div>
+      <div class="four columns bottom">
+        <h2 class="title bottom-2">Table of Content<span class="line"></span></h2>
+        <ul class="square-list categories bottom">
+          <li><a href="#setup">Setup</a></li>
+          <li><a href="#notes">Notes</a></li>
+        </ul>
+      </div>
       <div class="page-columns">
-        <div id="markdown" class="sixteen columns bottom"><p><a href="https://travis-ci.org/">Travis CI</a> is a popular continuous integration service that integrates with your <a href="https://github.com/">Github</a> repository to automatically run your tests when code is pushed. Integration is done by adding a simple <a href="http://www.yaml.org/">YAML</a> file to your project root; Travis and Github take care of the rest. Travis results will appear in your Github pull requests and your history is available on their control panel. This article assumes you already have Travis account.</p>
+        <div id="markdown" class="twelve columns bottom"><p><a href="https://travis-ci.org/">Travis CI</a> is a popular continuous integration service that integrates with your <a href="https://github.com/">Github</a> repository to automatically run your tests when code is pushed. Integration is done by adding a simple <a href="http://www.yaml.org/">YAML</a> file to your project root; Travis and Github take care of the rest. Travis results will appear in your Github pull requests and your history is available on their control panel. This article assumes you already have Travis account.</p>
 <h2 id='setup'><a class='heading_anchor' href='#setup'><i class='headerLinkIcon'></i></a>Setup</h2>
 <ol>
 <li><p>Create a file in your project root called <code>.travis.yml</code> with the following YAML:</p>

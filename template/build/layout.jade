@@ -26,8 +26,13 @@ include html
             h1.page-title
               = pageTitle
               span.line
+          .four.columns.bottom
+            h2.title.bottom-2
+              | Table of Content
+              span.line
+            mixin sidebar(toh)
           .page-columns
-            #markdown.sixteen.columns.bottom
+            #markdown.twelve.columns.bottom
               != content
       footer
         .container

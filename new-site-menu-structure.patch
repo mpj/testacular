@@ -1,0 +1,2991 @@
+From 1f3d768cc4d85e0a31dab4d0a0c3ab5a36a031ff Mon Sep 17 00:00:00 2001
+From: Vojta Jina <vojta.jina@gmail.com>
+Date: Mon, 21 Jan 2013 13:59:52 -0800
+Subject: [PATCH 1/2] Remove number prefix from title, so that we can order
+ the pages
+
+---
+ tasks/pandadoc.js |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tasks/pandadoc.js b/tasks/pandadoc.js
+index cd8c83a..c3dce04 100644
+--- a/tasks/pandadoc.js
++++ b/tasks/pandadoc.js
+@@ -65,7 +65,7 @@ module.exports = function(grunt) {
+         } else {
+           var name = dir.shift().replace(/\.md$/, '');
+           var obj = {
+-            name: name,
++            name: name.replace(/^\d*_/, ''),
+             link: path.join(name + '.html')
+           };
+           // The first one should be the one with the same name as the category
+-- 
+1.7.10.2 (Apple Git-33)
+
+
+From ad185919875ca91d25d61a94123a628df799ae5f Mon Sep 17 00:00:00 2001
+From: Vojta Jina <vojta.jina@gmail.com>
+Date: Mon, 21 Jan 2013 14:12:41 -0800
+Subject: [PATCH 2/2] Update the menu structure
+
+---
+ src/0.6.0/about/01_changelog.md           |  231 +++++++++++++++++++++++++++++
+ src/0.6.0/about/02_versioning.md          |   19 +++
+ src/0.6.0/about/Changelog.md              |  231 -----------------------------
+ src/0.6.0/about/Versioning.md             |   19 ---
+ src/0.6.0/about/Who.md                    |    5 -
+ src/0.6.0/about/about.md                  |    3 -
+ src/0.6.0/config/01_configuration_file.md |  148 ++++++++++++++++++
+ src/0.6.0/config/02_files.md              |   76 ++++++++++
+ src/0.6.0/config/03_browsers.md           |   69 +++++++++
+ src/0.6.0/config/04_preprocessors.md      |   33 +++++
+ src/0.6.0/config/05_coverage.md           |   89 +++++++++++
+ src/0.6.0/config/Browsers.md              |   69 ---------
+ src/0.6.0/config/CoffeeScript.md          |   19 ---
+ src/0.6.0/config/Configuration_File.md    |  148 ------------------
+ src/0.6.0/config/Coverage_Reporter.md     |   89 -----------
+ src/0.6.0/config/Files.md                 |   76 ----------
+ src/0.6.0/config/Preprocessors.md         |   33 -----
+ src/0.6.0/config/config.md                |    3 -
+ src/0.6.0/dev/01_contributing.md          |   69 +++++++++
+ src/0.6.0/dev/02_public_API.md            |   13 ++
+ src/0.6.0/dev/Client_-_Server_Protocol.md |   28 ----
+ src/0.6.0/dev/Contributing.md             |   69 ---------
+ src/0.6.0/dev/Events.md                   |   30 ----
+ src/0.6.0/dev/Public_API.md               |   13 --
+ src/0.6.0/dev/Todos.md                    |   43 ------
+ src/0.6.0/dev/dev.md                      |    3 -
+ src/0.6.0/intro/01_why.md                 |   26 ++++
+ src/0.6.0/intro/02_installation.md        |   47 ++++++
+ src/0.6.0/intro/03_configuration.md       |   26 ++++
+ src/0.6.0/intro/04_troubleshooting.md     |   36 +++++
+ src/0.6.0/intro/Configuration.md          |   26 ----
+ src/0.6.0/intro/Installation.md           |   47 ------
+ src/0.6.0/intro/Troubleshooting.md        |   36 -----
+ src/0.6.0/intro/Why.md                    |   26 ----
+ src/0.6.0/intro/intro.md                  |   20 ---
+ src/0.6.0/plus/02_Travis_CI.md            |   75 ++++++++++
+ src/0.6.0/plus/03_Jenkins_CI.md           |   57 +++++++
+ src/0.6.0/plus/04_RequireJS.md            |  155 +++++++++++++++++++
+ src/0.6.0/plus/05_Teamcity.md             |    5 +
+ src/0.6.0/plus/06_Cloud9.md               |   31 ++++
+ src/0.6.0/plus/Cloud9.md                  |   31 ----
+ src/0.6.0/plus/Jenkins_CI.md              |   57 -------
+ src/0.6.0/plus/RequireJS.md               |  155 -------------------
+ src/0.6.0/plus/Teamcity.md                |    5 -
+ src/0.6.0/plus/Travis_CI.md               |   75 ----------
+ src/0.6.0/plus/plus.md                    |    3 -
+ tasks/pandadoc.js                         |    2 +-
+ 47 files changed, 1206 insertions(+), 1363 deletions(-)
+ create mode 100644 src/0.6.0/about/01_changelog.md
+ create mode 100644 src/0.6.0/about/02_versioning.md
+ delete mode 100644 src/0.6.0/about/Changelog.md
+ delete mode 100644 src/0.6.0/about/Versioning.md
+ delete mode 100644 src/0.6.0/about/Who.md
+ delete mode 100644 src/0.6.0/about/about.md
+ create mode 100644 src/0.6.0/config/01_configuration_file.md
+ create mode 100644 src/0.6.0/config/02_files.md
+ create mode 100644 src/0.6.0/config/03_browsers.md
+ create mode 100644 src/0.6.0/config/04_preprocessors.md
+ create mode 100644 src/0.6.0/config/05_coverage.md
+ delete mode 100644 src/0.6.0/config/Browsers.md
+ delete mode 100644 src/0.6.0/config/CoffeeScript.md
+ delete mode 100644 src/0.6.0/config/Configuration_File.md
+ delete mode 100644 src/0.6.0/config/Coverage_Reporter.md
+ delete mode 100644 src/0.6.0/config/Files.md
+ delete mode 100644 src/0.6.0/config/Preprocessors.md
+ delete mode 100644 src/0.6.0/config/config.md
+ create mode 100644 src/0.6.0/dev/01_contributing.md
+ create mode 100644 src/0.6.0/dev/02_public_API.md
+ delete mode 100644 src/0.6.0/dev/Client_-_Server_Protocol.md
+ delete mode 100644 src/0.6.0/dev/Contributing.md
+ delete mode 100644 src/0.6.0/dev/Events.md
+ delete mode 100644 src/0.6.0/dev/Public_API.md
+ delete mode 100644 src/0.6.0/dev/Todos.md
+ delete mode 100644 src/0.6.0/dev/dev.md
+ create mode 100644 src/0.6.0/intro/01_why.md
+ create mode 100644 src/0.6.0/intro/02_installation.md
+ create mode 100644 src/0.6.0/intro/03_configuration.md
+ create mode 100644 src/0.6.0/intro/04_troubleshooting.md
+ delete mode 100644 src/0.6.0/intro/Configuration.md
+ delete mode 100644 src/0.6.0/intro/Installation.md
+ delete mode 100644 src/0.6.0/intro/Troubleshooting.md
+ delete mode 100644 src/0.6.0/intro/Why.md
+ delete mode 100644 src/0.6.0/intro/intro.md
+ create mode 100644 src/0.6.0/plus/01_AngularJS.md
+ create mode 100644 src/0.6.0/plus/02_Travis_CI.md
+ create mode 100644 src/0.6.0/plus/03_Jenkins_CI.md
+ create mode 100644 src/0.6.0/plus/04_RequireJS.md
+ create mode 100644 src/0.6.0/plus/05_Teamcity.md
+ create mode 100644 src/0.6.0/plus/06_Cloud9.md
+ delete mode 100644 src/0.6.0/plus/Cloud9.md
+ delete mode 100644 src/0.6.0/plus/Jenkins_CI.md
+ delete mode 100644 src/0.6.0/plus/RequireJS.md
+ delete mode 100644 src/0.6.0/plus/Teamcity.md
+ delete mode 100644 src/0.6.0/plus/Travis_CI.md
+ delete mode 100644 src/0.6.0/plus/plus.md
+
+diff --git a/src/0.6.0/about/01_changelog.md b/src/0.6.0/about/01_changelog.md
+new file mode 100644
+index 0000000..0dfdb10
+--- /dev/null
++++ b/src/0.6.0/about/01_changelog.md
+@@ -0,0 +1,231 @@
++section: about
++
++# Changelog
++
++### v0.5.8
++* Fix #283
++* Suppress global leak for istanbul
++* Fix growl reporter to work with `testacular run`
++* Upgrade jasmine to 1.3.1
++* Fix file sorting
++* Fix #265
++* Support for more mime-types on served static files
++* Fix opening Chrome on Windows
++* Upgrade growly to 1.1.0
++
++### v0.5.7
++* Support code coverage for qunit.
++* Rename port-runner option in cli to runner-port
++* Fix proxy handler (when no proxy defined)
++* Fix #65
++
++### v0.5.6
++* Growl reporter !
++* Batch changes (eg. `git checkout` causes only single run now)
++* Handle uncaught errors and disconnect all browsers
++* Global binary prefers local versions
++
++### v0.5.5
++* Add QUnit adapter
++* Report console.log()
++
++### v0.5.4
++* Fix PhantomJS launcher
++* Fix html2js preprocessor
++* NG scenario adapter: show html output
++
++### v0.5.3
++* Add code coverage !
++
++### v0.5.2
++* Init: ask about using Require.js
++
++### v0.5.1
++* Support for Require.js
++* Fix testacular init basePath
++
++## v0.5.0
++* Add preprocessor for LiveScript
++* Fix JUnit reporter
++* Enable process global in config file
++* Add OS name in the browser name
++* NG scenario adapter: hide other outputs to make it faster
++* Allow config to be written in CoffeeScript
++* Allow espaced characters in served urls
++
++## v0.4.0 (stable)
++
++### v0.3.12
++* Allow calling run() pragmatically from JS
++
++### v0.3.11
++* Fix runner to wait for stdout, stderr
++* Make routing proxy always changeOrigin
++
++### v0.3.10
++* Fix angular-scenario adapter + junit reporter
++* Use flash socket if web socket not available
++
++### v0.3.9
++* Retry starting a browser if it does not capture
++* Update mocha to 1.5.0
++* Handle mocha's xit
++
++### v0.3.8
++* Kill browsers that don't capture in captureTimeout ms
++* Abort build if any browser fails to capture
++* Allow multiple profiles of Firefox
++
++### v0.3.7
++* Remove Travis hack
++* Fix Safari launcher
++
++### v0.3.6
++* Remove custom launcher (constructor)
++* Launcher - use random id to allow multiple instances of the same browser
++* Fix Firefox launcher (creating profile)
++* Fix killing browsers on Linux and Windows
++
++### v0.3.5
++* Fix opera launcher to create new prefs with disabling all pop-ups
++
++### v0.3.4
++* Change "reporter" config to "reporters"
++* Allow multiple reporters
++* Fix angular-scenario adapter to report proper description
++* Add JUnit xml reporter
++* Fix loading files from multiple drives on Windows
++* Fix angular-scenario adapter to report total number of tests
++
++### v0.3.3
++* Allow proxying files, not only directories
++
++### v0.3.2
++* Disable autoWatch if singleRun
++* Add custom script browser launcher
++* Fix cleaning temp folders
++
++### v0.3.1
++* Run tests on start (if watching enabled)
++* Add launcher for IE8, IE9
++
++## v0.3.0
++* Change browser binaries on linux to relative
++* Add report-slower-than to CLI options
++* Fix PhantomJS binary on Travis CI
++
++## v0.2.0 (stable)
++
++## v0.1.3
++* Launch Canary with crankshaft disabled
++* Make the captured page nicer
++
++### v0.1.2
++* Fix jasmine memory leaks
++* support __filename and __dirname in config files
++
++### v0.1.1
++* Report slow tests (add `reportSlowerThan` config option)
++* Report time in minutes if it's over 60 seconds
++* Mocha adapter: add ability to fail during beforeEach/afterEach hooks
++* Mocha adapter: add dump()
++* NG scenario adapter: failure includes step name
++* Redirect /urlRoot to /urlRoot/
++* Fix serving with urlRoot
++
++## v0.1.0
++* Adapter for AngularJS scenario runner
++* Allow serving Testacular from a subpath
++* Fix race condition in testacular run
++* Make testacular one binary (remove `testacular-run`, use `testacular run`)
++* Add support for proxies
++* Init script for generating config files (`testacular init`)
++* Start Firefox without custom profile if it fails
++* Preserve order of watched paths for easier debugging
++* Change default port to 9876
++* Require node v0.8.4+
++
++### v0.0.17
++* Fix race condition in manually triggered run
++* Fix autoWatch config
++
++### v0.0.16
++* Mocha adapter
++* Fix watching/resolving on Windows
++* Allow glob patterns
++* Watch new files
++* Watch removed files
++* Remove unused config (autoWatchInterval)
++
++### v0.0.15
++* Remove absolute paths from urls (fixes Windows issue with C:\\)
++* Add browser launcher for PhantomJS
++* Fix some more windows issues
++
++### v0.0.14
++* Allow require() inside config file
++* Allow custom browser launcher
++* Add browser launcher for Opera, Safari
++* Ignore signals on windows (not supported yet)
++
++### v0.0.13
++* Single run mode (capture browsers, run tests, exit)
++* Start browser automatically (chrome, canary, firefox)
++* Allow loading external files (urls)
++
++### v0.0.12
++* Allow console in config
++* Warning if pattern does not match any file
++
++### v0.0.11
++* Add timing (total / net - per specs)
++* Dots reporter - wrap at 80
++
++### v0.0.10
++* Add DOTS reporter
++* Add no-colors option for reporters
++* Fix web server to expose only specified files
++
++### v0.0.9
++* Proper exit code for runner
++* Dynamic port asigning (if port already in use)
++* Add log-leve, log-colors cli arguments + better --help
++* Fix some IE errors (indexOf, forEach fallbacks)
++
++### v0.0.8
++* Allow overriding configuration by cli arguments (+ --version, --help)
++* Persuade IE8 to not cache context.html
++* Exit runner if no captured browser
++* Fix delayed execution (streaming to runner)
++* Complete run if browser disconnects
++* Ignore results from previous run (after server reconnecting)
++* Server disconnects - cancel execution, clear browser info
++
++### v0.0.7
++* Rename to Testacular
++
++### v0.0.6
++* Better debug mode (no caching, no timestamps)
++* Make dump() a bit better
++* Disconnect browsers on SIGTERM (kill, killall default)
++
++### v0.0.5
++* Fix memory (some :-D) leaks
++* Add dump support
++* Add runner.html
++
++### v0.0.4
++* Progress bar reporting
++* Improve error formatting
++* Add Jasmine lib (with iit, ddescribe)
++* Reconnect client each 2sec, remove exponential growing
++
++### v0.0.3
++* Jasmine adapter: ignore last failed filter in exclusive mode
++* Jasmine adapter: add build (no global space pollution)
++
++### 0.0.2
++* Run only last failed tests (jasmine adapter)
++
++### 0.0.1
++* Initial version with only very basic features
+diff --git a/src/0.6.0/about/02_versioning.md b/src/0.6.0/about/02_versioning.md
+new file mode 100644
+index 0000000..41fec0b
+--- /dev/null
++++ b/src/0.6.0/about/02_versioning.md
+@@ -0,0 +1,19 @@
++section: about
++
++# Versioning
++
++Testacular uses [Semantic Versioning]. All even versions (eg. `0.2.x`,
++`0.4.x`) are considered to be stable - no breaking changes, only bug
++fixes.
++
++Stable channel (branch `stable`)
++```bash
++$ npm install -g testacular
++```
++
++Canary channel (branch `master`)
++```bash
++$ npm install -g testacular@canary
++```
++
++[Semantic Versioning]: http://semver.org/
+diff --git a/src/0.6.0/about/Changelog.md b/src/0.6.0/about/Changelog.md
+deleted file mode 100644
+index 0dfdb10..0000000
+--- a/src/0.6.0/about/Changelog.md
++++ /dev/null
+@@ -1,231 +0,0 @@
+-section: about
+-
+-# Changelog
+-
+-### v0.5.8
+-* Fix #283
+-* Suppress global leak for istanbul
+-* Fix growl reporter to work with `testacular run`
+-* Upgrade jasmine to 1.3.1
+-* Fix file sorting
+-* Fix #265
+-* Support for more mime-types on served static files
+-* Fix opening Chrome on Windows
+-* Upgrade growly to 1.1.0
+-
+-### v0.5.7
+-* Support code coverage for qunit.
+-* Rename port-runner option in cli to runner-port
+-* Fix proxy handler (when no proxy defined)
+-* Fix #65
+-
+-### v0.5.6
+-* Growl reporter !
+-* Batch changes (eg. `git checkout` causes only single run now)
+-* Handle uncaught errors and disconnect all browsers
+-* Global binary prefers local versions
+-
+-### v0.5.5
+-* Add QUnit adapter
+-* Report console.log()
+-
+-### v0.5.4
+-* Fix PhantomJS launcher
+-* Fix html2js preprocessor
+-* NG scenario adapter: show html output
+-
+-### v0.5.3
+-* Add code coverage !
+-
+-### v0.5.2
+-* Init: ask about using Require.js
+-
+-### v0.5.1
+-* Support for Require.js
+-* Fix testacular init basePath
+-
+-## v0.5.0
+-* Add preprocessor for LiveScript
+-* Fix JUnit reporter
+-* Enable process global in config file
+-* Add OS name in the browser name
+-* NG scenario adapter: hide other outputs to make it faster
+-* Allow config to be written in CoffeeScript
+-* Allow espaced characters in served urls
+-
+-## v0.4.0 (stable)
+-
+-### v0.3.12
+-* Allow calling run() pragmatically from JS
+-
+-### v0.3.11
+-* Fix runner to wait for stdout, stderr
+-* Make routing proxy always changeOrigin
+-
+-### v0.3.10
+-* Fix angular-scenario adapter + junit reporter
+-* Use flash socket if web socket not available
+-
+-### v0.3.9
+-* Retry starting a browser if it does not capture
+-* Update mocha to 1.5.0
+-* Handle mocha's xit
+-
+-### v0.3.8
+-* Kill browsers that don't capture in captureTimeout ms
+-* Abort build if any browser fails to capture
+-* Allow multiple profiles of Firefox
+-
+-### v0.3.7
+-* Remove Travis hack
+-* Fix Safari launcher
+-
+-### v0.3.6
+-* Remove custom launcher (constructor)
+-* Launcher - use random id to allow multiple instances of the same browser
+-* Fix Firefox launcher (creating profile)
+-* Fix killing browsers on Linux and Windows
+-
+-### v0.3.5
+-* Fix opera launcher to create new prefs with disabling all pop-ups
+-
+-### v0.3.4
+-* Change "reporter" config to "reporters"
+-* Allow multiple reporters
+-* Fix angular-scenario adapter to report proper description
+-* Add JUnit xml reporter
+-* Fix loading files from multiple drives on Windows
+-* Fix angular-scenario adapter to report total number of tests
+-
+-### v0.3.3
+-* Allow proxying files, not only directories
+-
+-### v0.3.2
+-* Disable autoWatch if singleRun
+-* Add custom script browser launcher
+-* Fix cleaning temp folders
+-
+-### v0.3.1
+-* Run tests on start (if watching enabled)
+-* Add launcher for IE8, IE9
+-
+-## v0.3.0
+-* Change browser binaries on linux to relative
+-* Add report-slower-than to CLI options
+-* Fix PhantomJS binary on Travis CI
+-
+-## v0.2.0 (stable)
+-
+-## v0.1.3
+-* Launch Canary with crankshaft disabled
+-* Make the captured page nicer
+-
+-### v0.1.2
+-* Fix jasmine memory leaks
+-* support __filename and __dirname in config files
+-
+-### v0.1.1
+-* Report slow tests (add `reportSlowerThan` config option)
+-* Report time in minutes if it's over 60 seconds
+-* Mocha adapter: add ability to fail during beforeEach/afterEach hooks
+-* Mocha adapter: add dump()
+-* NG scenario adapter: failure includes step name
+-* Redirect /urlRoot to /urlRoot/
+-* Fix serving with urlRoot
+-
+-## v0.1.0
+-* Adapter for AngularJS scenario runner
+-* Allow serving Testacular from a subpath
+-* Fix race condition in testacular run
+-* Make testacular one binary (remove `testacular-run`, use `testacular run`)
+-* Add support for proxies
+-* Init script for generating config files (`testacular init`)
+-* Start Firefox without custom profile if it fails
+-* Preserve order of watched paths for easier debugging
+-* Change default port to 9876
+-* Require node v0.8.4+
+-
+-### v0.0.17
+-* Fix race condition in manually triggered run
+-* Fix autoWatch config
+-
+-### v0.0.16
+-* Mocha adapter
+-* Fix watching/resolving on Windows
+-* Allow glob patterns
+-* Watch new files
+-* Watch removed files
+-* Remove unused config (autoWatchInterval)
+-
+-### v0.0.15
+-* Remove absolute paths from urls (fixes Windows issue with C:\\)
+-* Add browser launcher for PhantomJS
+-* Fix some more windows issues
+-
+-### v0.0.14
+-* Allow require() inside config file
+-* Allow custom browser launcher
+-* Add browser launcher for Opera, Safari
+-* Ignore signals on windows (not supported yet)
+-
+-### v0.0.13
+-* Single run mode (capture browsers, run tests, exit)
+-* Start browser automatically (chrome, canary, firefox)
+-* Allow loading external files (urls)
+-
+-### v0.0.12
+-* Allow console in config
+-* Warning if pattern does not match any file
+-
+-### v0.0.11
+-* Add timing (total / net - per specs)
+-* Dots reporter - wrap at 80
+-
+-### v0.0.10
+-* Add DOTS reporter
+-* Add no-colors option for reporters
+-* Fix web server to expose only specified files
+-
+-### v0.0.9
+-* Proper exit code for runner
+-* Dynamic port asigning (if port already in use)
+-* Add log-leve, log-colors cli arguments + better --help
+-* Fix some IE errors (indexOf, forEach fallbacks)
+-
+-### v0.0.8
+-* Allow overriding configuration by cli arguments (+ --version, --help)
+-* Persuade IE8 to not cache context.html
+-* Exit runner if no captured browser
+-* Fix delayed execution (streaming to runner)
+-* Complete run if browser disconnects
+-* Ignore results from previous run (after server reconnecting)
+-* Server disconnects - cancel execution, clear browser info
+-
+-### v0.0.7
+-* Rename to Testacular
+-
+-### v0.0.6
+-* Better debug mode (no caching, no timestamps)
+-* Make dump() a bit better
+-* Disconnect browsers on SIGTERM (kill, killall default)
+-
+-### v0.0.5
+-* Fix memory (some :-D) leaks
+-* Add dump support
+-* Add runner.html
+-
+-### v0.0.4
+-* Progress bar reporting
+-* Improve error formatting
+-* Add Jasmine lib (with iit, ddescribe)
+-* Reconnect client each 2sec, remove exponential growing
+-
+-### v0.0.3
+-* Jasmine adapter: ignore last failed filter in exclusive mode
+-* Jasmine adapter: add build (no global space pollution)
+-
+-### 0.0.2
+-* Run only last failed tests (jasmine adapter)
+-
+-### 0.0.1
+-* Initial version with only very basic features
+diff --git a/src/0.6.0/about/Versioning.md b/src/0.6.0/about/Versioning.md
+deleted file mode 100644
+index 41fec0b..0000000
+--- a/src/0.6.0/about/Versioning.md
++++ /dev/null
+@@ -1,19 +0,0 @@
+-section: about
+-
+-# Versioning
+-
+-Testacular uses [Semantic Versioning]. All even versions (eg. `0.2.x`,
+-`0.4.x`) are considered to be stable - no breaking changes, only bug
+-fixes.
+-
+-Stable channel (branch `stable`)
+-```bash
+-$ npm install -g testacular
+-```
+-
+-Canary channel (branch `master`)
+-```bash
+-$ npm install -g testacular@canary
+-```
+-
+-[Semantic Versioning]: http://semver.org/
+diff --git a/src/0.6.0/about/Who.md b/src/0.6.0/about/Who.md
+deleted file mode 100644
+index 8bb6826..0000000
+--- a/src/0.6.0/about/Who.md
++++ /dev/null
+@@ -1,5 +0,0 @@
+-section: about
+-
+-# Who Uses Testacular?
+-
+-* [AngularJS](http://angularjs.org/) - HTML enhanced for web apps!
+diff --git a/src/0.6.0/about/about.md b/src/0.6.0/about/about.md
+deleted file mode 100644
+index 66339dd..0000000
+--- a/src/0.6.0/about/about.md
++++ /dev/null
+@@ -1,3 +0,0 @@
+-section: about
+-
+-# Lets get to know each other
+diff --git a/src/0.6.0/config/01_configuration_file.md b/src/0.6.0/config/01_configuration_file.md
+new file mode 100644
+index 0000000..688a177
+--- /dev/null
++++ b/src/0.6.0/config/01_configuration_file.md
+@@ -0,0 +1,148 @@
++section: config
++
++# Configuration File
++
++To configure Testacular you use a configuration file and supply this
++file when starting Testacular.
++Here is a list of all possible configuration values that can be used,
++including their default values.
++
++## basePath
++
++**Type.** String
++
++**Default.** `''`
++
++**Description.**  Base path, that will be used to resolve files and exclude.
++
++## files
++
++**Type.** Array
++
++**Default.**   `[]`
++
++**Description.** List of files/patterns to load in the browser. See [[Files]] for more information.
++
++
++## exclude
++**Type.** Array
++
++**Default.**   `[]`
++
++**Description.** List of files to exclude.
++
++
++## reporters
++**Type.** Array
++
++**Default.**   `['progress']`
++
++**Possible Values.**
++
++* `dots`
++
++* `progress`
++
++* `junit`
++
++**Description.** A list of reporters to use. See [[Reporters]] for
++  more.
++  
++
++## port
++**Type.** Number
++
++**Default.** `8080`
++
++**Description.** Web server port 
++
++
++## runnerPort
++**Type.** Number
++
++**Default.** `9100`
++
++**Description.** Cli runner port 
++
++
++## colors
++**Type.** Boolean
++
++**Default.**   `true`
++
++**Description.**  Enable / disable colors in the output (reporters and logs).
++  
++
++## logLevel
++**Type.** Constant
++
++**Default.** `LOG_INFO`
++
++**Possible values.**
++
++* `LOG_DISABLE`
++* `LOG_ERROR`
++* `LOG_WARN`
++* `LOG_INFO`
++* `LOG_DEBUG` 
++
++**Description.** Level of logging.
++
++
++## autoWatch
++**Type.** Boolean
++
++**Default.**  `false`
++
++**Description.** Enable/disable watching file and executing tests
++  whenever any file changes.
++  
++
++## browsers
++**Type.** Array
++
++**Default.**  `[]` 
++
++**Possible Values.**
++
++* `Chrome`
++* `ChromeCanary`
++* `Firefox`
++* `Opera`
++* `Safari`
++* `PhantomJS`
++
++**Description.** A list of browsers to test in. See [[Browsers]] for more.
++   
++
++## singleRun
++**Type.** Boolean
++
++**Default.**   `false`
++
++**Description.** Continuous Integration mode if `true`, it captures
++  browsers, runs tests and exits.
++
++## preprocessors
++**Type.** Object
++
++**Default.**   `{}`
++
++**Description.** List modules to preprocess your files before they get
++  served to the browser. 
++  
++  See [[Preprocessors]] for more.
++
++## proxies
++**Type.** Object
++
++**Default.**   `{}`
++
++**Description.** List path-proxy pairs.  For example: 
++
++```javascript
++proxies =  {
++  '/static': 'http://gstatic.com', 
++  '/web': 'http://localhost:9000'
++};
++```
+diff --git a/src/0.6.0/config/02_files.md b/src/0.6.0/config/02_files.md
+new file mode 100644
+index 0000000..71adcdb
+--- /dev/null
++++ b/src/0.6.0/config/02_files.md
+@@ -0,0 +1,76 @@
++section: config
++
++# Files
++
++The files array determines wich files are loaded, watched and served by Testacular.
++
++Warning: The order in which the files are defined, determines the load order!
++
++## Adapters
++The first thing you usually need is an adapter. The following adapters are bundled with Testacular
++* Mocha
++* Jasmine
++* QUnit (0.5.5)
++* RequireJS (0.5.1)
++
++If you want to use any of these you add `LIBRARY` and `LIBRARY_ADAPTER` to your `files` list. So for
++example if you want to use Mocha you have the following in your config file.
++```javascript
++files = [
++  MOCHA,
++  MOCHA_ADAPTER
++];
++```
++
++## Pattern matching and `basePath`
++All files that come from you and are not bundled with Testacular can get included via glob patterns. 
++For example you can just write `myFile.js` or something more elaborate like `test/unit/**/*.spec.js`. 
++These files get resolved to absolute paths using the `basePath` options, so if we set `basePath = '../'` and our configuration is in the folder `projectRoot/config`, our files get resolved to
++
++* `myFile.js` --> `/projectRoot/myFile.js`
++* `test/unit/**/*.spec.js` --> `/projectRoot/test/unit/**/*.spec.js`
++
++and then they are matched using [minimatch](https://github.com/isaacs/minimatch) against the file system.
++
++## Included, served, watched
++Since version 0.5.2 there is the ability to configure the patterns more closely. If you define them like before a simple pattern like `'test/unit/*.js'` gets expanded internally to the following
++```javascript
++  {pattern: 'test/unit/*.js', watched: true, included: true, served: true}
++```
++### `pattern`
++* **Description.** The pattern to use for matching.
++
++### `watched`
++* **Type.** Boolean
++* **Default.** `true`
++* **Description.** 
++If `autoWatch` is `true` all files that have set `watched` to true will be 
++  polled for changes.
++
++### `included`
++* **Type.** Boolean
++* **Default.** `true`
++* **Description.** Should the files be included into the loading process of the files into the browser.
++
++### `served`
++* **Type.** Boolean
++* **Default.** `true`
++* **Description.** Should the files be served by Testaculars webserver.
++
++## Finished example
++Here is a complete example showing the different options that are possible.
++```javascript
++files = [
++  // Adapter
++  MOCHA,
++  MOCHA_ADAPTER,
++  // simple patterns to load the needed testfiles
++  'test/fixtures/**/*.html',
++  'test/unit/*.spec.js',
++  // this file gets served but will be ignored by the watcher
++  {pattern: 'compiled/index.html', watched: false},
++  // this file only gets watched but otherwise ignored
++  {pattern: 'app/index.html', included: false, served: false}
++  
++];
++```
+diff --git a/src/0.6.0/config/03_browsers.md b/src/0.6.0/config/03_browsers.md
+new file mode 100644
+index 0000000..add73d7
+--- /dev/null
++++ b/src/0.6.0/config/03_browsers.md
+@@ -0,0 +1,69 @@
++section: config
++
++# Browsers
++
++## Starting browsers
++Capturing browsers is kinda boring, so Testacular can do that for you.
++Just simply add into the configuration file:
++
++```javascript
++browsers = ['Chrome'];
++```
++Then, Testacular will take care of autocapturing these browsers, as
++well as killing them.
++
++
++Available browsers:
++
++- Chrome
++- ChromeCanary
++- Safari
++- Firefox
++- Opera
++- PhantomJS
++- IE
++
++
++## Correct path to browser binary
++Testacular has some default paths, where to find these browsers.
++Check out [launchers](https://github.com/vojtajina/testacular/blob/master/lib/launchers) to see them.
++
++You can override these settings by `<BROWSER>_BIN` env variable,
++or alternatively by creating a `symlink`
++
++### POSIX shells
++
++```bash
++# Example - changing path to Chrome binary:
++$ export CHROME_BIN=/usr/local/bin/my-chrome-build
++
++# Example - changing path to Chrome Canary binary:
++$ export CHROME_CANARY_BIN=/usr/local/bin/my-chrome-build
++
++# Example - changing path to PhantomJs binary:
++$ export PHANTOMJS_BIN=$HOME/local/bin/phantomjs
++```
++
++### Windows cmd.exe
++
++```bash
++C:> SET IE_BIN=C:\Program Files\Internet Explorer\iexplore.exe
++```
++
++### Windows Powershell 
++
++```bash
++# During a scripted Testacular run
++$Env:FIREFOX_BIN = 'c:\Program Files (x86)\Mozilla Firefox 4.0 Beta 6\firefox.exe'
++```
++
++## Custom browsers
++
++```javascript
++// in the testacular.conf.js
++browsers = ['/usr/local/bin/custom-browser.sh'];
++
++// from cli
++testacular start --browsers /usr/local/bin/custom-browser.sh
++```
++The browser scripts need to take one argument, the url with id parameter to be used to connect to the server. The supplied id is used by the server to determine when the specific browser is captured.
+diff --git a/src/0.6.0/config/04_preprocessors.md b/src/0.6.0/config/04_preprocessors.md
+new file mode 100644
+index 0000000..8ea57f9
+--- /dev/null
++++ b/src/0.6.0/config/04_preprocessors.md
+@@ -0,0 +1,33 @@
++section: config
++
++# Preprocessors
++
++Preprocessors in Testacular allow you to do some work with your files before
++they get served to the browser. The configuration of these happens in this block
++in the config file.
++
++```javascript
++preprocessors = {
++  '**/mini.match': 'preprocessor1',
++  '**/*.all': 'preprocessor2'
++};
++```
++
++## Available Preprocessors
++* [[CoffeeScript]]
++* [[Live]] (`>=0.5`)
++* [[Coverage]] (`>= 0.5`)
++
++## Minimatching
++The keys of the preprocessors config object are used to filter the files specified in
++the `files` configuration. The file paths are expanded to an absolute path, based on 
++the `basePath` config and the directory of the configuration file. See [[Files]] for more
++information on that. 
++This expanded path is then matched using [minimatch](https://github.com/isaacs/minimatch)
++against the specified key.
++So for example the path `/my/absolute/path/to/test/unit/file.coffee` matched against
++the key `**/*.coffee` would return true, but the matched against just `*.coffee` it would
++return false and the preprocessor would not be executed on the CoffeeScript files.
++
++
++
+diff --git a/src/0.6.0/config/05_coverage.md b/src/0.6.0/config/05_coverage.md
+new file mode 100644
+index 0000000..3191b93
+--- /dev/null
++++ b/src/0.6.0/config/05_coverage.md
+@@ -0,0 +1,89 @@
++section: config
++
++# Coverage Reporter
++
++If you want to use the code coverage feature of testacular you need to
++configure three parts.
++
++* Reporter `coverage` (required)
++* Preprocessor `coverage` (required)
++* Reporter Options (optional)
++
++## Reporter
++To activate the coverage reporter add this to your configuration file.
++```javascript
++reporters = ['coverage'];
++```
++This will create a coverage report for every browser that the tests are run in.
++In addition, it will create a JSON file that outputs the intermediate data.
++
++## Preprocessor
++The preprocessor configures which files should be tested for coverage.
++For example if all your code lives in ``lib/`` you need to add this to your
++configuration file.
++
++```javascript
++preprocessors = {
++  '**/lib/*.js': 'coverage'
++};
++```
++You should not however include the files that aren't directly related to your
++program, e.g. libraries, mocks.
++
++This is a **BAD** example
++
++```javascript
++files = [
++  JASMINE,
++  JASMINE_ADAPTER,
++  'lib/*.js',
++  'test/*.js'
++];
++preprocessors = {
++  '**/*.js': 'coverage'
++};
++```
++In this example also JASMINE and JASMINE_ADAPTER get included but they shouldn't as
++these file are only for the test setup used and not for your program.
++
++If you include these files there can occur side effects like the following,
++
++* a part of the code coverage report will be output in the installation directory of testacular.
++* the code coverage rate is reduced unfairly.
++
++
++##  Reporter Options
++The reporter defaults to the following values.
++
++```javascript
++coverageReporter = {
++  type : 'html',
++  dir : 'coverage/'
++}
++```
++If you want to configure it yourself here are the options explained.
++
++### `type`
++* **Type.** String
++* **Possible Values.**
++  * `html` (default)
++  * `lcov` (lcov and html)
++  * `lcovonly`
++  * `text`
++  * `text-summary`
++  * `cobertura` (xml format supported by Jenkins)
++
++If you set `type` to `text` or `text-summary`, you may set the `file` option, like this.
++```javascript
++coverageReporter = {
++  type : 'text',
++  dir : 'coverage/',
++  file : 'coverage.txt'
++}
++```
++If no filename is given, it will write the output to the console.
++
++### `dir`
++* **Type.** String
++* **Description.** This will be used to output coverage reports. When 
++  you set a relative path, the directory is resolved against the `basePath`.
+diff --git a/src/0.6.0/config/Browsers.md b/src/0.6.0/config/Browsers.md
+deleted file mode 100644
+index add73d7..0000000
+--- a/src/0.6.0/config/Browsers.md
++++ /dev/null
+@@ -1,69 +0,0 @@
+-section: config
+-
+-# Browsers
+-
+-## Starting browsers
+-Capturing browsers is kinda boring, so Testacular can do that for you.
+-Just simply add into the configuration file:
+-
+-```javascript
+-browsers = ['Chrome'];
+-```
+-Then, Testacular will take care of autocapturing these browsers, as
+-well as killing them.
+-
+-
+-Available browsers:
+-
+-- Chrome
+-- ChromeCanary
+-- Safari
+-- Firefox
+-- Opera
+-- PhantomJS
+-- IE
+-
+-
+-## Correct path to browser binary
+-Testacular has some default paths, where to find these browsers.
+-Check out [launchers](https://github.com/vojtajina/testacular/blob/master/lib/launchers) to see them.
+-
+-You can override these settings by `<BROWSER>_BIN` env variable,
+-or alternatively by creating a `symlink`
+-
+-### POSIX shells
+-
+-```bash
+-# Example - changing path to Chrome binary:
+-$ export CHROME_BIN=/usr/local/bin/my-chrome-build
+-
+-# Example - changing path to Chrome Canary binary:
+-$ export CHROME_CANARY_BIN=/usr/local/bin/my-chrome-build
+-
+-# Example - changing path to PhantomJs binary:
+-$ export PHANTOMJS_BIN=$HOME/local/bin/phantomjs
+-```
+-
+-### Windows cmd.exe
+-
+-```bash
+-C:> SET IE_BIN=C:\Program Files\Internet Explorer\iexplore.exe
+-```
+-
+-### Windows Powershell 
+-
+-```bash
+-# During a scripted Testacular run
+-$Env:FIREFOX_BIN = 'c:\Program Files (x86)\Mozilla Firefox 4.0 Beta 6\firefox.exe'
+-```
+-
+-## Custom browsers
+-
+-```javascript
+-// in the testacular.conf.js
+-browsers = ['/usr/local/bin/custom-browser.sh'];
+-
+-// from cli
+-testacular start --browsers /usr/local/bin/custom-browser.sh
+-```
+-The browser scripts need to take one argument, the url with id parameter to be used to connect to the server. The supplied id is used by the server to determine when the specific browser is captured.
+diff --git a/src/0.6.0/config/CoffeeScript.md b/src/0.6.0/config/CoffeeScript.md
+deleted file mode 100644
+index abca7d5..0000000
+--- a/src/0.6.0/config/CoffeeScript.md
++++ /dev/null
+@@ -1,19 +0,0 @@
+-section: config
+-
+-# CoffeeScript
+-
+-If you want to use CoffeeScript for any files that Testacular uses, you can. 
+-With the Testacular preprocessors you can automagically 
+-compile your files whenever they change and let compiled versions be served by 
+-Testacular.
+-
+-## Configuration
+-If you add this
+-```javascript
+-preprocessors = {
+-  '**/*.coffee': 'coffee'
+-}
+-```
+-to your configuration file all files that you added under the `files` option, that 
+-end in `.coffee` will be processed by CoffeeScript before Testacular serves them
+-to the browser. For more information on how to configure preprocessors, see [[Preprocessors#Minimatch]].
+diff --git a/src/0.6.0/config/Configuration_File.md b/src/0.6.0/config/Configuration_File.md
+deleted file mode 100644
+index 688a177..0000000
+--- a/src/0.6.0/config/Configuration_File.md
++++ /dev/null
+@@ -1,148 +0,0 @@
+-section: config
+-
+-# Configuration File
+-
+-To configure Testacular you use a configuration file and supply this
+-file when starting Testacular.
+-Here is a list of all possible configuration values that can be used,
+-including their default values.
+-
+-## basePath
+-
+-**Type.** String
+-
+-**Default.** `''`
+-
+-**Description.**  Base path, that will be used to resolve files and exclude.
+-
+-## files
+-
+-**Type.** Array
+-
+-**Default.**   `[]`
+-
+-**Description.** List of files/patterns to load in the browser. See [[Files]] for more information.
+-
+-
+-## exclude
+-**Type.** Array
+-
+-**Default.**   `[]`
+-
+-**Description.** List of files to exclude.
+-
+-
+-## reporters
+-**Type.** Array
+-
+-**Default.**   `['progress']`
+-
+-**Possible Values.**
+-
+-* `dots`
+-
+-* `progress`
+-
+-* `junit`
+-
+-**Description.** A list of reporters to use. See [[Reporters]] for
+-  more.
+-  
+-
+-## port
+-**Type.** Number
+-
+-**Default.** `8080`
+-
+-**Description.** Web server port 
+-
+-
+-## runnerPort
+-**Type.** Number
+-
+-**Default.** `9100`
+-
+-**Description.** Cli runner port 
+-
+-
+-## colors
+-**Type.** Boolean
+-
+-**Default.**   `true`
+-
+-**Description.**  Enable / disable colors in the output (reporters and logs).
+-  
+-
+-## logLevel
+-**Type.** Constant
+-
+-**Default.** `LOG_INFO`
+-
+-**Possible values.**
+-
+-* `LOG_DISABLE`
+-* `LOG_ERROR`
+-* `LOG_WARN`
+-* `LOG_INFO`
+-* `LOG_DEBUG` 
+-
+-**Description.** Level of logging.
+-
+-
+-## autoWatch
+-**Type.** Boolean
+-
+-**Default.**  `false`
+-
+-**Description.** Enable/disable watching file and executing tests
+-  whenever any file changes.
+-  
+-
+-## browsers
+-**Type.** Array
+-
+-**Default.**  `[]` 
+-
+-**Possible Values.**
+-
+-* `Chrome`
+-* `ChromeCanary`
+-* `Firefox`
+-* `Opera`
+-* `Safari`
+-* `PhantomJS`
+-
+-**Description.** A list of browsers to test in. See [[Browsers]] for more.
+-   
+-
+-## singleRun
+-**Type.** Boolean
+-
+-**Default.**   `false`
+-
+-**Description.** Continuous Integration mode if `true`, it captures
+-  browsers, runs tests and exits.
+-
+-## preprocessors
+-**Type.** Object
+-
+-**Default.**   `{}`
+-
+-**Description.** List modules to preprocess your files before they get
+-  served to the browser. 
+-  
+-  See [[Preprocessors]] for more.
+-
+-## proxies
+-**Type.** Object
+-
+-**Default.**   `{}`
+-
+-**Description.** List path-proxy pairs.  For example: 
+-
+-```javascript
+-proxies =  {
+-  '/static': 'http://gstatic.com', 
+-  '/web': 'http://localhost:9000'
+-};
+-```
+diff --git a/src/0.6.0/config/Coverage_Reporter.md b/src/0.6.0/config/Coverage_Reporter.md
+deleted file mode 100644
+index 3191b93..0000000
+--- a/src/0.6.0/config/Coverage_Reporter.md
++++ /dev/null
+@@ -1,89 +0,0 @@
+-section: config
+-
+-# Coverage Reporter
+-
+-If you want to use the code coverage feature of testacular you need to
+-configure three parts.
+-
+-* Reporter `coverage` (required)
+-* Preprocessor `coverage` (required)
+-* Reporter Options (optional)
+-
+-## Reporter
+-To activate the coverage reporter add this to your configuration file.
+-```javascript
+-reporters = ['coverage'];
+-```
+-This will create a coverage report for every browser that the tests are run in.
+-In addition, it will create a JSON file that outputs the intermediate data.
+-
+-## Preprocessor
+-The preprocessor configures which files should be tested for coverage.
+-For example if all your code lives in ``lib/`` you need to add this to your
+-configuration file.
+-
+-```javascript
+-preprocessors = {
+-  '**/lib/*.js': 'coverage'
+-};
+-```
+-You should not however include the files that aren't directly related to your
+-program, e.g. libraries, mocks.
+-
+-This is a **BAD** example
+-
+-```javascript
+-files = [
+-  JASMINE,
+-  JASMINE_ADAPTER,
+-  'lib/*.js',
+-  'test/*.js'
+-];
+-preprocessors = {
+-  '**/*.js': 'coverage'
+-};
+-```
+-In this example also JASMINE and JASMINE_ADAPTER get included but they shouldn't as
+-these file are only for the test setup used and not for your program.
+-
+-If you include these files there can occur side effects like the following,
+-
+-* a part of the code coverage report will be output in the installation directory of testacular.
+-* the code coverage rate is reduced unfairly.
+-
+-
+-##  Reporter Options
+-The reporter defaults to the following values.
+-
+-```javascript
+-coverageReporter = {
+-  type : 'html',
+-  dir : 'coverage/'
+-}
+-```
+-If you want to configure it yourself here are the options explained.
+-
+-### `type`
+-* **Type.** String
+-* **Possible Values.**
+-  * `html` (default)
+-  * `lcov` (lcov and html)
+-  * `lcovonly`
+-  * `text`
+-  * `text-summary`
+-  * `cobertura` (xml format supported by Jenkins)
+-
+-If you set `type` to `text` or `text-summary`, you may set the `file` option, like this.
+-```javascript
+-coverageReporter = {
+-  type : 'text',
+-  dir : 'coverage/',
+-  file : 'coverage.txt'
+-}
+-```
+-If no filename is given, it will write the output to the console.
+-
+-### `dir`
+-* **Type.** String
+-* **Description.** This will be used to output coverage reports. When 
+-  you set a relative path, the directory is resolved against the `basePath`.
+diff --git a/src/0.6.0/config/Files.md b/src/0.6.0/config/Files.md
+deleted file mode 100644
+index 71adcdb..0000000
+--- a/src/0.6.0/config/Files.md
++++ /dev/null
+@@ -1,76 +0,0 @@
+-section: config
+-
+-# Files
+-
+-The files array determines wich files are loaded, watched and served by Testacular.
+-
+-Warning: The order in which the files are defined, determines the load order!
+-
+-## Adapters
+-The first thing you usually need is an adapter. The following adapters are bundled with Testacular
+-* Mocha
+-* Jasmine
+-* QUnit (0.5.5)
+-* RequireJS (0.5.1)
+-
+-If you want to use any of these you add `LIBRARY` and `LIBRARY_ADAPTER` to your `files` list. So for
+-example if you want to use Mocha you have the following in your config file.
+-```javascript
+-files = [
+-  MOCHA,
+-  MOCHA_ADAPTER
+-];
+-```
+-
+-## Pattern matching and `basePath`
+-All files that come from you and are not bundled with Testacular can get included via glob patterns. 
+-For example you can just write `myFile.js` or something more elaborate like `test/unit/**/*.spec.js`. 
+-These files get resolved to absolute paths using the `basePath` options, so if we set `basePath = '../'` and our configuration is in the folder `projectRoot/config`, our files get resolved to
+-
+-* `myFile.js` --> `/projectRoot/myFile.js`
+-* `test/unit/**/*.spec.js` --> `/projectRoot/test/unit/**/*.spec.js`
+-
+-and then they are matched using [minimatch](https://github.com/isaacs/minimatch) against the file system.
+-
+-## Included, served, watched
+-Since version 0.5.2 there is the ability to configure the patterns more closely. If you define them like before a simple pattern like `'test/unit/*.js'` gets expanded internally to the following
+-```javascript
+-  {pattern: 'test/unit/*.js', watched: true, included: true, served: true}
+-```
+-### `pattern`
+-* **Description.** The pattern to use for matching.
+-
+-### `watched`
+-* **Type.** Boolean
+-* **Default.** `true`
+-* **Description.** 
+-If `autoWatch` is `true` all files that have set `watched` to true will be 
+-  polled for changes.
+-
+-### `included`
+-* **Type.** Boolean
+-* **Default.** `true`
+-* **Description.** Should the files be included into the loading process of the files into the browser.
+-
+-### `served`
+-* **Type.** Boolean
+-* **Default.** `true`
+-* **Description.** Should the files be served by Testaculars webserver.
+-
+-## Finished example
+-Here is a complete example showing the different options that are possible.
+-```javascript
+-files = [
+-  // Adapter
+-  MOCHA,
+-  MOCHA_ADAPTER,
+-  // simple patterns to load the needed testfiles
+-  'test/fixtures/**/*.html',
+-  'test/unit/*.spec.js',
+-  // this file gets served but will be ignored by the watcher
+-  {pattern: 'compiled/index.html', watched: false},
+-  // this file only gets watched but otherwise ignored
+-  {pattern: 'app/index.html', included: false, served: false}
+-  
+-];
+-```
+diff --git a/src/0.6.0/config/Preprocessors.md b/src/0.6.0/config/Preprocessors.md
+deleted file mode 100644
+index 8ea57f9..0000000
+--- a/src/0.6.0/config/Preprocessors.md
++++ /dev/null
+@@ -1,33 +0,0 @@
+-section: config
+-
+-# Preprocessors
+-
+-Preprocessors in Testacular allow you to do some work with your files before
+-they get served to the browser. The configuration of these happens in this block
+-in the config file.
+-
+-```javascript
+-preprocessors = {
+-  '**/mini.match': 'preprocessor1',
+-  '**/*.all': 'preprocessor2'
+-};
+-```
+-
+-## Available Preprocessors
+-* [[CoffeeScript]]
+-* [[Live]] (`>=0.5`)
+-* [[Coverage]] (`>= 0.5`)
+-
+-## Minimatching
+-The keys of the preprocessors config object are used to filter the files specified in
+-the `files` configuration. The file paths are expanded to an absolute path, based on 
+-the `basePath` config and the directory of the configuration file. See [[Files]] for more
+-information on that. 
+-This expanded path is then matched using [minimatch](https://github.com/isaacs/minimatch)
+-against the specified key.
+-So for example the path `/my/absolute/path/to/test/unit/file.coffee` matched against
+-the key `**/*.coffee` would return true, but the matched against just `*.coffee` it would
+-return false and the preprocessor would not be executed on the CoffeeScript files.
+-
+-
+-
+diff --git a/src/0.6.0/config/config.md b/src/0.6.0/config/config.md
+deleted file mode 100644
+index 0803049..0000000
+--- a/src/0.6.0/config/config.md
++++ /dev/null
+@@ -1,3 +0,0 @@
+-section: config
+-
+-# Configure all the things
+diff --git a/src/0.6.0/dev/01_contributing.md b/src/0.6.0/dev/01_contributing.md
+new file mode 100644
+index 0000000..5f3b1be
+--- /dev/null
++++ b/src/0.6.0/dev/01_contributing.md
+@@ -0,0 +1,69 @@
++section: dev
++
++# How to contribute
++
++If you are thinking about making Testacular better, or you just want to hack on it, that’s great here 
++are some tips to get you started.
++
++## Getting Started
++
++* Make sure you have a [GitHub account](https://github.com/signup/free)
++* [Submit](https://github.com/vojtajina/testacular/issues/new) a ticket for your issue, assuming one does not
++  already exist.
++  * Clearly describe the issue including steps to reproduce when it is a bug.
++  * Make sure you fill in the earliest version that you know has the issue.
++* Fork the repository on GitHub
++
++## Making Changes
++* Clone your fork
++* Install dependencies via 
++
++  ```bash
++  $ npm install
++  ```
++* Install global dependencies via 
++```bash
++$ npm install grunt-cli -g
++```
++* Checkout a new branch (usually based on `master`) and name it accordingly to what 
++  you intend to do
++  * Features get the prefix `feature-`
++  * Bug fixes get the prefix `fix-`
++  * Improvements to the documentation get the prefix `docs-`
++
++## Testing and Building
++Run the tests via 
++```bash
++# All tests
++$ grunt test
++
++$ grunt test:unit
++$ grunt test:e2e
++$ grunt test:client
++```
++Lint the files via
++```bash
++$ grunt lint
++```
++Build the project via
++```bash
++$ grunt build
++```
++The default task, just calling `grunt` will run `build lint test`.
++
++If grunt fails, make sure grunt-0.4x is installed: https://github.com/gruntjs/grunt/wiki/Getting-started.
++
++## Submitting Changes
++
++* One branch per feature/fix 
++* Follow  http://nodeguide.com/style.html (with exception of 100 characters per line)
++* Send a pull request to the `master` branch.
++
++
++# Additional Resources
++
++* [Issue tracker](https://github.com/vojtajina/testacular/issues)
++* [Mailing List](https://groups.google.com/forum/#!forum/testacular)
++* [General GitHub documentation](http://help.github.com/)
++* [GitHub pull request documentation](http://help.github.com/send-pull-requests/)
++* [@TestacularJS](http://twitter.com/TestacularJS)
+diff --git a/src/0.6.0/dev/02_public_API.md b/src/0.6.0/dev/02_public_API.md
+new file mode 100644
+index 0000000..46f6948
+--- /dev/null
++++ b/src/0.6.0/dev/02_public_API.md
+@@ -0,0 +1,13 @@
++section: dev
++
++# Public API
++
++## `testacular.server`
++
++### `.start(options, [callback=process.exit])`
++
++## `testacular.runner`
++### `.run(options, [callback=process.exit])`
++
++
++## `testacular.launcher`
+diff --git a/src/0.6.0/dev/Client_-_Server_Protocol.md b/src/0.6.0/dev/Client_-_Server_Protocol.md
+deleted file mode 100644
+index b6b1470..0000000
+--- a/src/0.6.0/dev/Client_-_Server_Protocol.md
++++ /dev/null
+@@ -1,28 +0,0 @@
+-section: dev
+-
+-# Client - Server Protocol
+-
+-These are the SocketIO events that are transmitted between the browser and the testacular server.
+-
+-## Server -> Client protocol
+-
+-#### execute([config])
+-* Parameters:	config (Object) – Optional configuration object, will be passed to start()
+-
+-#### info()
+-* Returns:	Information about all captured browsers
+-* Return type:	Array
+-
+-## Client -> Server protocol
+-
+-#### info()
+-* Returns:	Object with information (i.e. browser name)
+-* Return type:	Object
+-
+-#### result()
+-* Returns:	Result object
+-* Return type:	Object
+-
+-#### error()
+-
+-#### complete()
+diff --git a/src/0.6.0/dev/Contributing.md b/src/0.6.0/dev/Contributing.md
+deleted file mode 100644
+index 5f3b1be..0000000
+--- a/src/0.6.0/dev/Contributing.md
++++ /dev/null
+@@ -1,69 +0,0 @@
+-section: dev
+-
+-# How to contribute
+-
+-If you are thinking about making Testacular better, or you just want to hack on it, that’s great here 
+-are some tips to get you started.
+-
+-## Getting Started
+-
+-* Make sure you have a [GitHub account](https://github.com/signup/free)
+-* [Submit](https://github.com/vojtajina/testacular/issues/new) a ticket for your issue, assuming one does not
+-  already exist.
+-  * Clearly describe the issue including steps to reproduce when it is a bug.
+-  * Make sure you fill in the earliest version that you know has the issue.
+-* Fork the repository on GitHub
+-
+-## Making Changes
+-* Clone your fork
+-* Install dependencies via 
+-
+-  ```bash
+-  $ npm install
+-  ```
+-* Install global dependencies via 
+-```bash
+-$ npm install grunt-cli -g
+-```
+-* Checkout a new branch (usually based on `master`) and name it accordingly to what 
+-  you intend to do
+-  * Features get the prefix `feature-`
+-  * Bug fixes get the prefix `fix-`
+-  * Improvements to the documentation get the prefix `docs-`
+-
+-## Testing and Building
+-Run the tests via 
+-```bash
+-# All tests
+-$ grunt test
+-
+-$ grunt test:unit
+-$ grunt test:e2e
+-$ grunt test:client
+-```
+-Lint the files via
+-```bash
+-$ grunt lint
+-```
+-Build the project via
+-```bash
+-$ grunt build
+-```
+-The default task, just calling `grunt` will run `build lint test`.
+-
+-If grunt fails, make sure grunt-0.4x is installed: https://github.com/gruntjs/grunt/wiki/Getting-started.
+-
+-## Submitting Changes
+-
+-* One branch per feature/fix 
+-* Follow  http://nodeguide.com/style.html (with exception of 100 characters per line)
+-* Send a pull request to the `master` branch.
+-
+-
+-# Additional Resources
+-
+-* [Issue tracker](https://github.com/vojtajina/testacular/issues)
+-* [Mailing List](https://groups.google.com/forum/#!forum/testacular)
+-* [General GitHub documentation](http://help.github.com/)
+-* [GitHub pull request documentation](http://help.github.com/send-pull-requests/)
+-* [@TestacularJS](http://twitter.com/TestacularJS)
+diff --git a/src/0.6.0/dev/Events.md b/src/0.6.0/dev/Events.md
+deleted file mode 100644
+index 0b647e0..0000000
+--- a/src/0.6.0/dev/Events.md
++++ /dev/null
+@@ -1,30 +0,0 @@
+-section: dev
+-
+-# Events
+-
+-#### browser_register(browser)
+-* **Description.** Browser sent name and id.
+-
+-#### function:: browser_complete(browser)
+-* **Description.** Browser completed an execution run. (All tests were executed/skipped or browser disconnected). 
+-
+-#### browser_error(browser, error)
+-* **Description.** Browser sent error (probably syntax error during loading).
+-
+-#### browser_dump(browser, dump)
+-* **Description.** Browser sent dump.
+-
+-#### browsers_change(collection)
+-* **Description.** Collection of captured browsers changed:
+-  - new browser
+-  - browser disconnected
+-  - browser changed status
+-
+-#### spec_complete(browser, result)
+-* **Description.** Single spec completed.
+-
+-#### run_start(collection)
+-* **Description.** Starting new execution run.
+-
+-#### run_complete(collection)
+-* **Description.** Whole execution run finished (all browsers finished).
+diff --git a/src/0.6.0/dev/Public_API.md b/src/0.6.0/dev/Public_API.md
+deleted file mode 100644
+index 46f6948..0000000
+--- a/src/0.6.0/dev/Public_API.md
++++ /dev/null
+@@ -1,13 +0,0 @@
+-section: dev
+-
+-# Public API
+-
+-## `testacular.server`
+-
+-### `.start(options, [callback=process.exit])`
+-
+-## `testacular.runner`
+-### `.run(options, [callback=process.exit])`
+-
+-
+-## `testacular.launcher`
+diff --git a/src/0.6.0/dev/Todos.md b/src/0.6.0/dev/Todos.md
+deleted file mode 100644
+index 2a00fc8..0000000
+--- a/src/0.6.0/dev/Todos.md
++++ /dev/null
+@@ -1,43 +0,0 @@
+-section: dev
+-
+-# Todos
+-
+-I went through my list and these are the ones that I think are more important. Items within a section are ordered by priority.
+-
+-## FEATURES
+-
+-* auto reload config change (at least files,exclude)
+-* timeout (per spec/suite)
+-* handle unload event (full page reload)
+-* sudden death (first failure, stop execution)
+-* global ~/.testacular config [#64](https://github.com/vojtajina/testacular/issues/264)
+-* normalize browser errors
+-* use single port for web/cli (remove runner-port)
+-* don't synchronize browsers (don't wait for all browsers, just execute) + sharding
+-
+-
+-## INTERNAL/REFACTORING
+-
+-* better e2e framework (for testing Testacular)
+-* reorganize: plugins (reporters, preprocessors, adapters, launchers) [#158](https://github.com/vojtajina/testacular/i158)
+-* refactor logger to support appending to files (log4js) [#188](https://github.com/vojtajina/testacular/pull/188)
+-* refactor web server using connect [#253](https://github.com/vojtajina/testacular/issues/253) and [#105](https://github.com/vojtajina/testacular/issues/105)
+-* don't watch non-matching files
+-* write some descriptions/comments to each module/component 
+-
+-## BUGS
+-
+-* chokidar https://github.com/paulmillr/chokidar/issues/16
+-
+-
+-## ORGANIZATION
+-
+-* better release cycle, automate canary release ? [#210](https://github.com/vojtajina/testacular/issues/210)
+-* git commit msg convention + generating changelog
+-* pre-commit hook (unmerged stuff, iit, ddescribe)
+-* pre-commit hook (check msg convention)
+-* JS Validator, see [this](http://ariya.ofilabs.com/2012/10/javascript-validator-with-esprima.html) post either as pre-commit hook or as grunt task
+-
+-## DOCS
+-
+-* polish the docs and publish it on the homepage
+diff --git a/src/0.6.0/dev/dev.md b/src/0.6.0/dev/dev.md
+deleted file mode 100644
+index 14cf799..0000000
+--- a/src/0.6.0/dev/dev.md
++++ /dev/null
+@@ -1,3 +0,0 @@
+-section: dev
+-
+-# Let's hack on Testacular
+diff --git a/src/0.6.0/intro/01_why.md b/src/0.6.0/intro/01_why.md
+new file mode 100644
+index 0000000..f3c713c
+--- /dev/null
++++ b/src/0.6.0/intro/01_why.md
+@@ -0,0 +1,26 @@
++section: intro
++
++# Why?
++
++## Why should I use Testacular?
++
++Because It allows you to test code in real browsers (desktop, mobile, tablets):
++*   executing tests locally during development
++*   executing tests on a continuous integration server
++
++Also see [this] introduction video on youtube.
++
++## Why am I doing this?
++
++Throughout the development of [AngularJS], we’ve been using [JSTD]
++for testing. I really think that JSTD is a great idea. Unfortunately, we
++had many problems with JSTD, so we decided to write our own test runner
++based on the same idea. We wanted a simple tool just for executing
++JavaScript tests that is both stable and fast. That’s why we use the
++awesome [SocketIO] library and [Node.js].
++
++[AngularJS]: http://angularjs.org/
++[JSTD]: http://code.google.com/p/js-test-driver/
++[SocketIO]: http://socket.io/
++[Node.js]: http://nodejs.org/
++[this]: http://www.youtube.com/watch?v=5mHjJ4xf_K0
+diff --git a/src/0.6.0/intro/02_installation.md b/src/0.6.0/intro/02_installation.md
+new file mode 100644
+index 0000000..361c96f
+--- /dev/null
++++ b/src/0.6.0/intro/02_installation.md
+@@ -0,0 +1,47 @@
++section: intro
++
++# Installation
++
++Testacular uses [Node.js] and is available as a node module via npm. 
++If you already got [Node.js] and npm installed and know how to install 
++node modules go ahead, and look for it under `testacular`.
++
++If you have never installed a node module or need a quick reminder continue
++reading.
++
++## Requirements
++
++First, you need to install [Node.js]. There are installers for both
++Macintosh and Windows. On Linux, we recommend using [NVM].
++
++## With NPM
++
++You can install Testacular either globally,
++```bash
++$ npm install -g testacular
++# Executing
++$ testacular start
++```
++or locally
++```bash
++$ npm install testacular
++# Executing
++$ ./node_modules/.bin/testacular start
++```
++
++## Without NPM
++
++If you want to install it without npm you can do so:
++```bash
++# replace x.y.z with latest version
++$ curl http://registry.npmjs.org/testacular/-/testacular-x.y.z.tgz | tar -xvz && mv package testacular
++
++# create symlinks (optional)
++cd testacular
++$ sudo ln -s $PWD/bin/testacular /usr/local/bin/testacular
++```
++
++
++
++[Node.js]: http://nodejs.org/
++[NVM]: https://github.com/creationix/nvm
+diff --git a/src/0.6.0/intro/03_configuration.md b/src/0.6.0/intro/03_configuration.md
+new file mode 100644
+index 0000000..f788318
+--- /dev/null
++++ b/src/0.6.0/intro/03_configuration.md
+@@ -0,0 +1,26 @@
++section: intro
++
++# Configuration
++
++## Basic Setup
++
++Go into your project and create a testacular configuration. Basically
++you need to specify the source files that you want to execute.
++
++For an example configuration, see [test/client/testacular.conf.js]
++which contains most of the options.
++```bash
++# create config file (testacular.conf.js by default)
++$ testacular init
++
++# start server
++$ testacular start
++
++# open browsers you want to test (if testacular is not configured to do it for you)
++$ open http://localhost:8080
++
++# if you want to run tests manually (without auto watching file changes), you can:
++$ testacular run
++```
++
++[test/client/testacular.conf.js]: https://github.com/vojtajina/testacular/blob/master/test/client/testacular.conf.js
+diff --git a/src/0.6.0/intro/04_troubleshooting.md b/src/0.6.0/intro/04_troubleshooting.md
+new file mode 100644
+index 0000000..1733da7
+--- /dev/null
++++ b/src/0.6.0/intro/04_troubleshooting.md
+@@ -0,0 +1,36 @@
++section: intro
++
++# Troubleshooting
++
++You have some problems. Look no further. Known problems and solutions are collected here so you don't have to figure them out again and again.
++
++## Windows
++Oh our beloved Windows. 
++
++### Tips & Tricks
++
++* Use [chocolatey] for installation of tools. It helps. A lot.
++
++### Specific problems
++
++#### Chrome won't start. (Issues: [#202], [#74])
++
++1. Set `CHROME_BIN` like this
++   ```
++   > export CHROME_BIN='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
++   ```
++2. Add the `--start-maximized` flag to the chrome options. See [#269].
++3. Increase the timeout from 5000ms to 10000ms. At 5000ms, timeouts occurred and the retry logic kicks in and eventually resolves after 2~3 tries.
++
++## Unix
++Even if you have a nice OS problems can still occur. 
++
++### Tips & Tricks
++
++### Specific problems
++
++
++[#202]: https://github.com/vojtajina/testacular/issues/202
++[#269]: https://github.com/vojtajina/testacular/issues/202
++[#74]: https://github.com/vojtajina/testacular/issues/74
++[chocolatey]: (http://chocolatey.org/)
+diff --git a/src/0.6.0/intro/Configuration.md b/src/0.6.0/intro/Configuration.md
+deleted file mode 100644
+index f788318..0000000
+--- a/src/0.6.0/intro/Configuration.md
++++ /dev/null
+@@ -1,26 +0,0 @@
+-section: intro
+-
+-# Configuration
+-
+-## Basic Setup
+-
+-Go into your project and create a testacular configuration. Basically
+-you need to specify the source files that you want to execute.
+-
+-For an example configuration, see [test/client/testacular.conf.js]
+-which contains most of the options.
+-```bash
+-# create config file (testacular.conf.js by default)
+-$ testacular init
+-
+-# start server
+-$ testacular start
+-
+-# open browsers you want to test (if testacular is not configured to do it for you)
+-$ open http://localhost:8080
+-
+-# if you want to run tests manually (without auto watching file changes), you can:
+-$ testacular run
+-```
+-
+-[test/client/testacular.conf.js]: https://github.com/vojtajina/testacular/blob/master/test/client/testacular.conf.js
+diff --git a/src/0.6.0/intro/Installation.md b/src/0.6.0/intro/Installation.md
+deleted file mode 100644
+index 361c96f..0000000
+--- a/src/0.6.0/intro/Installation.md
++++ /dev/null
+@@ -1,47 +0,0 @@
+-section: intro
+-
+-# Installation
+-
+-Testacular uses [Node.js] and is available as a node module via npm. 
+-If you already got [Node.js] and npm installed and know how to install 
+-node modules go ahead, and look for it under `testacular`.
+-
+-If you have never installed a node module or need a quick reminder continue
+-reading.
+-
+-## Requirements
+-
+-First, you need to install [Node.js]. There are installers for both
+-Macintosh and Windows. On Linux, we recommend using [NVM].
+-
+-## With NPM
+-
+-You can install Testacular either globally,
+-```bash
+-$ npm install -g testacular
+-# Executing
+-$ testacular start
+-```
+-or locally
+-```bash
+-$ npm install testacular
+-# Executing
+-$ ./node_modules/.bin/testacular start
+-```
+-
+-## Without NPM
+-
+-If you want to install it without npm you can do so:
+-```bash
+-# replace x.y.z with latest version
+-$ curl http://registry.npmjs.org/testacular/-/testacular-x.y.z.tgz | tar -xvz && mv package testacular
+-
+-# create symlinks (optional)
+-cd testacular
+-$ sudo ln -s $PWD/bin/testacular /usr/local/bin/testacular
+-```
+-
+-
+-
+-[Node.js]: http://nodejs.org/
+-[NVM]: https://github.com/creationix/nvm
+diff --git a/src/0.6.0/intro/Troubleshooting.md b/src/0.6.0/intro/Troubleshooting.md
+deleted file mode 100644
+index 1733da7..0000000
+--- a/src/0.6.0/intro/Troubleshooting.md
++++ /dev/null
+@@ -1,36 +0,0 @@
+-section: intro
+-
+-# Troubleshooting
+-
+-You have some problems. Look no further. Known problems and solutions are collected here so you don't have to figure them out again and again.
+-
+-## Windows
+-Oh our beloved Windows. 
+-
+-### Tips & Tricks
+-
+-* Use [chocolatey] for installation of tools. It helps. A lot.
+-
+-### Specific problems
+-
+-#### Chrome won't start. (Issues: [#202], [#74])
+-
+-1. Set `CHROME_BIN` like this
+-   ```
+-   > export CHROME_BIN='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
+-   ```
+-2. Add the `--start-maximized` flag to the chrome options. See [#269].
+-3. Increase the timeout from 5000ms to 10000ms. At 5000ms, timeouts occurred and the retry logic kicks in and eventually resolves after 2~3 tries.
+-
+-## Unix
+-Even if you have a nice OS problems can still occur. 
+-
+-### Tips & Tricks
+-
+-### Specific problems
+-
+-
+-[#202]: https://github.com/vojtajina/testacular/issues/202
+-[#269]: https://github.com/vojtajina/testacular/issues/202
+-[#74]: https://github.com/vojtajina/testacular/issues/74
+-[chocolatey]: (http://chocolatey.org/)
+diff --git a/src/0.6.0/intro/Why.md b/src/0.6.0/intro/Why.md
+deleted file mode 100644
+index f3c713c..0000000
+--- a/src/0.6.0/intro/Why.md
++++ /dev/null
+@@ -1,26 +0,0 @@
+-section: intro
+-
+-# Why?
+-
+-## Why should I use Testacular?
+-
+-Because It allows you to test code in real browsers (desktop, mobile, tablets):
+-*   executing tests locally during development
+-*   executing tests on a continuous integration server
+-
+-Also see [this] introduction video on youtube.
+-
+-## Why am I doing this?
+-
+-Throughout the development of [AngularJS], we’ve been using [JSTD]
+-for testing. I really think that JSTD is a great idea. Unfortunately, we
+-had many problems with JSTD, so we decided to write our own test runner
+-based on the same idea. We wanted a simple tool just for executing
+-JavaScript tests that is both stable and fast. That’s why we use the
+-awesome [SocketIO] library and [Node.js].
+-
+-[AngularJS]: http://angularjs.org/
+-[JSTD]: http://code.google.com/p/js-test-driver/
+-[SocketIO]: http://socket.io/
+-[Node.js]: http://nodejs.org/
+-[this]: http://www.youtube.com/watch?v=5mHjJ4xf_K0
+diff --git a/src/0.6.0/intro/intro.md b/src/0.6.0/intro/intro.md
+deleted file mode 100644
+index 8582d20..0000000
+--- a/src/0.6.0/intro/intro.md
++++ /dev/null
+@@ -1,20 +0,0 @@
+-section: intro
+-
+-# Welcome to Testacular
+-
+-
+-It's great that you've found your way here. If this is your first
+-time here have a look at the basics, such as installation and
+-configuration.
+-
+-## Basics
+-
+-* [Installing] Testacular on your system
+-* [Configure] your newly installed Testacular
+-* [Troubleshooting] - In the rare case something goes wrong
+-
+-
+-
+-[Installing]: Installation.html
+-[Configure]: Configuration.html
+-[Troubleshooting]: Troubleshooting.html
+diff --git a/src/0.6.0/plus/01_AngularJS.md b/src/0.6.0/plus/01_AngularJS.md
+new file mode 100644
+index 0000000..e69de29
+diff --git a/src/0.6.0/plus/02_Travis_CI.md b/src/0.6.0/plus/02_Travis_CI.md
+new file mode 100644
+index 0000000..2924e5c
+--- /dev/null
++++ b/src/0.6.0/plus/02_Travis_CI.md
+@@ -0,0 +1,75 @@
++section: plus
++
++# Travis CI Integration
++
++[Travis CI] is a popular continuous integration service that integrates with your [Github] repository to automatically run your tests when code is pushed. Integration is done by adding a simple [YAML] file to your project root; Travis and Github take care of the rest. Travis results will appear in your Github pull requests and your history is available on their control panel. This article assumes you already have Travis account.
++
++## Setup
++
++1. Create a file in your project root called `.travis.yml` with the following YAML:
++   
++   ```
++   language: node_js
++   node_js:
++     - 0.8
++   ```
++
++2. If you do not already have a `package.json` in your project root create one now. Travis runs `npm test` to trigger your tests so this is where you tell Travis how to run your tests. 
++
++   ```javascript
++   // ...snip...
++   "dependencies": {
++      "coffee-script": "1.4.x"
++   },
++   "devDependencies": {
++     "testacular": "0.4.x",
++     "phantomjs": "0.2.x" 
++   },
++   // ...snip...
++   "scripts": {
++       "test": "./node_modules/coffee-script/bin/cake test"
++   }
++   // ...snip...
++   ```
++
++   Travis will run `npm install` before every suite so this is your chance to specify any modules your app needs that Travis does not – like Testacular.
++
++   This example uses a [Cake] task to run a suite of tests but you can fire off any executable task in the `test` field. Note that the [Travis environment] doesn't have [CoffeeScript] available globally so you must point to your module's Cake bin.
++
++3. Now it's time to open (or create) `Cakefile` in your project root and add a task to run Testacular. This creates a way to fire your Testacular suite for a single run which can be used any place or time.
++
++   ```coffeescript
++   task 'test', 'run all tests suites', ->
++   console.log 'Running front-end tests'
++     phantom_bin = "PHANTOMJS_BIN=#{__dirname}/node_modules/phantomjs/lib/phantom/bin/phantomjs"
++     testacular = "#{__dirname}/node_modules/testacular/bin/testacular"
++     browsers = if process.env.TRAVIS then 'PhantomJS' else 'PhantomJS,Chrome'
++     options = "--single-run --browsers=#{browsers}"
++     exec "#{phantom_bin} #{testacular} start #{__dirname}/tests/testacular.conf.js #{options}", (err, stdout, stderr) ->
++       console.error err if err
++       console.log stdout
++   ```
++
++   While Travis does have [PhantomJS] available in its global root, other CI environments or developers may not so it's a good idea to make sure it's explicitly set before running Testacular.
++
++   Also note that while you can run [GUI apps] in Travis their configuration is beyond this article so the script checks that it's in a Travis environment and sets the browser list to only use PhantomJS.
++
++   Once all configuration is set Testacular is fired off, assuming your Testacular configuration is in `#{__dirname}/tests/testacular.conf.js`. If any errors or encountered they - and the standard logs - are displayed in the Travis control panel.
++
++4. All that's left is to test the Cake task locally to assure it works as advertised, commit the files, push them to Github.
++
++## Notes
++
++* Travis' Node environment has very little available. If the startup process in Travis fails check for missing module information and be sure to add them to your `package.json` dependencies.
++* Travis does not run in your local network so any code that attempts to connect to resources should be stubbed out using [Nock].
++* There are more options available to your `.travis.yml`, such as running scripts before the install or test run. There are hints in the Travis docs for [GUI apps] configuration.
++
++[Travis CI]: https://travis-ci.org/
++[Travis environment]: http://about.travis-ci.org/docs/user/ci-environment/
++[CoffeeScript]: http://coffeescript.org/
++[Cake]: http://coffeescript.org/documentation/docs/cake.html
++[Github]: https://github.com/
++[YAML]: http://www.yaml.org/
++[PhantomJS]: http://phantomjs.org/
++[GUI apps]: http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
++[Nock]: https://github.com/flatiron/nock
+diff --git a/src/0.6.0/plus/03_Jenkins_CI.md b/src/0.6.0/plus/03_Jenkins_CI.md
+new file mode 100644
+index 0000000..55fc2b2
+--- /dev/null
++++ b/src/0.6.0/plus/03_Jenkins_CI.md
+@@ -0,0 +1,57 @@
++section: plus
++
++# Jenkins CI Integration
++
++[Jenkins CI] is one of the most popular continuous integration servers
++in the market today. At some point while developing your [Angular]
++project (hopefully early on), you might want to have automated tests run
++off your code versioning system. Jenkins will help you with this task.
++You can integrate testacular to your Jenkins setup fairly easy and as of
++version 0.3.12, test results can be “pretty printed” into a format
++Jenkins understands (i.e. no need to hunt down failures in the console
++log). This tutorial assumes you have Jenkins already setup and running
++on your CI environment.
++
++## Setup
++
++1.  Install Node and testacular as per [[Installation]] on your
++    Jenkins CI server.
++2.  Highly suggest installing the following Jenkins plug-in:
++    [EnvInject] as it makes things easier under certain linux
++    distributions and user permissions.
++3.  Make the following additions and changes to your testacular config
++    file as needed:
++
++    ```javascript
++    singleRun = true;
++    reporters = ['dots', 'junit'];
++    junitReporter = {
++      outputFile: 'test-results.xml'
++    };
++    ```
++    
++    Please note the test-result.xml file will be output to the present
++    working directory (and you will need to tell Jenkins where to find it).
++
++4.  In Jenkins, start a new job for Angular/Testacular with the basic
++    settings (Name, description, parameters, source code repo to pull
++    from, etc.)
++5.  Go to the job page and click on configure.
++6.  In the Build Environment sub-section, check the “Inject environment
++    variables to the build process” checkbox. A few textboxes will
++    appear and in the “Properties Content” box set the following:
++
++    ```bash
++    $ PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
++    $ PHANTOMJS_BIN=/usr/local/bin/phantomjs #or wherever PhantomJS happens to be installed
++    ```
++
++7.  Further down the page, in the Post-build Actions sub-section add a
++    “Publish JUnit test result report” from the Post-build action drop
++    down menu. When the textbox labeled Test report XMLs appears, enter
++    the path to where the test-results.xml is relative to the root of
++    your Jenkins job workspace.
++
++[Jenkins CI]: http://jenkins-ci.org/
++[Angular]: http://angularjs.org
++[EnvInject]: https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin
+diff --git a/src/0.6.0/plus/04_RequireJS.md b/src/0.6.0/plus/04_RequireJS.md
+new file mode 100644
+index 0000000..0831033
+--- /dev/null
++++ b/src/0.6.0/plus/04_RequireJS.md
+@@ -0,0 +1,155 @@
++section: plus
++
++# RequireJS
++
++## Configure Testacular
++
++### Directory Setup
++
++For clarity in the example configuration files and test below, the directory structure upon which these are based looks like this:
++```
++project/
++  lib/
++    jquery.js #etc
++  node_modules/
++    chai/ #etc
++  src/
++    MyModule.js
++  test/
++    MyModule.test.js
++    test-main.js
++testacular.conf.js
++```
++
++### Initialize Testacular
++
++Testacular comes with a nice utility for generating a config file (default name: `testacular.conf.js`) that it needs in order to run. In your terminal, type:
++```bash
++$ testacular init
++```
++This will give you a series of prompts for things such as paths to source and tests and which browsers to capture. These prompts do not include the option to add RequireJs support automatically, so you’ll need to add those lines manually to your `testacular.conf.js` (see below). As of testacular 0.5.2, testacular init will prompt for usage of the RequireJs adapter.
++
++### Testacular Include
++
++Testacular 0.5.1 (**WARNING** As of writing, npm install will give you 0.4.0, the latest stable version) This, while adding RequireJs support, has added a new concept of “included” to the files listed in your config. This is because RequireJs will balk about a the module not being loaded correctly (ie, loaded synchronously in the `<head/>` tag of the runner). From the RequireJs docs:
++
++> Be sure to load all scripts that call `define()` via the RequireJS API. Do not manually code script tags 
++> in HTML to load scripts that have `define()` calls in them.
++
++### RequireJs Shim
++
++Not immediately apparent is the fact that the ‘shim’ config from RequireJs 2.x does not work from within Testacular. I haven’t yet figured out why. For instance, I was constantly getting “‘Backbone’ is not defined” messages even though it was specified in the ‘shim’ config and required in the test. I could have been doing something wrong. My solution thus far has been to list each of the non-RequireJs modules and their dependencies in the `files` attribute of `testacular.conf.js`.
++
++### `testacular.conf.js`
++
++The final point is that the RequireJs main module for your test runner should be the last file listed.
++
++So, finally, here is the ‘file’ excerpt of `testacular.conf.js`:
++```javascript
++files = [
++  MOCHA,
++  MOCHA_ADAPTER,
++  REQUIRE,
++  REQUIRE_ADAPTER,
++
++  // !! libs required for test framework
++  {pattern: 'node_modules/chai/chai.js', included: false},
++
++  // !! put what used to be in your requirejs 'shim' config here
++  'lib/jquery.js',
++  'lib/underscore.js',
++  'lib/backbone.js',
++  'lib/handlebars.js',
++
++  // !! put all libs in requirejs 'paths' config here (included: false)
++  {pattern: 'lib/**/*.js', included: false},
++
++  // !! all src and test modules (included: false)
++  {pattern: 'src/**/*', included: false},
++  {pattern: 'test/**/*.test.js', included: false},
++
++  // !! test main require module last
++  'test/test-main.js'
++];
++```
++This config is awesome. It replaces an html test runner that you would otherwise have to build.
++
++## RequireJs Main Module
++
++Just like any RequireJs project, you need a main module to bootstrap your tests. In the main module, you setup the `require.config`.
++
++### Testacular `/base` Directory
++
++Testacular serves files under the `/base` directory. So, on the server, requests to files will be served up under `http://localhost:9876/base/*`. The RequireJs config for `baseUrl` gives a starting context for modules that load with relative paths. When setting this value for the Testacular server, it will need to start with `/base`. I want my baseUrl to be at the root of my `/src` directory so relative requires in the source won’t need to change. My baseUrl has the value of `/base/src`.
++
++### Require Each Test File
++
++One of the things I hate is having to update a master list of all tests to run every time I add a test. There is no config option for this, but there's an easy way to get around it by filtering the tests from the `window.__testacular__.files` object.
++The code is included in the example below and the original suggestion came from <https://github.com/vojtajina/testacular/pull/236>.
++
++### Asynchronously Run Testacular
++
++Because the RequireJs require statements are asynchronous, Testacular needs to wait until they’re done (the code is loaded and ready) before it starts the tests.
++
++The main-test.js file ends up looking like this:
++```javascript
++var tests = Object.keys(window.__testacular__.files).filter(function (file) {
++    return /\.test\.js$/.test(file);
++});
++
++require({
++
++  // !! Testacular serves files from '/base'
++  baseUrl: '/base/src',
++  paths: {
++    require: '../lib/require',
++    text: '../lib/text'
++  },
++}, tests, function() {
++  window.__testacular__.start();
++});
++```
++
++## RequireJs Test in Testacular
++
++All the setup thus far has been in preparation for the code to follow. The test can now be setup as a RequireJs module. It can require the source code under test. It can use Mocha (or whatever framework there is a Testacular adapter for).
++
++I will also use Chai in order to get the ‘should’ BDD-style assertions. Note that by using RequireJs and running in the browser, we can’t just `require('chai')`. It has to be required using the asynchronous callback to avoid this error:
++```bash
++Uncaught Error: Module name “../node_modules/chai/chai” has not been loaded yet for context: _. Use require([])
++```
++And finally, `should()` must be invoked to be available in the test.
++
++So, a simple test will look like:
++```javascript
++define(['../node_modules/chai/chai', 'MyModule'],
++  function(chai, MyModule) {
++
++  var assert = chai.assert,
++    expect = chai.expect,
++    should = chai.should();
++
++  describe('MyModule', function () {
++    describe('#initialize()', function () {
++      it('should be a stinkin object', function () {
++        var yippee = new MyModule();
++        yippee.should.be.an('object');
++      });
++    });
++  });
++});
++```
++
++## Run the Tests in Testacular
++
++To start the Testacular server:
++```bash
++$ testacular start
++```
++Finally, if your Testacular server is already running and you want to kick off the tests, type:
++```bash
++$ testacular run
++```
++
++***
++Source: [Jake Trent](http://jaketrent.com/post/test-requirejs-testacular/)
+diff --git a/src/0.6.0/plus/05_Teamcity.md b/src/0.6.0/plus/05_Teamcity.md
+new file mode 100644
+index 0000000..65fbc67
+--- /dev/null
++++ b/src/0.6.0/plus/05_Teamcity.md
+@@ -0,0 +1,5 @@
++section: plus
++
++# Teamcity
++
++Not available yet. See this [pull request](https://github.com/vojtajina/testacular/pull/262).
+diff --git a/src/0.6.0/plus/06_Cloud9.md b/src/0.6.0/plus/06_Cloud9.md
+new file mode 100644
+index 0000000..a966d99
+--- /dev/null
++++ b/src/0.6.0/plus/06_Cloud9.md
+@@ -0,0 +1,31 @@
++section: plus
++
++# Cloud9 IDE Integration
++
++[Cloud9 IDE] is an open source web-based cloud integrated development environment that supports several programming languages, with a focus on the web stack (specifically JavaScript and [NodeJS]). It is written almost entirely in JavaScript, and uses [NodeJS] on the back-end. 
++
++## Configuration
++
++There are 2 possibilities in order to run unit tests with testacular in [Cloud9 IDE]: 
++
++### Capture the browser manually on the local machine
++
++Call `http://[projectName].[cloud9User].c9.io/` in your browser.
++
++### Run testacular unit tests with PhantomJS in cloud9 IDE
++
++1. PhantomJS must be installed with `npm install phantomjs`.
++2. The host must be configurable (requested in pull request https://github.com/vojtajina/testacular/pull/276). 
++3. The testacular.conf.js file (tried it out for the
++  [AngularJS foodme app]) must include the following entries: 
++
++```javascript
++browsers = ['PhantomJS'];
++host = process.env.IP;
++port = process.env.PORT;
++runnerPort = 0;
++```
++
++[Cloud9 IDE]: https://c9.io/
++[AngularJS foodme app]: https://github.com/IgorMinar/foodme
++[NodeJS]: http://nodejs.org/
+diff --git a/src/0.6.0/plus/Cloud9.md b/src/0.6.0/plus/Cloud9.md
+deleted file mode 100644
+index a966d99..0000000
+--- a/src/0.6.0/plus/Cloud9.md
++++ /dev/null
+@@ -1,31 +0,0 @@
+-section: plus
+-
+-# Cloud9 IDE Integration
+-
+-[Cloud9 IDE] is an open source web-based cloud integrated development environment that supports several programming languages, with a focus on the web stack (specifically JavaScript and [NodeJS]). It is written almost entirely in JavaScript, and uses [NodeJS] on the back-end. 
+-
+-## Configuration
+-
+-There are 2 possibilities in order to run unit tests with testacular in [Cloud9 IDE]: 
+-
+-### Capture the browser manually on the local machine
+-
+-Call `http://[projectName].[cloud9User].c9.io/` in your browser.
+-
+-### Run testacular unit tests with PhantomJS in cloud9 IDE
+-
+-1. PhantomJS must be installed with `npm install phantomjs`.
+-2. The host must be configurable (requested in pull request https://github.com/vojtajina/testacular/pull/276). 
+-3. The testacular.conf.js file (tried it out for the
+-  [AngularJS foodme app]) must include the following entries: 
+-
+-```javascript
+-browsers = ['PhantomJS'];
+-host = process.env.IP;
+-port = process.env.PORT;
+-runnerPort = 0;
+-```
+-
+-[Cloud9 IDE]: https://c9.io/
+-[AngularJS foodme app]: https://github.com/IgorMinar/foodme
+-[NodeJS]: http://nodejs.org/
+diff --git a/src/0.6.0/plus/Jenkins_CI.md b/src/0.6.0/plus/Jenkins_CI.md
+deleted file mode 100644
+index 55fc2b2..0000000
+--- a/src/0.6.0/plus/Jenkins_CI.md
++++ /dev/null
+@@ -1,57 +0,0 @@
+-section: plus
+-
+-# Jenkins CI Integration
+-
+-[Jenkins CI] is one of the most popular continuous integration servers
+-in the market today. At some point while developing your [Angular]
+-project (hopefully early on), you might want to have automated tests run
+-off your code versioning system. Jenkins will help you with this task.
+-You can integrate testacular to your Jenkins setup fairly easy and as of
+-version 0.3.12, test results can be “pretty printed” into a format
+-Jenkins understands (i.e. no need to hunt down failures in the console
+-log). This tutorial assumes you have Jenkins already setup and running
+-on your CI environment.
+-
+-## Setup
+-
+-1.  Install Node and testacular as per [[Installation]] on your
+-    Jenkins CI server.
+-2.  Highly suggest installing the following Jenkins plug-in:
+-    [EnvInject] as it makes things easier under certain linux
+-    distributions and user permissions.
+-3.  Make the following additions and changes to your testacular config
+-    file as needed:
+-
+-    ```javascript
+-    singleRun = true;
+-    reporters = ['dots', 'junit'];
+-    junitReporter = {
+-      outputFile: 'test-results.xml'
+-    };
+-    ```
+-    
+-    Please note the test-result.xml file will be output to the present
+-    working directory (and you will need to tell Jenkins where to find it).
+-
+-4.  In Jenkins, start a new job for Angular/Testacular with the basic
+-    settings (Name, description, parameters, source code repo to pull
+-    from, etc.)
+-5.  Go to the job page and click on configure.
+-6.  In the Build Environment sub-section, check the “Inject environment
+-    variables to the build process” checkbox. A few textboxes will
+-    appear and in the “Properties Content” box set the following:
+-
+-    ```bash
+-    $ PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
+-    $ PHANTOMJS_BIN=/usr/local/bin/phantomjs #or wherever PhantomJS happens to be installed
+-    ```
+-
+-7.  Further down the page, in the Post-build Actions sub-section add a
+-    “Publish JUnit test result report” from the Post-build action drop
+-    down menu. When the textbox labeled Test report XMLs appears, enter
+-    the path to where the test-results.xml is relative to the root of
+-    your Jenkins job workspace.
+-
+-[Jenkins CI]: http://jenkins-ci.org/
+-[Angular]: http://angularjs.org
+-[EnvInject]: https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin
+diff --git a/src/0.6.0/plus/RequireJS.md b/src/0.6.0/plus/RequireJS.md
+deleted file mode 100644
+index 0831033..0000000
+--- a/src/0.6.0/plus/RequireJS.md
++++ /dev/null
+@@ -1,155 +0,0 @@
+-section: plus
+-
+-# RequireJS
+-
+-## Configure Testacular
+-
+-### Directory Setup
+-
+-For clarity in the example configuration files and test below, the directory structure upon which these are based looks like this:
+-```
+-project/
+-  lib/
+-    jquery.js #etc
+-  node_modules/
+-    chai/ #etc
+-  src/
+-    MyModule.js
+-  test/
+-    MyModule.test.js
+-    test-main.js
+-testacular.conf.js
+-```
+-
+-### Initialize Testacular
+-
+-Testacular comes with a nice utility for generating a config file (default name: `testacular.conf.js`) that it needs in order to run. In your terminal, type:
+-```bash
+-$ testacular init
+-```
+-This will give you a series of prompts for things such as paths to source and tests and which browsers to capture. These prompts do not include the option to add RequireJs support automatically, so you’ll need to add those lines manually to your `testacular.conf.js` (see below). As of testacular 0.5.2, testacular init will prompt for usage of the RequireJs adapter.
+-
+-### Testacular Include
+-
+-Testacular 0.5.1 (**WARNING** As of writing, npm install will give you 0.4.0, the latest stable version) This, while adding RequireJs support, has added a new concept of “included” to the files listed in your config. This is because RequireJs will balk about a the module not being loaded correctly (ie, loaded synchronously in the `<head/>` tag of the runner). From the RequireJs docs:
+-
+-> Be sure to load all scripts that call `define()` via the RequireJS API. Do not manually code script tags 
+-> in HTML to load scripts that have `define()` calls in them.
+-
+-### RequireJs Shim
+-
+-Not immediately apparent is the fact that the ‘shim’ config from RequireJs 2.x does not work from within Testacular. I haven’t yet figured out why. For instance, I was constantly getting “‘Backbone’ is not defined” messages even though it was specified in the ‘shim’ config and required in the test. I could have been doing something wrong. My solution thus far has been to list each of the non-RequireJs modules and their dependencies in the `files` attribute of `testacular.conf.js`.
+-
+-### `testacular.conf.js`
+-
+-The final point is that the RequireJs main module for your test runner should be the last file listed.
+-
+-So, finally, here is the ‘file’ excerpt of `testacular.conf.js`:
+-```javascript
+-files = [
+-  MOCHA,
+-  MOCHA_ADAPTER,
+-  REQUIRE,
+-  REQUIRE_ADAPTER,
+-
+-  // !! libs required for test framework
+-  {pattern: 'node_modules/chai/chai.js', included: false},
+-
+-  // !! put what used to be in your requirejs 'shim' config here
+-  'lib/jquery.js',
+-  'lib/underscore.js',
+-  'lib/backbone.js',
+-  'lib/handlebars.js',
+-
+-  // !! put all libs in requirejs 'paths' config here (included: false)
+-  {pattern: 'lib/**/*.js', included: false},
+-
+-  // !! all src and test modules (included: false)
+-  {pattern: 'src/**/*', included: false},
+-  {pattern: 'test/**/*.test.js', included: false},
+-
+-  // !! test main require module last
+-  'test/test-main.js'
+-];
+-```
+-This config is awesome. It replaces an html test runner that you would otherwise have to build.
+-
+-## RequireJs Main Module
+-
+-Just like any RequireJs project, you need a main module to bootstrap your tests. In the main module, you setup the `require.config`.
+-
+-### Testacular `/base` Directory
+-
+-Testacular serves files under the `/base` directory. So, on the server, requests to files will be served up under `http://localhost:9876/base/*`. The RequireJs config for `baseUrl` gives a starting context for modules that load with relative paths. When setting this value for the Testacular server, it will need to start with `/base`. I want my baseUrl to be at the root of my `/src` directory so relative requires in the source won’t need to change. My baseUrl has the value of `/base/src`.
+-
+-### Require Each Test File
+-
+-One of the things I hate is having to update a master list of all tests to run every time I add a test. There is no config option for this, but there's an easy way to get around it by filtering the tests from the `window.__testacular__.files` object.
+-The code is included in the example below and the original suggestion came from <https://github.com/vojtajina/testacular/pull/236>.
+-
+-### Asynchronously Run Testacular
+-
+-Because the RequireJs require statements are asynchronous, Testacular needs to wait until they’re done (the code is loaded and ready) before it starts the tests.
+-
+-The main-test.js file ends up looking like this:
+-```javascript
+-var tests = Object.keys(window.__testacular__.files).filter(function (file) {
+-    return /\.test\.js$/.test(file);
+-});
+-
+-require({
+-
+-  // !! Testacular serves files from '/base'
+-  baseUrl: '/base/src',
+-  paths: {
+-    require: '../lib/require',
+-    text: '../lib/text'
+-  },
+-}, tests, function() {
+-  window.__testacular__.start();
+-});
+-```
+-
+-## RequireJs Test in Testacular
+-
+-All the setup thus far has been in preparation for the code to follow. The test can now be setup as a RequireJs module. It can require the source code under test. It can use Mocha (or whatever framework there is a Testacular adapter for).
+-
+-I will also use Chai in order to get the ‘should’ BDD-style assertions. Note that by using RequireJs and running in the browser, we can’t just `require('chai')`. It has to be required using the asynchronous callback to avoid this error:
+-```bash
+-Uncaught Error: Module name “../node_modules/chai/chai” has not been loaded yet for context: _. Use require([])
+-```
+-And finally, `should()` must be invoked to be available in the test.
+-
+-So, a simple test will look like:
+-```javascript
+-define(['../node_modules/chai/chai', 'MyModule'],
+-  function(chai, MyModule) {
+-
+-  var assert = chai.assert,
+-    expect = chai.expect,
+-    should = chai.should();
+-
+-  describe('MyModule', function () {
+-    describe('#initialize()', function () {
+-      it('should be a stinkin object', function () {
+-        var yippee = new MyModule();
+-        yippee.should.be.an('object');
+-      });
+-    });
+-  });
+-});
+-```
+-
+-## Run the Tests in Testacular
+-
+-To start the Testacular server:
+-```bash
+-$ testacular start
+-```
+-Finally, if your Testacular server is already running and you want to kick off the tests, type:
+-```bash
+-$ testacular run
+-```
+-
+-***
+-Source: [Jake Trent](http://jaketrent.com/post/test-requirejs-testacular/)
+diff --git a/src/0.6.0/plus/Teamcity.md b/src/0.6.0/plus/Teamcity.md
+deleted file mode 100644
+index 65fbc67..0000000
+--- a/src/0.6.0/plus/Teamcity.md
++++ /dev/null
+@@ -1,5 +0,0 @@
+-section: plus
+-
+-# Teamcity
+-
+-Not available yet. See this [pull request](https://github.com/vojtajina/testacular/pull/262).
+diff --git a/src/0.6.0/plus/Travis_CI.md b/src/0.6.0/plus/Travis_CI.md
+deleted file mode 100644
+index 2924e5c..0000000
+--- a/src/0.6.0/plus/Travis_CI.md
++++ /dev/null
+@@ -1,75 +0,0 @@
+-section: plus
+-
+-# Travis CI Integration
+-
+-[Travis CI] is a popular continuous integration service that integrates with your [Github] repository to automatically run your tests when code is pushed. Integration is done by adding a simple [YAML] file to your project root; Travis and Github take care of the rest. Travis results will appear in your Github pull requests and your history is available on their control panel. This article assumes you already have Travis account.
+-
+-## Setup
+-
+-1. Create a file in your project root called `.travis.yml` with the following YAML:
+-   
+-   ```
+-   language: node_js
+-   node_js:
+-     - 0.8
+-   ```
+-
+-2. If you do not already have a `package.json` in your project root create one now. Travis runs `npm test` to trigger your tests so this is where you tell Travis how to run your tests. 
+-
+-   ```javascript
+-   // ...snip...
+-   "dependencies": {
+-      "coffee-script": "1.4.x"
+-   },
+-   "devDependencies": {
+-     "testacular": "0.4.x",
+-     "phantomjs": "0.2.x" 
+-   },
+-   // ...snip...
+-   "scripts": {
+-       "test": "./node_modules/coffee-script/bin/cake test"
+-   }
+-   // ...snip...
+-   ```
+-
+-   Travis will run `npm install` before every suite so this is your chance to specify any modules your app needs that Travis does not – like Testacular.
+-
+-   This example uses a [Cake] task to run a suite of tests but you can fire off any executable task in the `test` field. Note that the [Travis environment] doesn't have [CoffeeScript] available globally so you must point to your module's Cake bin.
+-
+-3. Now it's time to open (or create) `Cakefile` in your project root and add a task to run Testacular. This creates a way to fire your Testacular suite for a single run which can be used any place or time.
+-
+-   ```coffeescript
+-   task 'test', 'run all tests suites', ->
+-   console.log 'Running front-end tests'
+-     phantom_bin = "PHANTOMJS_BIN=#{__dirname}/node_modules/phantomjs/lib/phantom/bin/phantomjs"
+-     testacular = "#{__dirname}/node_modules/testacular/bin/testacular"
+-     browsers = if process.env.TRAVIS then 'PhantomJS' else 'PhantomJS,Chrome'
+-     options = "--single-run --browsers=#{browsers}"
+-     exec "#{phantom_bin} #{testacular} start #{__dirname}/tests/testacular.conf.js #{options}", (err, stdout, stderr) ->
+-       console.error err if err
+-       console.log stdout
+-   ```
+-
+-   While Travis does have [PhantomJS] available in its global root, other CI environments or developers may not so it's a good idea to make sure it's explicitly set before running Testacular.
+-
+-   Also note that while you can run [GUI apps] in Travis their configuration is beyond this article so the script checks that it's in a Travis environment and sets the browser list to only use PhantomJS.
+-
+-   Once all configuration is set Testacular is fired off, assuming your Testacular configuration is in `#{__dirname}/tests/testacular.conf.js`. If any errors or encountered they - and the standard logs - are displayed in the Travis control panel.
+-
+-4. All that's left is to test the Cake task locally to assure it works as advertised, commit the files, push them to Github.
+-
+-## Notes
+-
+-* Travis' Node environment has very little available. If the startup process in Travis fails check for missing module information and be sure to add them to your `package.json` dependencies.
+-* Travis does not run in your local network so any code that attempts to connect to resources should be stubbed out using [Nock].
+-* There are more options available to your `.travis.yml`, such as running scripts before the install or test run. There are hints in the Travis docs for [GUI apps] configuration.
+-
+-[Travis CI]: https://travis-ci.org/
+-[Travis environment]: http://about.travis-ci.org/docs/user/ci-environment/
+-[CoffeeScript]: http://coffeescript.org/
+-[Cake]: http://coffeescript.org/documentation/docs/cake.html
+-[Github]: https://github.com/
+-[YAML]: http://www.yaml.org/
+-[PhantomJS]: http://phantomjs.org/
+-[GUI apps]: http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
+-[Nock]: https://github.com/flatiron/nock
+diff --git a/src/0.6.0/plus/plus.md b/src/0.6.0/plus/plus.md
+deleted file mode 100644
+index 559a070..0000000
+--- a/src/0.6.0/plus/plus.md
++++ /dev/null
+@@ -1,3 +0,0 @@
+-section: plus
+-
+-# Testacular is very social
+diff --git a/tasks/pandadoc.js b/tasks/pandadoc.js
+index c3dce04..f9b46bd 100644
+--- a/tasks/pandadoc.js
++++ b/tasks/pandadoc.js
+@@ -95,7 +95,7 @@ module.exports = function(grunt) {
+ 
+     var basePath = path.join(__dirname, '..');
+     var sharedFiles = [
+-      {src: 'CONTRIBUTING', dest: 'dev/Contributing'}
++      {src: 'CONTRIBUTING', dest: 'dev/01_contributing'}
+     ];
+ 
+     // Copy the shared data to the folder of this version
+-- 
+1.7.10.2 (Apple Git-33)
+
