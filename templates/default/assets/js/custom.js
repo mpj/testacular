@@ -11,10 +11,13 @@
 
     // add js class to html tag
     $('html').addClass('js');
+
+    // responsive navigation
     selectnav('nav', {
       label: '- Navigation Menu - ',
       nested: true,
-      indent: '-'
+      indent: '-',
+      autoselect: false
     });
   });
 
