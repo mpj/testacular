@@ -3110,15 +3110,6 @@ footer .social {
 #slider {
   height: 356px;
 }
-#sidebar {
-  position: fixed;
-  margin-top: 100px;
-}
-@media (max-width: 767px) {
-  #sidebar {
-    display: none;
-  }
-}
 .icon.glass {
   background-position: -1px 0;
   width: 19px;
