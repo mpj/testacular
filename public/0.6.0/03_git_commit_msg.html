@@ -42,7 +42,7 @@
                   <li><a href="04_troubleshooting.html">troubleshooting</a></li>
                 </ul>
               </li>
-              <li><a href="javascript:void" class="active">config</a>
+              <li><a href="javascript:void" class="">config</a>
                 <ul>
                   <li><a href="01_configuration_file.html">configuration file</a></li>
                   <li><a href="02_files.html">files</a></li>
@@ -61,7 +61,7 @@
                   <li><a href="06_Cloud9.html">Cloud9</a></li>
                 </ul>
               </li>
-              <li><a href="javascript:void" class="">dev</a>
+              <li><a href="javascript:void" class="active">dev</a>
                 <ul>
                   <li><a href="01_contributing.html">contributing</a></li>
                   <li><a href="02_public_API.html">public API</a></li>
@@ -89,33 +89,81 @@
     </header>
     <div class="container clearfix">
       <div class="sixteen columns bottom">
-        <h1 class="page-title">Preprocessors<span class="line"></span>
+        <h1 class="page-title">Git Commit Message Convention<span class="line"></span>
         </h1>
       </div>
       <div class="page-columns">
-        <div id="markdown" class="sixteen columns bottom"><p>Preprocessors in Testacular allow you to do some work with your files before
-they get served to the browser. The configuration of these happens in this block
-in the config file.</p>
-<pre><code class="language-javascript">preprocessors = {
-  <span class="string">'**/mini.match'</span>: <span class="string">'preprocessor1'</span>,
-  <span class="string">'**/*.all'</span>: <span class="string">'preprocessor2'</span>
-};</code></pre>
-<h2 id='available-preprocessors'><a class='heading_anchor' href='#available-preprocessors'><i class='headerLinkIcon'></i></a>Available Preprocessors</h2>
+        <div id="markdown" class="sixteen columns bottom"><p>Format of the commit message:</p>
+<pre><code><span class="tag">&lt;<span class="title">type</span>></span>(<span class="tag">&lt;<span class="title">scope</span>></span>): <span class="tag">&lt;<span class="title">subject</span>></span>
+
+<span class="tag">&lt;<span class="title">body</span>></span>
+
+<span class="tag">&lt;<span class="title">footer</span>></span></code></pre>
+<h2 id='first-line'><a class='heading_anchor' href='#first-line'><i class='headerLinkIcon'></i></a>First line</h2>
+<p>First line cannot be longer than 70 characters, second line is always blank and other lines should be wrapped at 80 characters.</p>
+<h3 id='allowed-<code>&lt;type&gt;</code>'><a class='heading_anchor' href='#allowed-<code>&lt;type&gt;</code>'><i class='headerLinkIcon'></i></a>Allowed <code>&lt;type&gt;</code></h3>
 <ul>
-<li>[[CoffeeScript]]</li>
-<li>[[Live]] (<code>&gt;=0.5</code>)</li>
-<li>[[Coverage]] (<code>&gt;= 0.5</code>)</li>
+<li>feat (new feature)</li>
+<li>fix (bug fix)</li>
+<li>docs (changes to documentation)</li>
+<li>style (formatting, missing semi colons, etc; no code change)</li>
+<li>refactor (refactoring production code)</li>
+<li>test (adding missing tests, refactoring tests; no production code change)</li>
+<li>chore (updating grunt tasks etc; no production code change)</li>
 </ul>
-<h2 id='minimatching'><a class='heading_anchor' href='#minimatching'><i class='headerLinkIcon'></i></a>Minimatching</h2>
-<p>The keys of the preprocessors config object are used to filter the files specified in
-the <code>files</code> configuration. The file paths are expanded to an absolute path, based on 
-the <code>basePath</code> config and the directory of the configuration file. See [[Files]] for more
-information on that. 
-This expanded path is then matched using <a href="https://github.com/isaacs/minimatch">minimatch</a>
-against the specified key.
-So for example the path <code>/my/absolute/path/to/test/unit/file.coffee</code> matched against
-the key <code>**/*.coffee</code> would return true, but the matched against just <code>*.coffee</code> it would
-return false and the preprocessor would not be executed on the CoffeeScript files.</p>
+<h3 id='allowed-<code>&lt;scope&gt;</code>'><a class='heading_anchor' href='#allowed-<code>&lt;scope&gt;</code>'><i class='headerLinkIcon'></i></a>Allowed <code>&lt;scope&gt;</code></h3>
+<p>Scope describes the component/place, that the change is related to.</p>
+<ul>
+<li>init</li>
+<li>runner</li>
+<li>file-list</li>
+<li>watcher</li>
+<li>config</li>
+<li>web-server</li>
+<li>proxy</li>
+<li>adapter.jasmine</li>
+<li>adapter.mocha</li>
+<li>adapter.qunit</li>
+<li>adapter.requirejs</li>
+<li>adapter.angular-scenario</li>
+<li>preprocessor.html2js</li>
+<li>preprocessor.coffee</li>
+<li>preprocessor.live</li>
+<li>preprocessor.coverage</li>
+<li>reporter.dots</li>
+<li>reporter.progress</li>
+<li>reporter.junit</li>
+<li>reporter.coverage</li>
+<li>reporter.growl</li>
+<li>launcher.chrome</li>
+</ul>
+<p>The <code>&lt;scope&gt;</code> can be empty (eg. if the change is a global or difficult to assign to a single component), in which case the parentheses are omitted.</p>
+<h2 id='message-body'><a class='heading_anchor' href='#message-body'><i class='headerLinkIcon'></i></a>Message body</h2>
+<ul>
+<li>uses the imperative, present tense: “change” not “changed” nor “changes”</li>
+<li>includes motivation for the change and contrasts with previous behavior</li>
+</ul>
+<p>For more info about message body, see:</p>
+<ul>
+<li><a href="http://365git.tumblr.com/post/3308646748/writing-git-commit-messages">http://365git.tumblr.com/post/3308646748/writing-git-commit-messages</a></li>
+<li><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html</a></li>
+</ul>
+<h2 id='message-footer'><a class='heading_anchor' href='#message-footer'><i class='headerLinkIcon'></i></a>Message footer</h2>
+<h3 id='referencing-issues'><a class='heading_anchor' href='#referencing-issues'><i class='headerLinkIcon'></i></a>Referencing issues</h3>
+<p>Closed issues should be listed on a separate line in the footer prefixed with &quot;Closes&quot; keyword like this:</p>
+<pre><code><span class="title">Closes</span> <span class="comment">#234</span></code></pre>
+<p>or in case of multiple issues:</p>
+<pre><code><span class="tag">Closes</span> <span class="id">#123</span>, <span class="id">#245</span>, <span class="id">#992</span></code></pre>
+<h3 id='breaking-changes'><a class='heading_anchor' href='#breaking-changes'><i class='headerLinkIcon'></i></a>Breaking changes</h3>
+<p>All breaking changes have to be mentioned in footer with the description of the change, justification and migration notes.</p>
+<pre><code>BREAKING CHANGE:
+
+`<span class="keyword">port</span>-runner` command line option has changed <span class="keyword">to</span> `runner-<span class="keyword">port</span>`, so that it <span class="keyword">is</span> 
+consistent <span class="keyword">with</span> the <span class="keyword">configuration</span> <span class="keyword">file</span> syntax.
+
+<span class="keyword">To</span> migrate your project, change <span class="keyword">all</span> the commands, where you <span class="keyword">use</span> `<span class="comment">--port-runner` </span>
+<span class="keyword">to</span> `<span class="comment">--runner-port`.</span></code></pre>
+<p>This document is based on <a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#">AngularJS Git Commit Msg Convention</a>.</p>
 
         </div>
       </div>
