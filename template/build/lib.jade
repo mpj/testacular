@@ -4,7 +4,7 @@ mixin navigation(currentSection)
   for section in sections
     li
       - var active = section === currentSection ? 'active' : '';
-      a(href='', class='#{active}')= section
+      a(href='javascript:void', class='#{active}')= section
       ul
         each heading in fileList[section]
           unless heading.name == section
