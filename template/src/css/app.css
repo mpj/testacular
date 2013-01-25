@@ -5885,7 +5885,7 @@ hr {
   border: solid #ececec;
   border-width: 1px 0 0;
   clear: both;
-  margin: -1px 0 0 0;
+  margin: -3px 0 0 0;
   height: 0;
 }
 hr.bottom {
@@ -6571,7 +6571,7 @@ input.subscribe-button {
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .navigation ul li a {
     display: block;
-    padding: 37px 10px 34px 10px;
+    padding: 37px 10px 35px 10px;
   }
   .form {
     padding-top: 10px;
@@ -7177,7 +7177,7 @@ input.subscribe-button {
 /*Top level menu link items style*/
 .navigation ul li a {
   display: block;
-  padding: 37px 15px 34px 15px;
+  padding: 37px 15px 33px 15px;
 }
 * html .navigation ul li a {
   /*IE6 hack to get sub menu links to behave correctly*/
