@@ -34,7 +34,7 @@
         <div class="two-thirds column">
           <nav id="menu" class="navigation">
             <ul id="nav">
-              <li><a href="" class="">intro</a>
+              <li><a href="javascript:void" class="">intro</a>
                 <ul>
                   <li><a href="01_why.html">why</a></li>
                   <li><a href="02_installation.html">installation</a></li>
@@ -42,7 +42,7 @@
                   <li><a href="04_troubleshooting.html">troubleshooting</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">config</a>
+              <li><a href="javascript:void" class="">config</a>
                 <ul>
                   <li><a href="01_configuration_file.html">configuration file</a></li>
                   <li><a href="02_files.html">files</a></li>
@@ -51,7 +51,7 @@
                   <li><a href="05_coverage.html">coverage</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">plus</a>
+              <li><a href="javascript:void" class="">plus</a>
                 <ul>
                   <li><a href="01_AngularJS.html">AngularJS</a></li>
                   <li><a href="02_Travis_CI.html">Travis CI</a></li>
@@ -61,13 +61,13 @@
                   <li><a href="06_Cloud9.html">Cloud9</a></li>
                 </ul>
               </li>
-              <li><a href="" class="active">dev</a>
+              <li><a href="javascript:void" class="active">dev</a>
                 <ul>
                   <li><a href="01_contributing.html">contributing</a></li>
                   <li><a href="02_public_API.html">public API</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">about</a>
+              <li><a href="javascript:void" class="">about</a>
                 <ul>
                   <li><a href="01_changelog.html">changelog</a></li>
                   <li><a href="02_versioning.html">versioning</a></li>
@@ -92,11 +92,25 @@
         </h1>
       </div>
       <div class="page-columns">
-        <div id="markdown" class="sixteen columns bottom"><h2 id='<code>testacularserver</code>'><a class='heading_anchor' href='#<code>testacularserver</code>'><i class='headerLinkIcon'></i></a><code>testacular.server</code></h2>
-<h3 id='<code>startoptions-[callback=processexit]</code>'><a class='heading_anchor' href='#<code>startoptions-[callback=processexit]</code>'><i class='headerLinkIcon'></i></a><code>.start(options, [callback=process.exit])</code></h3>
-<h2 id='<code>testacularrunner</code>'><a class='heading_anchor' href='#<code>testacularrunner</code>'><i class='headerLinkIcon'></i></a><code>testacular.runner</code></h2>
-<h3 id='<code>runoptions-[callback=processexit]</code>'><a class='heading_anchor' href='#<code>runoptions-[callback=processexit]</code>'><i class='headerLinkIcon'></i></a><code>.run(options, [callback=process.exit])</code></h3>
-<h2 id='<code>testacularlauncher</code>'><a class='heading_anchor' href='#<code>testacularlauncher</code>'><i class='headerLinkIcon'></i></a><code>testacular.launcher</code></h2>
+        <div id="markdown" class="sixteen columns bottom"><p>Most of the time, you will be using Testacular directly from the command line.</p>
+<p>You can, however, call Testacular pragmatically from your node module. This might be helpful when
+using Testacular with <a href="http://gruntjs.com/">Grunt</a> for instance.</p>
+<h2 id='testacularserver'><a class='heading_anchor' href='#testacularserver'><i class='headerLinkIcon'></i></a>testacular.server</h2>
+<h3 id='<strong>serverstartoptions-[callback=processexit]</strong>'><a class='heading_anchor' href='#<strong>serverstartoptions-[callback=processexit]</strong>'><i class='headerLinkIcon'></i></a><strong>server.start(options, [callback=process.exit])</strong></h3>
+<p>Equivalent of <code>testacular start</code>.</p>
+<pre><code class="language-javascript"><span class="keyword">var</span> server = require(<span class="string">'testacular'</span>).server;
+server.start({port: <span class="number">9877</span>}, <span class="keyword">function</span>(exitCode) {
+  console.log(<span class="string">'Testacular has exitted with '</span> + exitCode);
+  process.exit(exitCode);
+});</code></pre>
+<h2 id='testacularrunner'><a class='heading_anchor' href='#testacularrunner'><i class='headerLinkIcon'></i></a>testacular.runner</h2>
+<h3 id='<strong>runnerrunoptions-[callback=processexit]</strong>'><a class='heading_anchor' href='#<strong>runnerrunoptions-[callback=processexit]</strong>'><i class='headerLinkIcon'></i></a><strong>runner.run(options, [callback=process.exit])</strong></h3>
+<p>Equivalent of <code>testacular run</code>.</p>
+<pre><code class="language-javascript"><span class="keyword">var</span> runner = require(<span class="string">'testacular'</span>).runner;
+runner.run({runnerPort: <span class="number">9100</span>}, <span class="keyword">function</span>(exitCode) {
+  console.log(<span class="string">'Testacular has exitted with '</span> + exitCode);
+  process.exit(exitCode);
+});</code></pre>
 
         </div>
       </div>

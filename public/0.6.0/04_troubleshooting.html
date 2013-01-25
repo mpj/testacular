@@ -34,7 +34,7 @@
         <div class="two-thirds column">
           <nav id="menu" class="navigation">
             <ul id="nav">
-              <li><a href="" class="active">intro</a>
+              <li><a href="javascript:void" class="active">intro</a>
                 <ul>
                   <li><a href="01_why.html">why</a></li>
                   <li><a href="02_installation.html">installation</a></li>
@@ -42,7 +42,7 @@
                   <li><a href="04_troubleshooting.html">troubleshooting</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">config</a>
+              <li><a href="javascript:void" class="">config</a>
                 <ul>
                   <li><a href="01_configuration_file.html">configuration file</a></li>
                   <li><a href="02_files.html">files</a></li>
@@ -51,7 +51,7 @@
                   <li><a href="05_coverage.html">coverage</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">plus</a>
+              <li><a href="javascript:void" class="">plus</a>
                 <ul>
                   <li><a href="01_AngularJS.html">AngularJS</a></li>
                   <li><a href="02_Travis_CI.html">Travis CI</a></li>
@@ -61,13 +61,13 @@
                   <li><a href="06_Cloud9.html">Cloud9</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">dev</a>
+              <li><a href="javascript:void" class="">dev</a>
                 <ul>
                   <li><a href="01_contributing.html">contributing</a></li>
                   <li><a href="02_public_API.html">public API</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">about</a>
+              <li><a href="javascript:void" class="">about</a>
                 <ul>
                   <li><a href="01_changelog.html">changelog</a></li>
                   <li><a href="02_versioning.html">versioning</a></li>
@@ -92,25 +92,24 @@
         </h1>
       </div>
       <div class="page-columns">
-        <div id="markdown" class="sixteen columns bottom"><p>You have some problems. Look no further. Known problems and solutions are collected here so you don&#39;t have to figure them out again and again.</p>
+        <div id="markdown" class="sixteen columns bottom"><p>You have some problems? Look no further. Known problems and solutions are collected here so you don&#39;t have to figure them out again and again.</p>
+<p>If you can&#39;t find solution to your problem here, feel free to ask on the <a href="https://groups.google.com/forum/#!forum/testacular">mailing list</a>.</p>
+<p>Before complaining, please make sure you are on the latest version.</p>
 <h2 id='windows'><a class='heading_anchor' href='#windows'><i class='headerLinkIcon'></i></a>Windows</h2>
-<p>Oh our beloved Windows. </p>
 <h3 id='tips-&amp;-tricks'><a class='heading_anchor' href='#tips-&amp;-tricks'><i class='headerLinkIcon'></i></a>Tips &amp; Tricks</h3>
 <ul>
 <li>Use <a href="(http://chocolatey.org/)">chocolatey</a> for installation of tools. It helps. A lot.</li>
 </ul>
 <h3 id='specific-problems'><a class='heading_anchor' href='#specific-problems'><i class='headerLinkIcon'></i></a>Specific problems</h3>
-<h4 id='chrome-wont-start-issues:-<a-href=https://githubcom/vojtajina/testacular/issues/202>#202</a>-<a-href=https://githubcom/vojtajina/testacular/issues/74>#74</a>'><a class='heading_anchor' href='#chrome-wont-start-issues:-<a-href=https://githubcom/vojtajina/testacular/issues/202>#202</a>-<a-href=https://githubcom/vojtajina/testacular/issues/74>#74</a>'><i class='headerLinkIcon'></i></a>Chrome won&#39;t start. (Issues: <a href="https://github.com/vojtajina/testacular/issues/202">#202</a>, <a href="https://github.com/vojtajina/testacular/issues/74">#74</a>)</h4>
+<ul>
+<li><p>Chrome won&#39;t start. (Issues: <a href="https://github.com/testacular/testacular/issues/202">#202</a>, <a href="https://github.com/testacular/testacular/issues/74">#74</a>)</p>
 <ol>
 <li>Set <code>CHROME_BIN</code> like this<pre><code>> export CHROME_BIN='C:<span class="command">\Program</span> Files (x86)<span class="command">\Google</span><span class="command">\Chrome</span><span class="command">\Application</span><span class="command">\chrome</span>.exe'</code></pre>
 </li>
-<li>Add the <code>--start-maximized</code> flag to the chrome options. See <a href="https://github.com/vojtajina/testacular/issues/202">#269</a>.</li>
 <li>Increase the timeout from 5000ms to 10000ms. At 5000ms, timeouts occurred and the retry logic kicks in and eventually resolves after 2~3 tries.</li>
 </ol>
-<h2 id='unix'><a class='heading_anchor' href='#unix'><i class='headerLinkIcon'></i></a>Unix</h2>
-<p>Even if you have a nice OS problems can still occur. </p>
-<h3 id='tips-&amp;-tricks'><a class='heading_anchor' href='#tips-&amp;-tricks'><i class='headerLinkIcon'></i></a>Tips &amp; Tricks</h3>
-<h3 id='specific-problems'><a class='heading_anchor' href='#specific-problems'><i class='headerLinkIcon'></i></a>Specific problems</h3>
+</li>
+</ul>
 
         </div>
       </div>

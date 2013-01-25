@@ -34,7 +34,7 @@
         <div class="two-thirds column">
           <nav id="menu" class="navigation">
             <ul id="nav">
-              <li><a href="" class="active">intro</a>
+              <li><a href="javascript:void" class="active">intro</a>
                 <ul>
                   <li><a href="01_why.html">why</a></li>
                   <li><a href="02_installation.html">installation</a></li>
@@ -42,7 +42,7 @@
                   <li><a href="04_troubleshooting.html">troubleshooting</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">config</a>
+              <li><a href="javascript:void" class="">config</a>
                 <ul>
                   <li><a href="01_configuration_file.html">configuration file</a></li>
                   <li><a href="02_files.html">files</a></li>
@@ -51,7 +51,7 @@
                   <li><a href="05_coverage.html">coverage</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">plus</a>
+              <li><a href="javascript:void" class="">plus</a>
                 <ul>
                   <li><a href="01_AngularJS.html">AngularJS</a></li>
                   <li><a href="02_Travis_CI.html">Travis CI</a></li>
@@ -61,13 +61,13 @@
                   <li><a href="06_Cloud9.html">Cloud9</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">dev</a>
+              <li><a href="javascript:void" class="">dev</a>
                 <ul>
                   <li><a href="01_contributing.html">contributing</a></li>
                   <li><a href="02_public_API.html">public API</a></li>
                 </ul>
               </li>
-              <li><a href="" class="">about</a>
+              <li><a href="javascript:void" class="">about</a>
                 <ul>
                   <li><a href="01_changelog.html">changelog</a></li>
                   <li><a href="02_versioning.html">versioning</a></li>
@@ -92,31 +92,22 @@
         </h1>
       </div>
       <div class="page-columns">
-        <div id="markdown" class="sixteen columns bottom"><p>Testacular uses <a href="http://nodejs.org/">Node.js</a> and is available as a node module via npm. 
-If you already got <a href="http://nodejs.org/">Node.js</a> and npm installed and know how to install 
-node modules go ahead, and look for it under <code>testacular</code>.</p>
-<p>If you have never installed a node module or need a quick reminder continue
-reading.</p>
+        <div id="markdown" class="sixteen columns bottom"><p>Testacular runs on <a href="http://nodejs.org/">Node.js</a> and is available as a node module via <a href="https://npmjs.org/">NPM</a>.</p>
 <h2 id='requirements'><a class='heading_anchor' href='#requirements'><i class='headerLinkIcon'></i></a>Requirements</h2>
 <p>First, you need to install <a href="http://nodejs.org/">Node.js</a>. There are installers for both
 Macintosh and Windows. On Linux, we recommend using <a href="https://github.com/creationix/nvm">NVM</a>.</p>
-<h2 id='with-npm'><a class='heading_anchor' href='#with-npm'><i class='headerLinkIcon'></i></a>With NPM</h2>
-<p>You can install Testacular either globally,</p>
+<h2 id='global-instalalation'><a class='heading_anchor' href='#global-instalalation'><i class='headerLinkIcon'></i></a>Global instalalation</h2>
+<p>This is the recommended way. It will install Testacular into your global <code>node_modules</code> and create a symlink to its binary.</p>
 <pre><code class="language-bash">$ npm install -g testacular
-<span class="comment"># Executing</span>
-$ testacular start</code></pre>
-<p>or locally</p>
-<pre><code class="language-bash">$ npm install testacular
-<span class="comment"># Executing</span>
-$ ./node_modules/.bin/testacular start</code></pre>
-<h2 id='without-npm'><a class='heading_anchor' href='#without-npm'><i class='headerLinkIcon'></i></a>Without NPM</h2>
-<p>If you want to install it without npm you can do so:</p>
-<pre><code class="language-bash"><span class="comment"># replace x.y.z with latest version</span>
-$ curl http://registry.npmjs.org/testacular/-/testacular-x.y.z.tgz | tar -xvz &amp;&amp; mv package testacular
 
-<span class="comment"># create symlinks (optional)</span>
-cd testacular
-$ sudo ln -s <span class="variable">$PWD</span>/bin/testacular /usr/local/bin/testacular</code></pre>
+<span class="comment"># start testacular...</span>
+$ testacular start</code></pre>
+<h2 id='local-instalalation'><a class='heading_anchor' href='#local-instalalation'><i class='headerLinkIcon'></i></a>Local instalalation</h2>
+<p>Local installation will install Testacular into your current directory&#39;s <code>node_modules</code>. That allows you to have a different version for different project.</p>
+<pre><code class="language-bash">$ npm install testacular
+
+<span class="comment"># starting testacular</span>
+$ ./node_modules/.bin/testacular start</code></pre>
 
         </div>
       </div>
