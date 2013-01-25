@@ -5,7 +5,7 @@ module.exports = (grunt) ->
     less:
       docs:
         files:
-          'template/build/css/app.css': 'template/src/less/app.less'
+          'template/build/assets/css/app.css': 'template/src/less/app.less'
 
     uglify:
       docs:
@@ -22,7 +22,7 @@ module.exports = (grunt) ->
     mincss:
       docs:
         files:
-          'template/build/assets/css/app.css': 'template/build/css/app.css'
+          'template/build/assets/css/app.css': 'template/build/assets/css/app.css'
     pandadocs:
       options:
         title: 'Testacular'
