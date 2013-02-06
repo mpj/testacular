@@ -113,7 +113,7 @@ module.exports = (grunt) ->
     'docs-build':
       options:
         copy:
-          'dev/01_contributing': 'CONTRIBUTING'
+          'dev/02_contributing': 'CONTRIBUTING'
           'about/01_changelog': 'CHANGELOG'
       main:  
         files:
